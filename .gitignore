@@ -1,0 +1,33 @@
+# Dependencies and local build output
+node_modules/
+chatgpt-site/node_modules/
+chatgpt-site/.next/
+chatgpt-site/.vinext/
+chatgpt-site/.wrangler/
+chatgpt-site/dist/
+
+# Local hosting/runtime metadata
+chatgpt-site/.openai/
+chatgpt-site/.git/
+chatgpt-site/
+
+# Local-only configuration and unrelated workflow exports
+.env
+.env.*
+.claude/
+n8n/
+n8n-backups/
+output/
+preview/
+
+# Temporary and generated review files
+tmp/
+screenshots/
+backups/
+*.tgz
+*.tar.gz
+
+# OS/editor files
+.DS_Store
+.idea/
+.vscode/

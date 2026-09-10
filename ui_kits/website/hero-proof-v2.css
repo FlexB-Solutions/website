@@ -1,0 +1,45 @@
+/* Separate variant: the original HeroProof and shared styles stay untouched. */
+.hero-proof-v2 { --benefit-1: 0; --benefit-2: 0; --benefit-3: 0; display: block; flex: 0 0 380px; width: 380px; }
+.hero-proof-v2 svg { overflow: visible; }
+.benefit-rule { fill: none; stroke: #aabcae; stroke-width: 1; }
+.benefit-grid { fill: none; stroke: #d6dfd5; stroke-width: .7; }
+.benefit-title { fill: var(--brand-dark); font: 500 19px var(--font-body); letter-spacing: -.02em; }
+.benefit-number { fill: #718578; font: 400 11px var(--font-body); }
+.benefit-note { fill: var(--muted); font: 400 11px var(--font-body); }
+.benefit-clock-base { fill: #f6f5f0; stroke: #afc0b0; stroke-width: 1; }
+.benefit-clock-free { fill: none; stroke: var(--brand); stroke-width: 3; stroke-linecap: round; stroke-dasharray: .76 1; stroke-dashoffset: calc(.76 * (1 - var(--benefit-1))); transform: rotate(-90deg); transform-origin: 48px 91px; opacity: var(--benefit-1); }
+.benefit-hand { fill: none; stroke: var(--brand); stroke-width: 2; stroke-linecap: round; transform: rotate(calc(var(--benefit-1) * 300deg)); transform-origin: 48px 91px; }
+.benefit-routine { fill: var(--brand); transform-origin: 112px 0; transform: scaleX(calc(1 - var(--benefit-1) * .69)); }
+.benefit-freetime { opacity: var(--benefit-1); }
+.benefit-document { fill: #f6f5f0; stroke: #a9bcad; stroke-width: 1; }
+.benefit-check { fill: none; stroke: var(--brand); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.benefit-check--corrected { stroke-dasharray: 1; stroke-dashoffset: calc(1 - var(--benefit-2)); opacity: var(--benefit-2); }
+.benefit-error { fill: none; stroke: #aa7259; stroke-width: 1.8; stroke-linecap: round; opacity: max(0, calc(1 - var(--benefit-2) * 2)); }
+.benefit-scanner { stroke: var(--brand); stroke-width: 1.5; transform: translateX(calc(var(--benefit-2) * 397px)); opacity: calc(sin(var(--benefit-2) * 3.141593) * .55); }
+.benefit-growth-track { fill: none; stroke: #ccd8cc; stroke-width: 1; }
+.benefit-growth-line { fill: none; stroke: var(--brand); stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: calc(1 - var(--benefit-3)); }
+.benefit-growth-tip { fill: var(--brand); stroke: #f6f5f0; stroke-width: 2; }
+/* Emphasis follows the story without changing line breaks or scaling the words. */
+.flexb-variant-two .hero-emph { font-weight: 400; transform: none; color: color-mix(in oklab, var(--brand) calc(var(--puls,0) * 100%), currentColor); text-decoration: underline; text-decoration-color: rgba(24,115,68,calc(var(--puls,0) * .6)); text-underline-offset: 5px; }
+@media (max-width: 1139px) {
+  .flexb-variant-two .hero-inner { flex-direction: column; gap: 48px; }
+  .hero-proof-v2 { flex: 0 0 auto; width: min(100%, 450px); margin: 0 auto; }
+}
+@media (prefers-reduced-motion: reduce) { .hero-proof-v2 { --benefit-1: 1; --benefit-2: 1; --benefit-3: 1; } }
+
+.flexb-variant-two, .flexb-variant-two #root { overflow-x: clip; }
+
+/* Reserve native scroll space while keeping the illustration visible. */
+@media (prefers-reduced-motion: no-preference) {
+  .flexb-variant-two .hero-section {
+    display: block;
+    overflow: clip;
+    padding-top: 0;
+    padding-bottom: 0;
+    min-height: calc(var(--proof-inner-height, 100svh) + var(--proof-scroll-distance, 90vh));
+  }
+  .flexb-variant-two .hero-inner {
+    position: sticky;
+    top: min(0px, calc(100vh - var(--proof-inner-height, 100vh)));
+  }
+}

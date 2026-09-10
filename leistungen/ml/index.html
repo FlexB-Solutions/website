@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Machine Learning | FlexB Solutions</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Outfit,system-ui,sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+input,select,textarea,button{font:inherit}
+button{cursor:pointer}
+.nav{height:76px;padding:0 24px;display:flex;align-items:center;justify-content:space-between;max-width:1180px;margin:0 auto}
+.brand-lockup{display:flex;align-items:center;gap:16px}
+.brand{font-size:30px;font-weight:900;letter-spacing:-.05em;color:var(--ink)}
+.brand span{color:var(--brand)}
+.brand-sub{display:flex;flex-direction:column;gap:4px;padding-left:16px;border-left:1px solid var(--brand-border)}
+.brand-sub strong{font-size:18px;letter-spacing:.22em}
+.brand-sub span{font-size:14px;color:var(--brand-ink)}
+.back{color:var(--brand-ink);font-weight:800}
+.section{padding:96px 24px}
+.inner{max-width:1180px;margin:0 auto}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:var(--brand-tint);color:var(--brand-ink);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.hero{padding:104px 24px 82px;position:relative;overflow:hidden;min-height:78vh;display:flex;align-items:center}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(246,245,240,.94) 0%,rgba(246,245,240,.86) 22%,rgba(246,245,240,.44) 52%,rgba(246,245,240,.14) 76%,rgba(246,245,240,.08) 100%),url('/uploads/stock/service-ml-data.jpg');background-size:cover;background-position:center center;z-index:0}
+.hero-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:22px;align-items:stretch;position:relative;z-index:1;width:100%}
+.hero-copy{max-width:760px}
+h1{font-size:clamp(44px,6vw,82px);line-height:1.01;letter-spacing:-.05em;margin:18px 0 20px}
+.lead{font-size:19px;line-height:1.72;color:var(--muted);max-width:760px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:10px;padding:14px 20px;font-weight:800}
+.btn-primary{background:var(--brand);color:#fff;box-shadow:0 14px 30px rgba(24,115,68,.22)}
+.btn-secondary{background:#fff;color:var(--brand-ink);border:1px solid var(--brand-light)}
+.section-head{display:grid;gap:14px;margin-bottom:34px;max-width:760px}
+.section-head h2{font-size:clamp(34px,4vw,54px);line-height:1.04;letter-spacing:-.04em}
+.section-head p{font-size:18px;line-height:1.7;color:#4b5563}
+.process-wrap{display:grid;gap:20px}
+.process-line{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;align-items:start}
+.phase{position:relative;padding:26px 22px 24px;border-radius:24px;background:#fff;border:1px solid var(--brand-tint);box-shadow:0 18px 48px rgba(24,62,46,.08);min-height:278px;display:flex;flex-direction:column}
+.phase:not(:last-child):after{content:"";position:absolute;top:50px;right:-18px;width:18px;height:2px;background:var(--brand-light)}
+.phase-num{width:44px;height:44px;border-radius:999px;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;margin-bottom:20px}
+.phase strong{display:block;font-size:22px;line-height:1.08;margin-bottom:12px}
+.phase p{font-size:15px;line-height:1.72;color:#4b5563}
+.phase small{display:block;margin-top:14px;color:var(--brand-ink);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.services-section{background:#fff}
+.services-stack{display:grid;gap:42px}
+.service-row{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center;gap:0;min-height:310px}
+.service-row.reverse{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}
+.service-media{position:relative;height:310px;min-height:310px;background:var(--brand-tint);overflow:hidden;border-radius:30px 110px 30px 110px;box-shadow:0 18px 46px rgba(24,62,46,.12);display:flex;align-items:center;justify-content:center;padding:28px}
+.service-row.reverse .service-media{border-radius:110px 30px 110px 30px}
+.service-media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(13,13,13,.04),rgba(24,115,68,.10));pointer-events:none}
+.service-media img{position:relative;z-index:1;max-width:78%;max-height:72%;object-fit:contain;display:block;filter:drop-shadow(0 14px 30px rgba(24,62,46,.10))}
+.service-media img.logo-compact{max-width:58%;max-height:54%}
+.service-media img.media-large{max-width:96%;max-height:90%}
+.service-content{height:310px;min-height:310px;padding:clamp(30px,4vw,52px);display:flex;flex-direction:column;justify-content:center;background:var(--paper);border:1px solid var(--brand-tint);border-radius:110px 30px 110px 30px;box-shadow:0 14px 34px rgba(24,115,68,.08)}
+.service-row.reverse .service-content{border-radius:30px 110px 30px 110px}
+.service-kicker{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--brand);margin-bottom:12px}
+.service-title{font-size:clamp(30px,3.2vw,42px);line-height:1.06;font-weight:800;letter-spacing:-.035em;color:var(--ink);margin-bottom:16px}
+.service-desc{font-size:16px;color:var(--muted);line-height:1.68;max-width:660px;margin-bottom:20px}
+.service-tags{display:flex;gap:8px;flex-wrap:wrap}
+.service-tag{background:var(--brand-tint);color:var(--brand-ink);border-radius:9999px;padding:5px 11px;font-size:12px;font-weight:700}
+.example-section{background:rgba(255,255,255,.42)}
+.example-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.example-card,.info-card{border:1px solid var(--brand-tint);box-shadow:0 18px 48px rgba(24,62,46,.08);border-radius:24px;background:#fff}
+.example-card{padding:0;overflow:hidden;transition:transform .28s ease,opacity .28s ease,box-shadow .28s ease,grid-column .28s ease}
+.example-card img{display:block;width:100%;height:250px;object-fit:cover;background:var(--paper);cursor:pointer}
+.example-stage{display:none}
+.example-stage.is-active{display:block}
+.example-grid.is-hidden{display:none}
+.example-focus{position:relative;border:1px solid var(--brand-tint);box-shadow:0 22px 56px rgba(24,62,46,.12);border-radius:28px;background:#fff;overflow:hidden}
+.example-focus img{display:block;width:100%;height:520px;object-fit:contain;background:var(--paper)}
+.example-focus-body{padding:24px 28px 28px}
+.example-focus-body strong{display:block;font-size:26px;line-height:1.08;margin-bottom:12px}
+.example-focus-body p{font-size:16px;line-height:1.72;color:#4b5563;max-width:860px}
+.example-nav{position:absolute;inset:0;pointer-events:none}
+.example-arrow,.example-close{pointer-events:auto;border:none;cursor:pointer;font-family:inherit}
+.example-arrow{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:999px;background:rgba(255,255,255,.94);box-shadow:0 14px 28px rgba(24,62,46,.16);color:var(--brand-ink);font-size:24px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.example-arrow-left{left:18px}
+.example-arrow-right{right:18px}
+.example-close{position:absolute;top:16px;right:16px;width:42px;height:42px;border-radius:999px;background:rgba(255,255,255,.94);box-shadow:0 14px 28px rgba(24,62,46,.16);color:var(--brand-ink);font-size:24px;line-height:1;display:flex;align-items:center;justify-content:center}
+.example-body{padding:22px 22px 24px}
+.example-body strong{display:block;font-size:22px;line-height:1.1;margin-bottom:10px}
+.example-body p{font-size:15px;line-height:1.72;color:#4b5563}
+.info-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.info-card{padding:28px}
+.info-card strong{display:block;font-size:22px;line-height:1.1;margin-bottom:10px}
+.info-card p{font-size:15px;line-height:1.72;color:#4b5563}
+.integration-logos{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+.integration-logos img{height:38px;max-width:170px;object-fit:contain;padding:8px 12px;border-radius:14px;background:var(--paper);border:1px solid var(--brand-tint)}
+.footprint-art{margin-top:18px;padding-top:14px;border-top:1px solid var(--brand-tint)}
+.footprint-art img{width:150px;max-width:100%;display:block}
+.contact-section{padding:96px 24px;background:#fff}
+.contact-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:stretch}
+.contact-info,.contact-form-col{display:flex;flex-direction:column;height:100%}
+.contact-title{font-size:40px;font-weight:800;letter-spacing:-.02em;color:var(--ink);margin:14px 0}
+.contact-lead{font-size:16px;color:var(--muted);line-height:1.65;margin-bottom:32px}
+.cal-box{background:var(--paper);border-radius:16px;padding:24px 26px;border:1px solid var(--brand-tint);display:flex;align-items:center;gap:16px}
+.cal-icon{width:48px;height:48px;background:var(--brand-tint);border-radius:12px;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.cal-title{font-size:18px;font-weight:700;color:var(--ink);margin-bottom:5px}
+.cal-desc{font-size:14px;color:var(--muted);line-height:1.55}
+.cal-btn,.submit-btn{background:var(--brand);color:#fff;border:none;border-radius:8px;padding:14px 28px;font-size:16px;font-weight:600;cursor:pointer;font-family:inherit;width:100%;box-shadow:0 4px 16px rgba(24,115,68,.25)}
+.cal-btn{margin-top:auto}
+.contact-form{display:flex;flex-direction:column;gap:16px;height:100%}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field{display:flex;flex-direction:column;gap:6px}
+.label{font-size:13px;font-weight:600;color:var(--ink)}
+.input,.textarea,.select{font-family:inherit;font-size:14px;color:var(--ink);background:#fff;border:1.5px solid var(--brand-border);border-radius:8px;padding:11px 14px;outline:none}
+.textarea{resize:vertical;min-height:120px}
+.submit-btn{margin-top:auto}
+.booking-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:10000;display:none;align-items:center;justify-content:center;padding:16px}
+.booking-overlay.is-open{display:flex}
+.booking-modal{background:#fff;border-radius:20px;width:100%;max-width:600px;max-height:90vh;overflow-y:auto;box-shadow:0 24px 64px rgba(0,0,0,.18)}
+.booking-header{padding:24px 28px 16px;border-bottom:1px solid var(--brand-tint);display:flex;justify-content:space-between;align-items:flex-start}
+.booking-title{font-size:22px;font-weight:800;color:var(--ink)}
+.booking-close{background:var(--paper);border:none;border-radius:8px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--muted);font-size:20px}
+.booking-progress{padding:16px 28px;display:flex;align-items:center;border-bottom:1px solid var(--paper)}
+.booking-progress-item{display:flex;align-items:center;gap:8px;flex:1}
+.booking-progress-dot{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0}
+.booking-progress-label{font-size:13px}
+.booking-progress-line{flex:1;height:2px;border-radius:1px;margin-left:8px}
+.booking-body{padding:24px 28px 28px}
+.booking-step-title{font-size:16px;font-weight:700;color:var(--ink);margin-bottom:16px}
+.booking-cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-bottom:16px}
+.booking-day-btn{background:var(--paper);border:1.5px solid var(--brand-tint);border-radius:10px;padding:10px 4px;cursor:pointer;font-family:inherit;display:flex;flex-direction:column;align-items:center;gap:2px}
+.booking-day-btn.is-active{background:var(--brand);border-color:var(--brand)}
+.booking-day-name{font-size:10px;font-weight:600;color:#6b7280;text-transform:uppercase}
+.booking-day-num{font-size:18px;font-weight:700;color:var(--ink)}
+.booking-day-month{font-size:10px;color:#9ca3af}
+.booking-slot-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px}
+.booking-slot-btn{background:var(--paper);border:1.5px solid var(--brand-tint);border-radius:8px;padding:10px 4px;cursor:pointer;font-family:inherit;font-size:14px;font-weight:600;color:var(--ink);display:flex;flex-direction:column;align-items:center;gap:2px}
+.booking-slot-btn.is-booked{background:#f9fafb;border-color:#f0f0f0;color:#d1d5db;cursor:not-allowed}
+.booking-slot-btn.is-active{background:var(--brand);border-color:var(--brand);color:#fff}
+.booking-booked-label{font-size:9px;font-weight:600;color:#d1d5db;text-transform:uppercase;letter-spacing:.05em}
+.booking-back{background:none;border:none;padding:0;font-family:inherit;font-size:13px;color:var(--brand);cursor:pointer;font-weight:600;margin-bottom:12px;display:block}
+.booking-hint{display:flex;align-items:center;gap:6px;font-size:12px;color:#6b7280}
+.booking-form{display:flex;flex-direction:column;gap:14px}
+.booking-form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.booking-field{display:flex;flex-direction:column;gap:5px}
+.booking-label{font-size:12px;font-weight:600;color:var(--ink)}
+.booking-input{font-family:inherit;font-size:14px;color:var(--ink);background:#fff;border:1.5px solid var(--brand-border);border-radius:8px;padding:10px 12px;outline:none}
+.booking-summary{display:flex;align-items:center;gap:8px;background:var(--paper);border-radius:8px;padding:10px 14px;font-size:13px;color:var(--muted)}
+.booking-submit{background:var(--brand);color:#fff;border:none;border-radius:8px;padding:13px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;box-shadow:0 4px 14px rgba(24,115,68,.28)}
+.booking-success{padding:40px 32px;text-align:center}
+.booking-success-icon{width:72px;height:72px;background:var(--brand-tint);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:var(--brand);font-size:34px;font-weight:800}
+.booking-success-title{font-size:26px;font-weight:800;color:var(--ink);margin-bottom:8px}
+.booking-success-sub{font-size:16px;color:var(--muted);margin-bottom:14px}
+.booking-success-text{font-size:14px;color:var(--muted);line-height:1.65;margin-bottom:24px}
+@media (max-width:1024px){
+  .process-line,.example-grid,.contact-grid{grid-template-columns:1fr}
+  .service-row,.service-row.reverse,.info-grid{grid-template-columns:1fr}
+  .phase:not(:last-child):after{display:none}
+  .example-focus img{height:360px}
+}
+@media (max-width:720px){
+  .nav{height:auto;padding:18px;gap:16px;align-items:flex-start;flex-direction:column}
+  .brand-lockup{align-items:flex-start}
+  .brand-sub strong{font-size:15px}
+  .brand-sub span{font-size:13px}
+  .section,.contact-section{padding:72px 18px}
+  .hero{padding:82px 18px 52px;min-height:auto}
+  .hero::before{background-image:linear-gradient(180deg,rgba(246,245,240,.96) 0%,rgba(246,245,240,.72) 44%,rgba(246,245,240,.28) 100%),url('/uploads/stock/service-ml-data.jpg');background-position:center top}
+  .hero-actions{flex-direction:column}
+  .btn,.cal-btn{width:100%}
+  .service-media,.service-content{height:auto;min-height:unset}
+  .service-media{padding:24px;aspect-ratio:16/10}
+  .service-media img{max-width:74%;max-height:60%}
+  .form-row{grid-template-columns:1fr}
+  .example-card img{height:210px}
+  .example-focus img{height:240px}
+  .example-arrow-left{left:10px}
+  .example-arrow-right{right:10px}
+  .booking-cal-grid{grid-template-columns:repeat(4,1fr)}
+  .booking-slot-grid,.booking-form-row{grid-template-columns:1fr 1fr}
+}
+</style>
+<link rel="stylesheet" href="/assets/flexb-theme.css?v=2">
+</head>
+<body class="flexb-service">
+<nav class="nav">
+  <div class="brand-lockup">
+    <a class="brand" href="/ui_kits/website/">Flex<span>B</span></a>
+    <div class="brand-sub">
+      <strong>SOLUTIONS</strong>
+      <span>Automatisierung &amp; Prozessoptimierung</span>
+    </div>
+  </div>
+  <a class="back" href="/ui_kits/website/#leistungen">Zurück zur Startseite</a>
+</nav>
+
+<main>
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow">Leistung</div>
+        <h1>Machine Learning für Muster, Prognosen und Erkennung</h1>
+        <p class="lead">Machine Learning eignet sich besonders dort, wo aus historischen Daten, Bildern oder Messreihen Muster erkannt werden sollen. So entstehen Systeme, die nicht nur reagieren, sondern Zusammenhänge aus Daten lernen.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#anschreiben">Machine Learning anfragen</a>
+          <a class="btn btn-secondary" href="#ablauf">Ablauf ansehen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="ablauf">
+    <div class="inner">
+      <div class="section-head">
+        <div class="eyebrow">Ablauf</div>
+        <h2>So läuft ein Projekt im Bereich Machine Learning ab</h2>
+        <p>Am Anfang stehen Potenziale und Ideen. Danach lohnt es sich, regulatorische Fragen wie den AI Act früh mitzudenken, bevor die Entwicklung entlang eines klaren Rahmens wie Crisp ML (Q) aufgebaut wird.</p>
+      </div>
+
+      <div class="process-wrap">
+        <div class="process-line">
+          <article class="phase">
+            <div class="phase-num">1</div>
+            <strong>Potenziale finden</strong>
+            <p>Wir schauen gemeinsam darauf, wo Daten, Bilder oder Messreihen heute schon vorhanden sind und wo daraus ein echter Mehrwert entstehen kann.</p>
+            <small>Use Case &amp; Nutzen</small>
+          </article>
+          <article class="phase">
+            <div class="phase-num">2</div>
+            <strong>Ideen sammeln</strong>
+            <p>Mögliche ML-Anwendungen werden konkretisiert: Welche Daten sind da, welche Fragestellung ist realistisch und welches Ergebnis soll später nutzbar sein?</p>
+            <small>Daten &amp; Zielbild</small>
+          </article>
+          <article class="phase">
+            <div class="phase-num">3</div>
+            <strong>AI Act mitdenken</strong>
+            <p>Bevor die Umsetzung startet, prüfen wir Anforderungen an Transparenz, Risiko, Dokumentation und Nachvollziehbarkeit, damit die Entwicklung sauber aufgesetzt ist.</p>
+            <small>Rahmen &amp; Verantwortung</small>
+          </article>
+          <article class="phase">
+            <div class="phase-num">4</div>
+            <strong>Entwicklung nach Crisp ML (Q)</strong>
+            <p>Die eigentliche Entwicklung wird entlang eines klaren ML-Rahmens aufgebaut, damit Datenverständnis, Modelllogik, Bewertung und spätere Nutzung strukturiert zusammenlaufen.</p>
+            <small>Struktur &amp; Umsetzung</small>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section services-section">
+    <div class="inner">
+      <div class="section-head">
+        <div class="eyebrow">Technische Umsetzung</div>
+        <h2>Die technische Umsetzung verbindet Tools, Methodik und regulatorischen Rahmen</h2>
+        <p>Für ML-Projekte arbeiten wir je nach Anwendungsfall mit Python und den passenden Bibliotheken oder mit KNIME als visuellem Werkzeug. Dazu kommen methodische Rahmen wie Crisp ML (Q) und regulatorische Leitplanken wie der EU AI Act.</p>
+      </div>
+
+      <div class="services-stack">
+        <article class="service-row">
+          <div class="service-media">
+            <img class="logo-compact" src="/uploads/Python_logo.png" alt="Python für Training, Auswertung und Integration">
+          </div>
+          <div class="service-content">
+            <div class="service-kicker">Code-basierte Entwicklung</div>
+            <h3 class="service-title">Python und passende Bibliotheken</h3>
+            <p class="service-desc">Wenn Daten aufbereitet, Modelle bewertet oder Ergebnisse weiterverarbeitet werden sollen, bleibt Python mit den passenden Bibliotheken meist die verlässlichste Grundlage für ML-Projekte.</p>
+            <div class="service-tags">
+              <span class="service-tag">Python</span>
+              <span class="service-tag">Bibliotheken</span>
+              <span class="service-tag">Auswertung</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-row reverse">
+          <div class="service-content">
+            <div class="service-kicker">Visuelles Tooling</div>
+            <h3 class="service-title">KNIME für strukturierte Daten-Workflows</h3>
+            <p class="service-desc">KNIME eignet sich gut, wenn Datenflüsse, Vorverarbeitung, Modellschritte und Auswertungen visuell nachvollziehbar aufgebaut werden sollen. So bleibt die Logik auch für Fachbereiche gut lesbar.</p>
+            <div class="service-tags">
+              <span class="service-tag">KNIME</span>
+              <span class="service-tag">Workflows</span>
+              <span class="service-tag">Datenaufbereitung</span>
+            </div>
+          </div>
+          <div class="service-media">
+            <img src="/uploads/KNIME.png" alt="KNIME für strukturierte Daten-Workflows">
+          </div>
+        </article>
+
+        <article class="service-row">
+          <div class="service-media">
+            <img class="media-large" src="/uploads/AI_Act.png" alt="AI Act und Risikoeinordnung">
+          </div>
+          <div class="service-content">
+            <div class="service-kicker">Rahmen und Verantwortung</div>
+            <h3 class="service-title">AI Act und Qualität früh mitdenken</h3>
+            <p class="service-desc">Bei ML-Anwendungen lohnt es sich, Transparenz, Datenqualität, Nachvollziehbarkeit und regulatorische Anforderungen wie den AI Act von Anfang an mit einzuplanen.</p>
+            <div class="service-tags">
+              <span class="service-tag">AI Act</span>
+              <span class="service-tag">Qualität</span>
+              <span class="service-tag">Governance</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-row reverse">
+          <div class="service-content">
+            <div class="service-kicker">Visuelle ML-Bausteine</div>
+            <h3 class="service-title">Crisp ML (Q) als strukturierende Denkgrundlage</h3>
+            <p class="service-desc">Gerade in frühen Projektphasen hilft ein klarer ML-Rahmen dabei, Datenquellen, Modellschritte, Bewertung und spätere Nutzung nachvollziehbar zu strukturieren.</p>
+            <div class="service-tags">
+              <span class="service-tag">Crisp ML</span>
+              <span class="service-tag">Struktur</span>
+              <span class="service-tag">Methodik</span>
+            </div>
+          </div>
+          <div class="service-media">
+            <img class="media-large" src="/uploads/Crisp_ML.png" alt="Crisp ML (Q) als strukturierende Denkgrundlage">
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section example-section">
+    <div class="inner">
+      <div class="section-head">
+        <div class="eyebrow">Beispiele</div>
+        <h2>Beispielhafte ML-Anwendungen und Datenflüsse</h2>
+        <p>Hier stehen konkrete ML-Beispiele im Vordergrund: visuelle Auswertung, Anomalieerkennung und datenbasierte Vorhersagen.</p>
+      </div>
+      <div class="example-grid" id="exampleGrid">
+        <article class="example-card" data-example-card data-index="0">
+          <img src="/uploads/Objekterkennung_Python.png" alt="Objekterkennung mit Python">
+          <div class="example-body">
+            <strong>Objekterkennung</strong>
+            <p>Ein typischer ML-Anwendungsfall ist die visuelle Erkennung und Klassifikation von Objekten, um daraus später automatische Auswertungen oder Folgeaktionen abzuleiten.</p>
+          </div>
+        </article>
+        <article class="example-card" data-example-card data-index="1">
+          <img src="/uploads/Anomalieerkennung.png" alt="Anomalieerkennung als ML-Beispiel">
+          <div class="example-body">
+            <strong>Anomalieerkennung</strong>
+            <p>Anomalieerkennung hilft dabei, ungewöhnliche Muster oder Abweichungen frühzeitig sichtbar zu machen, bevor sie im Alltag zu echten Problemen werden.</p>
+          </div>
+        </article>
+        <article class="example-card" data-example-card data-index="2">
+          <img src="/uploads/Beispiel_Regression.png" alt="Regression als ML-Beispiel">
+          <div class="example-body">
+            <strong>Vorhersagen</strong>
+            <p>Vorhersagemodelle helfen dabei, aus vorhandenen Daten Entwicklungen, Trends oder Zielwerte datenbasiert abzuschätzen und besser planbar zu machen.</p>
+          </div>
+        </article>
+      </div>
+      <div class="example-stage" id="exampleStage">
+        <article class="example-focus">
+          <button class="example-close" type="button" id="exampleClose" aria-label="Beispiel schließen">×</button>
+          <button class="example-arrow example-arrow-left" type="button" id="examplePrev" aria-label="Vorheriges Beispiel">‹</button>
+          <button class="example-arrow example-arrow-right" type="button" id="exampleNext" aria-label="Nächstes Beispiel">›</button>
+          <img id="exampleFocusImage" src="" alt="">
+          <div class="example-focus-body">
+            <strong id="exampleFocusTitle"></strong>
+            <p id="exampleFocusText"></p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="inner">
+      <div class="section-head">
+        <div class="eyebrow">Was möglich ist</div>
+        <h2>Von der Datenerkennung bis zur späteren Prozesseinbindung</h2>
+        <p>Machine Learning ist besonders nützlich, wenn Entscheidungen nicht nur über feste Regeln getroffen werden, sondern aus Datenmustern, Wahrscheinlichkeiten oder visuellen Merkmalen abgeleitet werden. Die spätere operative Einbindung kann anschließend über <a href="/leistungen/custom-workflows/?v=2" style="color:var(--brand-ink);font-weight:700;text-decoration:underline">Custom Workflows</a> erfolgen.</p>
+      </div>
+      <div class="info-grid">
+        <article class="info-card">
+          <strong>Trends und Muster erkennen</strong>
+          <p>Wiederkehrende Entwicklungen in Beständen, Messwerten oder Bilddaten werden sichtbar und für Entscheidungen nutzbar gemacht.</p>
+        </article>
+        <article class="info-card">
+          <strong>Ergebnisse weiter nutzbar machen</strong>
+          <p>Modellausgaben können später in Dashboards, Warnmeldungen oder über <a href="/leistungen/custom-workflows/?v=2" style="color:var(--brand-ink);font-weight:700;text-decoration:underline">Custom Workflows</a> in echte Folgeprozesse überführt werden.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="anschreiben">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="eyebrow">Kontakt</div>
+        <h2 class="contact-title">Lassen Sie uns sprechen.</h2>
+        <p class="contact-lead">Sie möchten einen datenbasierten Anwendungsfall für Erkennung, Bewertung oder Prognose prüfen? Schreiben Sie uns oder buchen Sie direkt einen Termin für Machine Learning.</p>
+        <div class="cal-box">
+          <div class="cal-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>
+          </div>
+          <div>
+            <div class="cal-title">Termin buchen</div>
+            <div class="cal-desc">30 Minuten kostenloses Erstgespräch — unverbindlich und direkt online.</div>
+          </div>
+        </div>
+        <button class="cal-btn btn-primary js-open-booking" type="button">Termin buchen</button>
+      </div>
+
+      <div class="contact-form-col">
+        <form class="contact-form" action="https://formsubmit.co/flexbsolutions@outlook.com" method="POST">
+          <input type="hidden" name="_subject" value="Neue Nachricht über FlexB Solutions - Machine Learning">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+          <div class="form-row">
+            <div class="field">
+              <label class="label" for="prozess-first-name">Vorname</label>
+              <input class="input" id="prozess-first-name" name="Vorname" type="text" placeholder="Max" required>
+            </div>
+            <div class="field">
+              <label class="label" for="prozess-last-name">Nachname</label>
+              <input class="input" id="prozess-last-name" name="Nachname" type="text" placeholder="Mustermann" required>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label" for="prozess-email">E-Mail</label>
+            <input class="input" id="prozess-email" name="E-Mail" type="email" placeholder="max@beispiel.de" required>
+          </div>
+          <div class="field">
+            <label class="label" for="prozess-type">Ich bin...</label>
+            <select class="select" id="prozess-type" name="Ich bin">
+              <option>Unternehmen (B2B)</option>
+              <option>Privatkunde</option>
+              <option>Selbstständig</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="label" for="prozess-message">Nachricht</label>
+            <textarea class="textarea" id="prozess-message" name="Nachricht" placeholder="Welcher ML-Anwendungsfall soll entstehen?" required></textarea>
+          </div>
+          <button class="submit-btn" type="submit">Nachricht senden</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="booking-overlay" id="bookingOverlay" aria-hidden="true">
+  <div class="booking-modal" role="dialog" aria-modal="true" aria-labelledby="bookingTitle">
+    <div id="bookingRoot"></div>
+  </div>
+</div>
+
+<script>
+  const exampleGrid = document.getElementById('exampleGrid');
+  const exampleCards = exampleGrid ? Array.from(exampleGrid.querySelectorAll('[data-example-card]')) : [];
+  const exampleStage = document.getElementById('exampleStage');
+  const exampleFocusImage = document.getElementById('exampleFocusImage');
+  const exampleFocusTitle = document.getElementById('exampleFocusTitle');
+  const exampleFocusText = document.getElementById('exampleFocusText');
+  const examplePrev = document.getElementById('examplePrev');
+  const exampleNext = document.getElementById('exampleNext');
+  const exampleClose = document.getElementById('exampleClose');
+  let activeExampleIndex = null;
+
+  const exampleItems = exampleCards.map((card) => ({
+    image: card.querySelector('img').getAttribute('src'),
+    alt: card.querySelector('img').getAttribute('alt'),
+    title: card.querySelector('strong').textContent,
+    text: card.querySelector('p').textContent
+  }));
+
+  function renderExample(index) {
+    const item = exampleItems[index];
+    if (!item) return;
+    activeExampleIndex = index;
+    exampleFocusImage.src = item.image;
+    exampleFocusImage.alt = item.alt;
+    exampleFocusTitle.textContent = item.title;
+    exampleFocusText.textContent = item.text;
+    exampleGrid.classList.add('is-hidden');
+    exampleStage.classList.add('is-active');
+  }
+
+  function closeExample() {
+    activeExampleIndex = null;
+    exampleStage.classList.remove('is-active');
+    exampleGrid.classList.remove('is-hidden');
+  }
+
+  if (exampleCards.length) {
+    exampleCards.forEach((card) => {
+      card.addEventListener('click', () => {
+        renderExample(Number(card.dataset.index));
+      });
+    });
+    examplePrev.addEventListener('click', () => {
+      if (activeExampleIndex === null) return;
+      renderExample((activeExampleIndex - 1 + exampleItems.length) % exampleItems.length);
+    });
+    exampleNext.addEventListener('click', () => {
+      if (activeExampleIndex === null) return;
+      renderExample((activeExampleIndex + 1) % exampleItems.length);
+    });
+    exampleClose.addEventListener('click', closeExample);
+  }
+
+  const bookingOverlay = document.getElementById('bookingOverlay');
+  const bookingRoot = document.getElementById('bookingRoot');
+  const bookingButtons = Array.from(document.querySelectorAll('.js-open-booking'));
+  const bookingState = {
+    step: 1,
+    selectedDate: null,
+    selectedTime: null,
+    form: { name: '', email: '', phone: '', type: 'Unternehmen', message: '' }
+  };
+
+  const today = new Date();
+  const bookingDays = [];
+  for (let i = 1; i <= 21; i += 1) {
+    const d = new Date(today);
+    d.setDate(today.getDate() + i);
+    if (d.getDay() !== 0) bookingDays.push(d);
+    if (bookingDays.length === 14) break;
+  }
+
+  const bookingSlots = ['09:00', '09:30', '10:00', '10:30', '11:00', '11:30', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30'];
+  const bookingBooked = ['09:30', '10:00', '14:30'];
+  const weekdays = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
+  const months = ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'];
+
+  function formatBookingDate(date) {
+    return date ? `${weekdays[date.getDay()]}, ${date.getDate()}. ${months[date.getMonth()]}` : '';
+  }
+
+  function resetBooking() {
+    bookingState.step = 1;
+    bookingState.selectedDate = null;
+    bookingState.selectedTime = null;
+    bookingState.form = { name: '', email: '', phone: '', type: 'Unternehmen', message: '' };
+  }
+
+  function openBooking() {
+    renderBooking();
+    bookingOverlay.classList.add('is-open');
+    bookingOverlay.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeBooking() {
+    bookingOverlay.classList.remove('is-open');
+    bookingOverlay.setAttribute('aria-hidden', 'true');
+    resetBooking();
+  }
+
+  function renderBooking() {
+    const step = bookingState.step;
+    const progress = step < 4 ? `
+      <div class="booking-progress">
+        ${['Datum', 'Uhrzeit', 'Ihre Daten'].map((label, index) => {
+          const current = index + 1;
+          const isDone = step > current;
+          const isActive = step === current;
+          const dotBg = isDone || isActive ? 'var(--brand)' : 'var(--brand-tint)';
+          const dotColor = isDone || isActive ? '#fff' : 'var(--brand-light)';
+          const lineBg = step > current ? 'var(--brand)' : 'var(--brand-tint)';
+          return `
+            <div class="booking-progress-item">
+              <div class="booking-progress-dot" style="background:${dotBg};color:${dotColor}">
+                ${isDone ? '✓' : current}
+              </div>
+              <span class="booking-progress-label" style="color:${isActive ? 'var(--ink)' : '#9ca3af'};font-weight:${isActive ? '600' : '400'}">${label}</span>
+              ${index < 2 ? `<div class="booking-progress-line" style="background:${lineBg}"></div>` : ''}
+            </div>
+          `;
+        }).join('')}
+      </div>` : '';
+
+    let body = '';
+    if (step === 1) {
+      body = `
+        <div class="booking-body">
+          <div class="booking-step-title">Wählen Sie einen Tag</div>
+          <div class="booking-cal-grid">
+            ${bookingDays.map((date, index) => `
+              <button class="booking-day-btn" data-booking-day="${index}" type="button">
+                <span class="booking-day-name">${weekdays[date.getDay()]}</span>
+                <span class="booking-day-num">${date.getDate()}</span>
+                <span class="booking-day-month">${months[date.getMonth()]}</span>
+              </button>
+            `).join('')}
+          </div>
+          <div class="booking-hint">30 Minuten · Kostenlos &amp; unverbindlich · Online</div>
+        </div>
+      `;
+    } else if (step === 2) {
+      body = `
+        <div class="booking-body">
+          <button class="booking-back" type="button" data-booking-back="1">← ${formatBookingDate(bookingState.selectedDate)}</button>
+          <div class="booking-step-title">Uhrzeit wählen</div>
+          <div class="booking-slot-grid">
+            ${bookingSlots.map((time) => {
+              const isBooked = bookingBooked.includes(time);
+              return `
+                <button class="booking-slot-btn${isBooked ? ' is-booked' : ''}" ${isBooked ? 'disabled' : ''} data-booking-slot="${time}" type="button">
+                  ${time}
+                  ${isBooked ? '<span class="booking-booked-label">Belegt</span>' : ''}
+                </button>
+              `;
+            }).join('')}
+          </div>
+          <div class="booking-hint">Alle Zeiten in MEZ (Berlin). Grau = bereits vergeben.</div>
+        </div>
+      `;
+    } else if (step === 3) {
+      body = `
+        <div class="booking-body">
+          <button class="booking-back" type="button" data-booking-back="2">← ${formatBookingDate(bookingState.selectedDate)}, ${bookingState.selectedTime} Uhr</button>
+          <div class="booking-step-title">Ihre Kontaktdaten</div>
+          <form class="booking-form" id="bookingForm">
+            <div class="booking-form-row">
+              <div class="booking-field">
+                <label class="booking-label">Name *</label>
+                <input class="booking-input" name="name" placeholder="Max Mustermann" value="${bookingState.form.name}" required>
+              </div>
+              <div class="booking-field">
+                <label class="booking-label">E-Mail *</label>
+                <input class="booking-input" name="email" type="email" placeholder="max@beispiel.de" value="${bookingState.form.email}" required>
+              </div>
+            </div>
+            <div class="booking-form-row">
+              <div class="booking-field">
+                <label class="booking-label">Telefon (optional)</label>
+                <input class="booking-input" name="phone" placeholder="+49 000 0000000" value="${bookingState.form.phone}">
+              </div>
+              <div class="booking-field">
+                <label class="booking-label">Ich bin...</label>
+                <select class="booking-input" name="type">
+                  <option ${bookingState.form.type === 'Unternehmen' ? 'selected' : ''}>Unternehmen</option>
+                  <option ${bookingState.form.type === 'Privatkunde' ? 'selected' : ''}>Privatkunde</option>
+                  <option ${bookingState.form.type === 'Selbstständig' ? 'selected' : ''}>Selbstständig</option>
+                </select>
+              </div>
+            </div>
+            <div class="booking-field">
+              <label class="booking-label">Worum geht es? (optional)</label>
+              <textarea class="booking-input" name="message" style="min-height:72px;resize:vertical" placeholder="Kurze Beschreibung Ihres Anliegens...">${bookingState.form.message}</textarea>
+            </div>
+            <div class="booking-summary">
+              <span><strong>${formatBookingDate(bookingState.selectedDate)}</strong> um <strong>${bookingState.selectedTime} Uhr</strong> · 30 Min. · Online</span>
+            </div>
+            <button class="booking-submit" type="submit">Termin verbindlich buchen</button>
+          </form>
+        </div>
+      `;
+    } else {
+      body = `
+        <div class="booking-success">
+          <div class="booking-success-icon">✓</div>
+          <div class="booking-success-title">Termin bestätigt!</div>
+          <div class="booking-success-sub"><strong>${formatBookingDate(bookingState.selectedDate)}</strong> um <strong>${bookingState.selectedTime} Uhr</strong></div>
+          <p class="booking-success-text">Eine Bestätigung wurde an <strong>${bookingState.form.email}</strong> gesendet. Felix meldet sich vorab mit dem Meeting-Link.</p>
+          <button class="booking-submit" type="button" data-booking-close="1">Schließen</button>
+        </div>
+      `;
+    }
+
+    bookingRoot.innerHTML = `
+      <div class="booking-header">
+        <div>
+          <div class="eyebrow">Kostenlose Erstberatung</div>
+          <div class="booking-title" id="bookingTitle">Termin buchen</div>
+        </div>
+        <button class="booking-close" type="button" data-booking-close="1" aria-label="Schließen">×</button>
+      </div>
+      ${progress}
+      ${body}
+    `;
+
+    bookingRoot.querySelectorAll('[data-booking-day]').forEach((button) => {
+      button.addEventListener('click', () => {
+        bookingState.selectedDate = bookingDays[Number(button.dataset.bookingDay)];
+        bookingState.step = 2;
+        renderBooking();
+      });
+    });
+
+    bookingRoot.querySelectorAll('[data-booking-slot]').forEach((button) => {
+      button.addEventListener('click', () => {
+        bookingState.selectedTime = button.dataset.bookingSlot;
+        bookingState.step = 3;
+        renderBooking();
+      });
+    });
+
+    bookingRoot.querySelectorAll('[data-booking-back]').forEach((button) => {
+      button.addEventListener('click', () => {
+        bookingState.step = Number(button.dataset.bookingBack);
+        renderBooking();
+      });
+    });
+
+    bookingRoot.querySelectorAll('[data-booking-close]').forEach((button) => {
+      button.addEventListener('click', closeBooking);
+    });
+
+    const bookingForm = document.getElementById('bookingForm');
+    if (bookingForm) {
+      bookingForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const formData = new FormData(bookingForm);
+        bookingState.form = {
+          name: formData.get('name') || '',
+          email: formData.get('email') || '',
+          phone: formData.get('phone') || '',
+          type: formData.get('type') || 'Unternehmen',
+          message: formData.get('message') || ''
+        };
+        bookingState.step = 4;
+        renderBooking();
+      });
+    }
+  }
+
+  bookingButtons.forEach((button) => button.addEventListener('click', openBooking));
+  bookingOverlay.addEventListener('click', (event) => {
+    if (event.target === bookingOverlay) closeBooking();
+  });
+</script>
+</body>
+</html>

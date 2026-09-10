@@ -1,0 +1,22 @@
+{
+  "updatedAt": "2026-07-07T17:05:00+02:00",
+  "timezone": "Europe/Berlin",
+  "source": "google-calendar-connector",
+  "note": "Belegte Zeitfenster aus dem Google Kalender (nur Zeiten, keine Termindetails). Aktualisierung: Claude-Routine / manuell, s. MASTERPLAN.md §12.",
+  "busy": [
+    { "date": "2026-07-08", "start": "08:30", "end": "09:05" },
+    { "date": "2026-07-08", "start": "09:35", "end": "11:05" },
+    { "date": "2026-07-08", "start": "11:35", "end": "11:50" },
+    { "date": "2026-07-08", "start": "12:20", "end": "12:30" },
+    { "date": "2026-07-08", "start": "13:00", "end": "13:50" },
+    { "date": "2026-07-08", "start": "14:00", "end": "14:30" },
+    { "date": "2026-07-08", "start": "17:00", "end": "18:00" },
+    { "date": "2026-07-08", "start": "18:00", "end": "18:40" },
+    { "date": "2026-07-09", "start": "09:00", "end": "09:45" },
+    { "date": "2026-07-09", "start": "10:15", "end": "11:15" },
+    { "date": "2026-07-22", "start": "11:00", "end": "11:30" },
+    { "date": "2026-07-22", "start": "16:00", "end": "17:00" },
+    { "date": "2026-07-23", "start": "16:30", "end": "17:30" },
+    { "date": "2026-07-24", "start": "16:30", "end": "17:30" }
+  ]
+}

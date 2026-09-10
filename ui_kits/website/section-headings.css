@@ -1,0 +1,24 @@
+/* Main sections have a clear editorial hierarchy above the service titles. */
+.flexb-variant-two :is(#leistungen, #furwen, #ergebnisse, #ubermich, #kontakt) h2,
+.flexb-variant-two .company-title {
+  font-size: clamp(42px, 5.3vw, 68px) !important;
+  font-weight: 600 !important;
+  line-height: 1.06 !important;
+  letter-spacing: -.045em !important;
+}
+.flexb-variant-two :is(#leistungen, #furwen, #ubermich, #kontakt) h2 {
+  color: var(--brand-dark) !important;
+}
+.flexb-variant-two .section-heading::before {
+  content: '';
+  display: block;
+  width: 56px;
+  height: 4px;
+  background: var(--brand);
+  margin-bottom: 24px;
+}
+.flexb-variant-two #ubermich .section-heading > div:first-child { display: none; }
+@media (max-width: 600px) {
+  .flexb-variant-two :is(#leistungen, #furwen, #ergebnisse, #ubermich, #kontakt) h2,
+  .flexb-variant-two .company-title { font-size: clamp(36px, 10vw, 46px) !important; }
+}

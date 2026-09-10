@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sensorik-Integration | FlexB Solutions</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Outfit,system-ui,sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+input,select,textarea,button{font:inherit}
+button{cursor:pointer}
+.nav{height:76px;padding:0 24px;display:flex;align-items:center;justify-content:space-between;max-width:1180px;margin:0 auto}
+.brand-lockup{display:flex;align-items:center;gap:16px}
+.brand{font-size:30px;font-weight:900;letter-spacing:-.05em;color:var(--ink)}
+.brand span{color:var(--brand)}
+.brand-sub{display:flex;flex-direction:column;gap:4px;padding-left:16px;border-left:1px solid var(--brand-border)}
+.brand-sub strong{font-size:18px;letter-spacing:.22em}
+.brand-sub span{font-size:14px;color:var(--brand-ink)}
+.back{color:var(--brand-ink);font-weight:800}
+.section{padding:96px 24px}
+.inner{max-width:1180px;margin:0 auto}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:var(--brand-tint);color:var(--brand-ink);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.hero{padding:104px 24px 82px;position:relative;overflow:hidden;min-height:78vh;display:flex;align-items:center}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(246,245,240,.94) 0%,rgba(246,245,240,.86) 22%,rgba(246,245,240,.44) 52%,rgba(246,245,240,.14) 76%,rgba(246,245,240,.08) 100%),url('/uploads/stock/service-sensorik.jpg');background-size:cover;background-position:center center;z-index:0}
+.hero-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:22px;align-items:stretch;position:relative;z-index:1;width:100%}
+.hero-copy{max-width:760px}
+h1{font-size:clamp(44px,6vw,82px);line-height:1.01;letter-spacing:-.05em;margin:18px 0 20px}
+.lead{font-size:19px;line-height:1.72;color:var(--muted);max-width:760px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:10px;padding:14px 20px;font-weight:800}
+.btn-primary{background:var(--brand);color:#fff;box-shadow:0 14px 30px rgba(24,115,68,.22)}
+.btn-secondary{background:#fff;color:var(--brand-ink);border:1px solid var(--brand-light)}
+.section-head{display:grid;gap:14px;margin-bottom:34px;max-width:760px}
+.section-head h2{font-size:clamp(34px,4vw,54px);line-height:1.04;letter-spacing:-.04em}
+.section-head p{font-size:18px;line-height:1.7;color:#4b5563}
+.process-wrap{display:grid;gap:20px}
+.process-line{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px;align-items:start}
+.phase{position:relative;padding:26px 22px 24px;border-radius:24px;background:#fff;border:1px solid var(--brand-tint);box-shadow:0 18px 48px rgba(24,62,46,.08);min-height:278px;display:flex;flex-direction:column}
+.phase:not(:last-child):after{content:"";position:absolute;top:50px;right:-18px;width:18px;height:2px;background:var(--brand-light)}
+.phase-num{width:44px;height:44px;border-radius:999px;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900;margin-bottom:20px}
+.phase strong{display:block;font-size:22px;line-height:1.08;margin-bottom:12px}
+.phase p{font-size:15px;line-height:1.72;color:#4b5563}
+.phase small{display:block;margin-top:14px;color:var(--brand-ink);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.services-section{background:#fff}
+.services-stack{display:grid;gap:42px}
+.service-row{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center;gap:0;min-height:310px}
+.service-row.reverse{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}
+.service-media{position:relative;height:310px;min-height:310px;background:var(--brand-tint);overflow:hidden;border-radius:30px 110px 30px 110px;box-shadow:0 18px 46px rgba(24,62,46,.12);display:flex;align-items:center;justify-content:center;padding:28px}
+.service-row.reverse .service-media{border-radius:110px 30px 110px 30px}
+.service-media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(13,13,13,.04),rgba(24,115,68,.10));pointer-events:none}
+.service-media img{position:relative;z-index:1;max-width:78%;max-height:72%;object-fit:contain;display:block;filter:drop-shadow(0 14px 30px rgba(24,62,46,.10))}
+.service-media img.logo-compact{max-width:58%;max-height:54%}
+.service-content{height:310px;min-height:310px;padding:clamp(30px,4vw,52px);display:flex;flex-direction:column;justify-content:center;background:var(--paper);border:1px solid var(--brand-tint);border-radius:110px 30px 110px 30px;box-shadow:0 14px 34px rgba(24,115,68,.08)}
+.service-row.reverse .service-content{border-radius:30px 110px 30px 110px}
+.service-kicker{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--brand);margin-bottom:12px}
+.service-title{font-size:clamp(30px,3.2vw,42px);line-height:1.06;font-weight:800;letter-spacing:-.035em;color:var(--ink);margin-bottom:16px}
+.service-desc{font-size:16px;color:var(--muted);line-height:1.68;max-width:660px;margin-bottom:20px}
+.service-tags{display:flex;gap:8px;flex-wrap:wrap}
+.service-tag{background:var(--brand-tint);color:var(--brand-ink);border-radius:9999px;padding:5px 11px;font-size:12px;font-weight:700}
+.example-section{background:rgba(255,255,255,.42)}
+.example-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.example-card,.info-card{border:1px solid var(--brand-tint);box-shadow:0 18px 48px rgba(24,62,46,.08);border-radius:24px;background:#fff}
+.example-card{padding:0;overflow:hidden;transition:transform .28s ease,opacity .28s ease,box-shadow .28s ease,grid-column .28s ease}
+.example-card img{display:block;width:100%;height:250px;object-fit:cover;background:var(--paper);cursor:pointer}
+.example-stage{display:none}
+.example-stage.is-active{display:block}
+.example-grid.is-hidden{display:none}
+.example-focus{position:relative;border:1px solid var(--brand-tint);box-shadow:0 22px 56px rgba(24,62,46,.12);border-radius:28px;background:#fff;overflow:hidden}
+.example-focus img{display:block;width:100%;height:520px;object-fit:contain;background:var(--paper)}
+.example-focus-body{padding:24px 28px 28px}
+.example-focus-body strong{display:block;font-size:26px;line-height:1.08;margin-bottom:12px}
+.example-focus-body p{font-size:16px;line-height:1.72;color:#4b5563;max-width:860px}
+.example-nav{position:absolute;inset:0;pointer-events:none}
+.example-arrow,.example-close{pointer-events:auto;border:none;cursor:pointer;font-family:inherit}
+.example-arrow{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:999px;background:rgba(255,255,255,.94);box-shadow:0 14px 28px rgba(24,62,46,.16);color:var(--brand-ink);font-size:24px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.example-arrow-left{left:18px}
+.example-arrow-right{right:18px}
+.example-close{position:absolute;top:16px;right:16px;width:42px;height:42px;border-radius:999px;background:rgba(255,255,255,.94);box-shadow:0 14px 28px rgba(24,62,46,.16);color:var(--brand-ink);font-size:24px;line-height:1;display:flex;align-items:center;justify-content:center}
+.example-body{padding:22px 22px 24px}
+.example-body strong{display:block;font-size:22px;line-height:1.1;margin-bottom:10px}
+.example-body p{font-size:15px;line-height:1.72;color:#4b5563}
+.info-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.info-card{padding:28px}
+.info-card strong{display:block;font-size:22px;line-height:1.1;margin-bottom:10px}
+.info-card p{font-size:15px;line-height:1.72;color:#4b5563}
+.integration-logos{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+.integration-logos img{height:38px;max-width:170px;object-fit:contain;padding:8px 12px;border-radius:14px;background:var(--paper);border:1px solid var(--brand-tint)}
+.footprint-art{margin-top:18px;padding-top:14px;border-top:1px solid var(--brand-tint)}
+.footprint-art img{width:150px;max-width:100%;display:block}
+.contact-section{padding:96px 24px;background:#fff}
+.contact-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:stretch}
+.contact-info,.contact-form-col{display:flex;flex-direction:column;height:100%}
+.contact-title{font-size:40px;font-weight:800;letter-spacing:-.02em;color:var(--ink);margin:14px 0}
+.contact-lead{font-size:16px;color:var(--muted);line-height:1.65;margin-bottom:32px}
+.cal-box{background:var(--paper);border-radius:16px;padding:24px 26px;border:1px solid var(--brand-tint);display:flex;align-items:center;gap:16px}
+.cal-icon{width:48px;height:48px;background:var(--brand-tint);border-radius:12px;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.cal-title{font-size:18px;font-weight:700;color:var(--ink);margin-bottom:5px}
+.cal-desc{font-size:14px;color:var(--muted);line-height:1.55}
+.cal-btn,.submit-btn{background:var(--brand);color:#fff;border:none;border-radius:8px;padding:14px 28px;font-size:16px;font-weight:600;cursor:pointer;font-family:inherit;width:100%;box-shadow:0 4px 16px rgba(24,115,68,.25)}
+.cal-btn{margin-top:auto}
+.contact-form{display:flex;flex-direction:column;gap:16px;height:100%}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field{display:flex;flex-direction:column;gap:6px}
+.label{font-size:13px;font-weight:600;color:var(--ink)}
+.input,.textarea,.select{font-family:inherit;font-size:14px;color:var(--ink);background:#fff;border:1.5px solid var(--brand-border);border-radius:8px;padding:11px 14px;outline:none}
+.textarea{resize:vertical;min-height:120px}
+.submit-btn{margin-top:auto}
+.booking-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:10000;display:none;align-items:center;justify-content:center;padding:16px}
+.booking-overlay.is-open{display:flex}
+.booking-modal{background:#fff;border-radius:20px;width:100%;max-width:600px;max-height:90vh;overflow-y:auto;box-shadow:0 24px 64px rgba(0,0,0,.18)}
+.booking-header{padding:24px 28px 16px;border-bottom:1px solid var(--brand-tint);display:flex;justify-content:space-between;align-items:flex-start}
+.booking-title{font-size:22px;font-weight:800;color:var(--ink)}
+.booking-close{background:var(--paper);border:none;border-radius:8px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--muted);font-size:20px}
+.booking-progress{padding:16px 28px;display:flex;align-items:center;border-bottom:1px solid var(--paper)}
+.booking-progress-item{display:flex;align-items:center;gap:8px;flex:1}
+.booking-progress-dot{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0}
+.booking-progress-label{font-size:13px}
+.booking-progress-line{flex:1;height:2px;border-radius:1px;margin-left:8px}
+.booking-body{padding:24px 28px 28px}
+.booking-step-title{font-size:16px;font-weight:700;color:var(--ink);margin-bottom:16px}
+.booking-cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-bottom:16px}
+.booking-day-btn{background:var(--paper);border:1.5px solid var(--brand-tint);border-radius:10px;padding:10px 4px;cursor:pointer;font-family:inherit;display:flex;flex-direction:column;align-items:center;gap:2px}
+.booking-day-btn.is-active{background:var(--brand);border-color:var(--brand)}
+.booking-day-name{font-size:10px;font-weight:600;color:#6b7280;text-transform:uppercase}
+.booking-day-num{font-size:18px;font-weight:700;color:var(--ink)}
+.booking-day-month{font-size:10px;color:#9ca3af}
+.booking-slot-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px}
+.booking-slot-btn{background:var(--paper);border:1.5px solid var(--brand-tint);border-radius:8px;padding:10px 4px;cursor:pointer;font-family:inherit;font-size:14px;font-weight:600;color:var(--ink);display:flex;flex-direction:column;align-items:center;gap:2px}
+.booking-slot-btn.is-booked{background:#f9fafb;border-color:#f0f0f0;color:#d1d5db;cursor:not-allowed}
+.booking-slot-btn.is-active{background:var(--brand);border-color:var(--brand);color:#fff}
+.booking-booked-label{font-size:9px;font-weight:600;color:#d1d5db;text-transform:uppercase;letter-spacing:.05em}
+.booking-back{background:none;border:none;padding:0;font-family:inherit;font-size:13px;color:var(--brand);cursor:pointer;font-weight:600;margin-bottom:12px;display:block}
+.booking-hint{display:flex;align-items:center;gap:6px;font-size:12px;color:#6b7280}
+.booking-form{display:flex;flex-direction:column;gap:14px}
+.booking-form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.booking-field{display:flex;flex-direction:column;gap:5px}
+.booking-label{font-size:12px;font-weight:600;color:var(--ink)}
+.booking-input{font-family:inherit;font-size:14px;color:var(--ink);background:#fff;border:1.5px solid var(--brand-border);border-radius:8px;padding:10px 12px;outline:none}
+.booking-summary{display:flex;align-items:center;gap:8px;background:var(--paper);border-radius:8px;padding:10px 14px;font-size:13px;color:var(--muted)}
+.booking-submit{background:var(--brand);color:#fff;border:none;border-radius:8px;padding:13px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;box-shadow:0 4px 14px rgba(24,115,68,.28)}
+.booking-success{padding:40px 32px;text-align:center}
+.booking-success-icon{width:72px;height:72px;background:var(--brand-tint);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:var(--brand);font-size:34px;font-weight:800}
+.booking-success-title{font-size:26px;font-weight:800;color:var(--ink);margin-bottom:8px}
+.booking-success-sub{font-size:16px;color:var(--muted);margin-bottom:14px}
+.booking-success-text{font-size:14px;color:var(--muted);line-height:1.65;margin-bottom:24px}
+@media (max-width:1024px){
+  .process-line,.example-grid,.contact-grid{grid-template-columns:1fr}
+  .service-row,.service-row.reverse,.info-grid{grid-template-columns:1fr}
+  .phase:not(:last-child):after{display:none}
+  .example-focus img{height:360px}
+}
+@media (max-width:720px){
+  .nav{height:auto;padding:18px;gap:16px;align-items:flex-start;flex-direction:column}
+  .brand-lockup{align-items:flex-start}
+  .brand-sub strong{font-size:15px}
+  .brand-sub span{font-size:13px}
+  .section,.contact-section{padding:72px 18px}
+  .hero{padding:82px 18px 52px;min-height:auto}
+  .hero::before{background-image:linear-gradient(180deg,rgba(246,245,240,.96) 0%,rgba(246,245,240,.72) 44%,rgba(246,245,240,.28) 100%),url('/uploads/stock/service-sensorik.jpg');background-position:center top}
+  .hero-actions{flex-direction:column}
+  .btn,.cal-btn{width:100%}
+  .service-media,.service-content{height:auto;min-height:unset}
+  .service-media{padding:24px;aspect-ratio:16/10}
+  .service-media img{max-width:74%;max-height:60%}
+  .form-row{grid-template-columns:1fr}
+  .example-card img{height:210px}
+  .example-focus img{height:240px}
+  .example-arrow-left{left:10px}
+  .example-arrow-right{right:10px}
+  .booking-cal-grid{grid-template-columns:repeat(4,1fr)}
+  .booking-slot-grid,.booking-form-row{grid-template-columns:1fr 1fr}
+}
+</style>
+<link rel="stylesheet" href="/assets/flexb-theme.css?v=2">
+</head>
+<body class="flexb-service">
+<nav class="nav">
+  <div class="brand-lockup">
+    <a class="brand" href="/ui_kits/website/">Flex<span>B</span></a>
+    <div class="brand-sub">
+      <strong>SOLUTIONS</strong>
+      <span>Automatisierung &amp; Prozessoptimierung</span>
+    </div>
+  </div>
+  <a class="back" href="/ui_kits/website/#leistungen">Zurück zur Startseite</a>
+</nav>
+
+<main>
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow">Leistung</div>
+        <h1>Sensorik-Integration für messbare Zustände und automatische Reaktionen</h1>
+        <p class="lead">Sensorik-Integration verbindet reale Zustände mit digitaler Auswertung. So können Füllstände, Abstände oder Zustandsänderungen nicht nur gemessen, sondern über Python und passende Hardware direkt weiterverarbeitet und nutzbar gemacht werden.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#anschreiben">Sensorik anfragen</a>
+          <a class="btn btn-secondary" href="#ablauf">Ablauf ansehen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="ablauf">
+    <div class="inner">
+      <div class="section-head">
+        <div class="eyebrow">Ablauf</div>
+        <h2>So läuft ein Projekt zur Sensorik-Integration ab</h2>
+        <p>Wir betrachten zuerst den realen Zustand, der relevant ist, und bauen dann den digitalen Ablauf darum herum: von der Messung bis zur nutzbaren Aktion.</p>
+      </div>
+
+      <div class="process-wrap">
+        <div class="process-line">
+          <article class="phase">
+            <div class="phase-num">1</div>
+            <strong>Messpunkt definieren</strong>
+            <p>Wir klären, welcher reale Zustand erfasst werden soll und warum er für den Prozess relevant ist.</p>
+            <small>Use Case &amp; Ziel</small>
+          </article>
+          <article class="phase">
+            <div class="phase-num">2</div>
+            <strong>Signal und Schwellen bestimmen</strong>
+            <p>Es wird festgelegt, welche Messwerte relevant sind und welche Zustände oder Grenzwerte eine Reaktion auslösen.</p>
+            <small>Logik &amp; Bewertung</small>
+          </article>
+          <article class="phase">
+            <div class="phase-num">3</div>
+            <strong>Technik anbinden</strong>
+            <p>Sensorik, Hardware oder Datenquellen werden angeschlossen und in den digitalen Workflow integriert.</p>
+            <small>Anbindung &amp; Test</small>
+          </article>
+          <article class="phase">
+            <div class="phase-num">4</div>
+            <strong>Aktion koppeln</strong>
+            <p>Aus dem Messwert wird ein konkreter Folgeprozess: Meldung, Bestellung, Steuerung oder Dokumentation.</p>
+            <small>Prozessverknüpfung</small>
+          </article>
+          <article class="phase">
+            <div class="phase-num">5</div>
+            <strong>Betrieb absichern</strong>
+            <p>Monitoring, Verlässlichkeit und Anpassungen sorgen dafür, dass die Lösung im Alltag stabil nutzbar bleibt.</p>
+            <small>Monitoring &amp; Pflege</small>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section services-section">
+    <div class="inner">
+      <div class="section-head">
+        <div class="eyebrow">Technische Umsetzung</div>
+        <h2>Die technische Umsetzung verbindet Sensorik, Microcontroller und Python-Auswertung</h2>
+        <p>Messwerte aus Sensoren werden über passende Hardware und Microcontroller erfasst und anschließend mit Python ausgewertet. So entsteht ein technischer Ablauf, in dem reale Signale sauber gelesen, interpretiert und weiterverarbeitet werden können.</p>
+      </div>
+
+      <div class="services-stack">
+        <article class="service-row">
+          <div class="service-media">
+            <img class="logo-compact" src="/uploads/Python_logo.png" alt="Python für Datenlogik und Auswertung">
+          </div>
+          <div class="service-content">
+            <div class="service-kicker">Code-basierte Auswertung</div>
+            <h3 class="service-title">Python für Datenlogik und Auswertung</h3>
+            <p class="service-desc">Wenn Sensordaten gespeichert, bewertet, visualisiert oder mit weiteren Datenquellen zusammengeführt werden sollen, ist Python die zentrale Grundlage für Auswertung und Folgeaktionen.</p>
+            <div class="service-tags">
+              <span class="service-tag">Python</span>
+              <span class="service-tag">Datenlogik</span>
+              <span class="service-tag">Auswertung</span>
+              <span class="service-tag">Verarbeitung</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-row reverse">
+          <div class="service-content">
+            <div class="service-kicker">Hardware-nahe Erfassung</div>
+            <h3 class="service-title">Microcontroller für Signalerfassung und Übergabe</h3>
+            <p class="service-desc">Microcontroller bilden die Brücke zwischen physischem Sensor und digitaler Verarbeitung. Sie lesen Signale ein, bereiten Werte vor und übergeben sie an die weitere Auswertung.</p>
+            <div class="service-tags">
+              <span class="service-tag">Microcontroller</span>
+              <span class="service-tag">Hardware</span>
+              <span class="service-tag">Messwerte</span>
+            </div>
+          </div>
+          <div class="service-media">
+            <img src="/uploads/Microcontroller.png" alt="Microcontroller in der Sensorik">
+          </div>
+        </article>
+
+        <article class="service-row">
+          <div class="service-media">
+            <img src="/uploads/Sensoren_auf_Tisch.png" alt="Sensoren auf dem Tisch">
+          </div>
+          <div class="service-content">
+            <div class="service-kicker">Sensorprinzipien</div>
+            <h3 class="service-title">Unterschiedliche Sensortypen für unterschiedliche Aufgaben</h3>
+            <p class="service-desc">Je nach Anwendungsfall kommen unterschiedliche Sensortypen zum Einsatz, etwa für Abstand, Füllstand, Anwesenheit oder Materialerkennung. Entscheidend ist, dass Sensor und Auswertung zusammenpassen.</p>
+            <div class="service-tags">
+              <span class="service-tag">Ultraschall</span>
+              <span class="service-tag">Lidar</span>
+              <span class="service-tag">Kapazitiv</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section example-section">
+    <div class="inner">
+      <div class="section-head">
+        <div class="eyebrow">Beispiele</div>
+        <h2>Beispielhafte Sensorik- und Auswertungsansichten</h2>
+        <p>Die Beispiele zeigen typische Perspektiven rund um reale Sensorprinzipien und deren spätere Auswertung in einem digitalen Prozess.</p>
+      </div>
+      <div class="example-grid" id="exampleGrid">
+        <article class="example-card" data-example-card data-index="0">
+          <img src="/uploads/Ultraschall_Auswertung.png" alt="Ultraschall-Auswertung">
+          <div class="example-body">
+            <strong>Ultraschall-Auswertung</strong>
+            <p>Ultraschall eignet sich gut, wenn Abstände, Füllstände oder Annäherungen gemessen und anschließend digital ausgewertet werden sollen.</p>
+          </div>
+        </article>
+        <article class="example-card" data-example-card data-index="1">
+          <img src="/uploads/Lidar_Bild.png" alt="Lidar in der Sensorik">
+          <div class="example-body">
+            <strong>Lidar-Erfassung</strong>
+            <p>Lidar ist besonders spannend, wenn präzisere Abstands- oder Umgebungsdaten gebraucht werden und diese später in eine digitale Auswertung übergehen sollen.</p>
+          </div>
+        </article>
+        <article class="example-card" data-example-card data-index="2">
+          <img src="/uploads/Kapazitiver Sensor.png" alt="Kapazitiver Sensor">
+          <div class="example-body">
+            <strong>Kapazitiver Sensor</strong>
+            <p>Kapazitive Sensorik eignet sich für Anwendungen, bei denen Materialien, Berührungen oder Füllstände zuverlässig erkannt und weiterverarbeitet werden sollen.</p>
+          </div>
+        </article>
+      </div>
+      <div class="example-stage" id="exampleStage">
+        <article class="example-focus">
+          <button class="example-close" type="button" id="exampleClose" aria-label="Beispiel schließen">×</button>
+          <button class="example-arrow example-arrow-left" type="button" id="examplePrev" aria-label="Vorheriges Beispiel">‹</button>
+          <button class="example-arrow example-arrow-right" type="button" id="exampleNext" aria-label="Nächstes Beispiel">›</button>
+          <img id="exampleFocusImage" src="" alt="">
+          <div class="example-focus-body">
+            <strong id="exampleFocusTitle"></strong>
+            <p id="exampleFocusText"></p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="inner">
+      <div class="section-head">
+        <div class="eyebrow">Was möglich ist</div>
+        <h2>Von Messwerten zu nutzbarer Auswertung</h2>
+        <p>Sensorik-Integration ist besonders interessant, wenn physische Vorgänge bisher nur manuell geprüft werden und Zustände künftig automatisch erfasst, ausgewertet und im Alltag nutzbar gemacht werden sollen.</p>
+      </div>
+      <div class="info-grid">
+        <article class="info-card">
+          <strong>Früher erkennen</strong>
+          <p>Abweichungen, Grenzwerte oder Veränderungen werden automatisch erkannt, bevor sie zu einem größeren Problem werden.</p>
+        </article>
+        <article class="info-card">
+          <strong>Messwerte sauber auswerten</strong>
+          <p>Erst durch passende Verarbeitung mit Python und der richtigen Hardware wird aus einem Sensorsignal eine belastbare Grundlage für Entscheidungen oder Folgeaktionen.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section" id="anschreiben">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="eyebrow">Kontakt</div>
+        <h2 class="contact-title">Lassen Sie uns sprechen.</h2>
+        <p class="contact-lead">Sie möchten einen sensorbasierten Anwendungsfall aufbauen oder erst einmal prüfen, welche Hardware und Auswertung sinnvoll ist? Schreiben Sie uns oder buchen Sie direkt einen Termin zur Sensorik-Integration.</p>
+        <div class="cal-box">
+          <div class="cal-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>
+          </div>
+          <div>
+            <div class="cal-title">Termin buchen</div>
+            <div class="cal-desc">30 Minuten kostenloses Erstgespräch — unverbindlich und direkt online.</div>
+          </div>
+        </div>
+        <button class="cal-btn btn-primary js-open-booking" type="button">Termin buchen</button>
+      </div>
+
+      <div class="contact-form-col">
+        <form class="contact-form" action="https://formsubmit.co/flexbsolutions@outlook.com" method="POST">
+          <input type="hidden" name="_subject" value="Neue Nachricht über FlexB Solutions - Sensorik-Integration">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+          <div class="form-row">
+            <div class="field">
+              <label class="label" for="prozess-first-name">Vorname</label>
+              <input class="input" id="prozess-first-name" name="Vorname" type="text" placeholder="Max" required>
+            </div>
+            <div class="field">
+              <label class="label" for="prozess-last-name">Nachname</label>
+              <input class="input" id="prozess-last-name" name="Nachname" type="text" placeholder="Mustermann" required>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label" for="prozess-email">E-Mail</label>
+            <input class="input" id="prozess-email" name="E-Mail" type="email" placeholder="max@beispiel.de" required>
+          </div>
+          <div class="field">
+            <label class="label" for="prozess-type">Ich bin...</label>
+            <select class="select" id="prozess-type" name="Ich bin">
+              <option>Unternehmen (B2B)</option>
+              <option>Privatkunde</option>
+              <option>Selbstständig</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="label" for="prozess-message">Nachricht</label>
+            <textarea class="textarea" id="prozess-message" name="Nachricht" placeholder="Welcher Sensorik-Anwendungsfall soll entstehen?" required></textarea>
+          </div>
+          <button class="submit-btn" type="submit">Nachricht senden</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="booking-overlay" id="bookingOverlay" aria-hidden="true">
+  <div class="booking-modal" role="dialog" aria-modal="true" aria-labelledby="bookingTitle">
+    <div id="bookingRoot"></div>
+  </div>
+</div>
+
+<script>
+  const exampleGrid = document.getElementById('exampleGrid');
+  const exampleCards = exampleGrid ? Array.from(exampleGrid.querySelectorAll('[data-example-card]')) : [];
+  const exampleStage = document.getElementById('exampleStage');
+  const exampleFocusImage = document.getElementById('exampleFocusImage');
+  const exampleFocusTitle = document.getElementById('exampleFocusTitle');
+  const exampleFocusText = document.getElementById('exampleFocusText');
+  const examplePrev = document.getElementById('examplePrev');
+  const exampleNext = document.getElementById('exampleNext');
+  const exampleClose = document.getElementById('exampleClose');
+  let activeExampleIndex = null;
+
+  const exampleItems = exampleCards.map((card) => ({
+    image: card.querySelector('img').getAttribute('src'),
+    alt: card.querySelector('img').getAttribute('alt'),
+    title: card.querySelector('strong').textContent,
+    text: card.querySelector('p').textContent
+  }));
+
+  function renderExample(index) {
+    const item = exampleItems[index];
+    if (!item) return;
+    activeExampleIndex = index;
+    exampleFocusImage.src = item.image;
+    exampleFocusImage.alt = item.alt;
+    exampleFocusTitle.textContent = item.title;
+    exampleFocusText.textContent = item.text;
+    exampleGrid.classList.add('is-hidden');
+    exampleStage.classList.add('is-active');
+  }
+
+  function closeExample() {
+    activeExampleIndex = null;
+    exampleStage.classList.remove('is-active');
+    exampleGrid.classList.remove('is-hidden');
+  }
+
+  if (exampleCards.length) {
+    exampleCards.forEach((card) => {
+      card.addEventListener('click', () => {
+        renderExample(Number(card.dataset.index));
+      });
+    });
+    examplePrev.addEventListener('click', () => {
+      if (activeExampleIndex === null) return;
+      renderExample((activeExampleIndex - 1 + exampleItems.length) % exampleItems.length);
+    });
+    exampleNext.addEventListener('click', () => {
+      if (activeExampleIndex === null) return;
+      renderExample((activeExampleIndex + 1) % exampleItems.length);
+    });
+    exampleClose.addEventListener('click', closeExample);
+  }
+
+  const bookingOverlay = document.getElementById('bookingOverlay');
+  const bookingRoot = document.getElementById('bookingRoot');
+  const bookingButtons = Array.from(document.querySelectorAll('.js-open-booking'));
+  const bookingState = {
+    step: 1,
+    selectedDate: null,
+    selectedTime: null,
+    form: { name: '', email: '', phone: '', type: 'Unternehmen', message: '' }
+  };
+
+  const today = new Date();
+  const bookingDays = [];
+  for (let i = 1; i <= 21; i += 1) {
+    const d = new Date(today);
+    d.setDate(today.getDate() + i);
+    if (d.getDay() !== 0) bookingDays.push(d);
+    if (bookingDays.length === 14) break;
+  }
+
+  const bookingSlots = ['09:00', '09:30', '10:00', '10:30', '11:00', '11:30', '14:00', '14:30', '15:00', '15:30', '16:00', '16:30'];
+  const bookingBooked = ['09:30', '10:00', '14:30'];
+  const weekdays = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
+  const months = ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'];
+
+  function formatBookingDate(date) {
+    return date ? `${weekdays[date.getDay()]}, ${date.getDate()}. ${months[date.getMonth()]}` : '';
+  }
+
+  function resetBooking() {
+    bookingState.step = 1;
+    bookingState.selectedDate = null;
+    bookingState.selectedTime = null;
+    bookingState.form = { name: '', email: '', phone: '', type: 'Unternehmen', message: '' };
+  }
+
+  function openBooking() {
+    renderBooking();
+    bookingOverlay.classList.add('is-open');
+    bookingOverlay.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeBooking() {
+    bookingOverlay.classList.remove('is-open');
+    bookingOverlay.setAttribute('aria-hidden', 'true');
+    resetBooking();
+  }
+
+  function renderBooking() {
+    const step = bookingState.step;
+    const progress = step < 4 ? `
+      <div class="booking-progress">
+        ${['Datum', 'Uhrzeit', 'Ihre Daten'].map((label, index) => {
+          const current = index + 1;
+          const isDone = step > current;
+          const isActive = step === current;
+          const dotBg = isDone || isActive ? 'var(--brand)' : 'var(--brand-tint)';
+          const dotColor = isDone || isActive ? '#fff' : 'var(--brand-light)';
+          const lineBg = step > current ? 'var(--brand)' : 'var(--brand-tint)';
+          return `
+            <div class="booking-progress-item">
+              <div class="booking-progress-dot" style="background:${dotBg};color:${dotColor}">
+                ${isDone ? '✓' : current}
+              </div>
+              <span class="booking-progress-label" style="color:${isActive ? 'var(--ink)' : '#9ca3af'};font-weight:${isActive ? '600' : '400'}">${label}</span>
+              ${index < 2 ? `<div class="booking-progress-line" style="background:${lineBg}"></div>` : ''}
+            </div>
+          `;
+        }).join('')}
+      </div>` : '';
+
+    let body = '';
+    if (step === 1) {
+      body = `
+        <div class="booking-body">
+          <div class="booking-step-title">Wählen Sie einen Tag</div>
+          <div class="booking-cal-grid">
+            ${bookingDays.map((date, index) => `
+              <button class="booking-day-btn" data-booking-day="${index}" type="button">
+                <span class="booking-day-name">${weekdays[date.getDay()]}</span>
+                <span class="booking-day-num">${date.getDate()}</span>
+                <span class="booking-day-month">${months[date.getMonth()]}</span>
+              </button>
+            `).join('')}
+          </div>
+          <div class="booking-hint">30 Minuten · Kostenlos &amp; unverbindlich · Online</div>
+        </div>
+      `;
+    } else if (step === 2) {
+      body = `
+        <div class="booking-body">
+          <button class="booking-back" type="button" data-booking-back="1">← ${formatBookingDate(bookingState.selectedDate)}</button>
+          <div class="booking-step-title">Uhrzeit wählen</div>
+          <div class="booking-slot-grid">
+            ${bookingSlots.map((time) => {
+              const isBooked = bookingBooked.includes(time);
+              return `
+                <button class="booking-slot-btn${isBooked ? ' is-booked' : ''}" ${isBooked ? 'disabled' : ''} data-booking-slot="${time}" type="button">
+                  ${time}
+                  ${isBooked ? '<span class="booking-booked-label">Belegt</span>' : ''}
+                </button>
+              `;
+            }).join('')}
+          </div>
+          <div class="booking-hint">Alle Zeiten in MEZ (Berlin). Grau = bereits vergeben.</div>
+        </div>
+      `;
+    } else if (step === 3) {
+      body = `
+        <div class="booking-body">
+          <button class="booking-back" type="button" data-booking-back="2">← ${formatBookingDate(bookingState.selectedDate)}, ${bookingState.selectedTime} Uhr</button>
+          <div class="booking-step-title">Ihre Kontaktdaten</div>
+          <form class="booking-form" id="bookingForm">
+            <div class="booking-form-row">
+              <div class="booking-field">
+                <label class="booking-label">Name *</label>
+                <input class="booking-input" name="name" placeholder="Max Mustermann" value="${bookingState.form.name}" required>
+              </div>
+              <div class="booking-field">
+                <label class="booking-label">E-Mail *</label>
+                <input class="booking-input" name="email" type="email" placeholder="max@beispiel.de" value="${bookingState.form.email}" required>
+              </div>
+            </div>
+            <div class="booking-form-row">
+              <div class="booking-field">
+                <label class="booking-label">Telefon (optional)</label>
+                <input class="booking-input" name="phone" placeholder="+49 000 0000000" value="${bookingState.form.phone}">
+              </div>
+              <div class="booking-field">
+                <label class="booking-label">Ich bin...</label>
+                <select class="booking-input" name="type">
+                  <option ${bookingState.form.type === 'Unternehmen' ? 'selected' : ''}>Unternehmen</option>
+                  <option ${bookingState.form.type === 'Privatkunde' ? 'selected' : ''}>Privatkunde</option>
+                  <option ${bookingState.form.type === 'Selbstständig' ? 'selected' : ''}>Selbstständig</option>
+                </select>
+              </div>
+            </div>
+            <div class="booking-field">
+              <label class="booking-label">Worum geht es? (optional)</label>
+              <textarea class="booking-input" name="message" style="min-height:72px;resize:vertical" placeholder="Kurze Beschreibung Ihres Anliegens...">${bookingState.form.message}</textarea>
+            </div>
+            <div class="booking-summary">
+              <span><strong>${formatBookingDate(bookingState.selectedDate)}</strong> um <strong>${bookingState.selectedTime} Uhr</strong> · 30 Min. · Online</span>
+            </div>
+            <button class="booking-submit" type="submit">Termin verbindlich buchen</button>
+          </form>
+        </div>
+      `;
+    } else {
+      body = `
+        <div class="booking-success">
+          <div class="booking-success-icon">✓</div>
+          <div class="booking-success-title">Termin bestätigt!</div>
+          <div class="booking-success-sub"><strong>${formatBookingDate(bookingState.selectedDate)}</strong> um <strong>${bookingState.selectedTime} Uhr</strong></div>
+          <p class="booking-success-text">Eine Bestätigung wurde an <strong>${bookingState.form.email}</strong> gesendet. Felix meldet sich vorab mit dem Meeting-Link.</p>
+          <button class="booking-submit" type="button" data-booking-close="1">Schließen</button>
+        </div>
+      `;
+    }
+
+    bookingRoot.innerHTML = `
+      <div class="booking-header">
+        <div>
+          <div class="eyebrow">Kostenlose Erstberatung</div>
+          <div class="booking-title" id="bookingTitle">Termin buchen</div>
+        </div>
+        <button class="booking-close" type="button" data-booking-close="1" aria-label="Schließen">×</button>
+      </div>
+      ${progress}
+      ${body}
+    `;
+
+    bookingRoot.querySelectorAll('[data-booking-day]').forEach((button) => {
+      button.addEventListener('click', () => {
+        bookingState.selectedDate = bookingDays[Number(button.dataset.bookingDay)];
+        bookingState.step = 2;
+        renderBooking();
+      });
+    });
+
+    bookingRoot.querySelectorAll('[data-booking-slot]').forEach((button) => {
+      button.addEventListener('click', () => {
+        bookingState.selectedTime = button.dataset.bookingSlot;
+        bookingState.step = 3;
+        renderBooking();
+      });
+    });
+
+    bookingRoot.querySelectorAll('[data-booking-back]').forEach((button) => {
+      button.addEventListener('click', () => {
+        bookingState.step = Number(button.dataset.bookingBack);
+        renderBooking();
+      });
+    });
+
+    bookingRoot.querySelectorAll('[data-booking-close]').forEach((button) => {
+      button.addEventListener('click', closeBooking);
+    });
+
+    const bookingForm = document.getElementById('bookingForm');
+    if (bookingForm) {
+      bookingForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const formData = new FormData(bookingForm);
+        bookingState.form = {
+          name: formData.get('name') || '',
+          email: formData.get('email') || '',
+          phone: formData.get('phone') || '',
+          type: formData.get('type') || 'Unternehmen',
+          message: formData.get('message') || ''
+        };
+        bookingState.step = 4;
+        renderBooking();
+      });
+    }
+  }
+
+  bookingButtons.forEach((button) => button.addEventListener('click', openBooking));
+  bookingOverlay.addEventListener('click', (event) => {
+    if (event.target === bookingOverlay) closeBooking();
+  });
+</script>
+</body>
+</html>

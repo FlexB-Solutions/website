@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Automatisierung & KI | Markt, Bedeutung und Chancen</title>
+  <style>
+    :root {
+      --bg: #eef8ee;
+      --bg2: #f8fff8;
+      --ink: #111827;
+      --muted: #64748b;
+      --green: #22c55e;
+      --green2: #00e676;
+      --mint: #a7f3d0;
+      --card: rgba(255,255,255,.78);
+      --border: rgba(34,197,94,.28);
+      --shadow: 0 20px 80px rgba(15, 23, 42, .12);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 85% 15%, rgba(167, 243, 208, .58), transparent 26rem),
+        radial-gradient(circle at 10% 80%, rgba(34, 197, 94, .09), transparent 28rem),
+        linear-gradient(135deg, var(--bg), var(--bg2));
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(34,197,94,.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(34,197,94,.055) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: linear-gradient(to right, transparent 0%, black 48%, black 100%);
+      opacity: .55;
+      z-index: -2;
+    }
+
+    .scroll-net {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(28vw, 360px);
+      height: 100vh;
+      pointer-events: none;
+      z-index: -1;
+      opacity: .9;
+    }
+
+    .net-line {
+      position: absolute;
+      width: 2px;
+      background: rgba(22, 163, 74, .18);
+      box-shadow: 0 0 18px rgba(34,197,94,.28);
+      transform-origin: top;
+      border-radius: 999px;
+    }
+
+    .net-line.active {
+      background: linear-gradient(to bottom, rgba(0,230,118,.15), rgba(0,230,118,.95));
+      box-shadow: 0 0 26px rgba(0,230,118,.55);
+    }
+
+    .node {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(34, 197, 94, .46);
+      border-radius: 999px;
+      background: rgba(238,248,238,.86);
+      box-shadow: 0 0 18px rgba(34,197,94,.18);
+      transform: translate(-50%, -50%);
+      transition: .45s ease;
+    }
+
+    .node.active {
+      width: 26px;
+      height: 26px;
+      border-color: var(--green2);
+      background: #f5fff5;
+      box-shadow: 0 0 16px rgba(0,230,118,.9), 0 0 42px rgba(0,230,118,.65);
+    }
+
+    .node.active::after {
+      content: "";
+      position: absolute;
+      inset: 6px;
+      border-radius: 999px;
+      background: var(--green2);
+    }
+
+    header {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 8vw;
+      position: relative;
+    }
+
+    .hero {
+      max-width: 1120px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255,255,255,.65);
+      color: #0f9f52;
+      font-weight: 750;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 30px rgba(34,197,94,.08);
+    }
+
+    .pulse-dot {
+      width: 9px;
+      height: 9px;
+      background: var(--green);
+      border-radius: 999px;
+      box-shadow: 0 0 18px var(--green2);
+      animation: pulse 1.6s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: .8; }
+      50% { transform: scale(1.8); opacity: .35; }
+    }
+
+    h1 {
+      font-size: clamp(3rem, 7vw, 6.8rem);
+      line-height: .94;
+      margin: 28px 0 24px;
+      letter-spacing: -0.075em;
+    }
+
+    h1 span {
+      color: #0f9f52;
+      text-shadow: 0 0 26px rgba(34,197,94,.18);
+    }
+
+    .lead {
+      max-width: 780px;
+      font-size: clamp(1.12rem, 2vw, 1.45rem);
+      line-height: 1.55;
+      color: #334155;
+      margin: 0;
+    }
+
+    .hero-card {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.72);
+      border-radius: 34px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+      transform-style: preserve-3d;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotateX(0deg); }
+      50% { transform: translateY(-12px) rotateX(2deg); }
+    }
+
+    .dashboard {
+      display: grid;
+      gap: 14px;
+    }
+
+    .dash-top {
+      height: 180px;
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at 25% 30%, rgba(0,230,118,.32), transparent 110px),
+        linear-gradient(135deg, #0f172a, #153627);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(34,197,94,.3);
+    }
+
+    .dash-top::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(167,243,208,.14) 1px, transparent 1px), linear-gradient(90deg, rgba(167,243,208,.14) 1px, transparent 1px);
+      background-size: 34px 34px;
+      animation: gridmove 6s linear infinite;
+    }
+
+    @keyframes gridmove {
+      to { background-position: 34px 34px; }
+    }
+
+    .orb {
+      position: absolute;
+      width: 86px;
+      height: 86px;
+      border: 2px solid var(--green2);
+      border-radius: 999px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 28px rgba(0,230,118,.65);
+    }
+
+    .orb::before, .orb::after {
+      content: "";
+      position: absolute;
+      inset: -38px;
+      border: 1px solid rgba(0,230,118,.28);
+      border-radius: 999px;
+      animation: ring 2.4s linear infinite;
+    }
+
+    .orb::after { animation-delay: 1.2s; }
+
+    @keyframes ring {
+      from { transform: scale(.72); opacity: .9; }
+      to { transform: scale(1.35); opacity: 0; }
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 14px;
+    }
+
+    .metric {
+      min-height: 120px;
+      border: 1px solid rgba(148,163,184,.25);
+      border-radius: 22px;
+      background: rgba(255,255,255,.78);
+      padding: 20px;
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 2rem;
+      letter-spacing: -0.04em;
+      margin-bottom: 6px;
+    }
+
+    .metric small {
+      color: var(--muted);
+      font-weight: 650;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 28px 120px;
+    }
+
+    section {
+      min-height: 88vh;
+      display: grid;
+      align-content: center;
+      padding: 72px 0;
+    }
+
+    .section-head {
+      margin-bottom: 28px;
+      max-width: 820px;
+    }
+
+    h2 {
+      font-size: clamp(2.2rem, 5vw, 4.5rem);
+      line-height: .98;
+      letter-spacing: -0.065em;
+      margin: 0 0 16px;
+    }
+
+    .section-head p {
+      font-size: 1.1rem;
+      line-height: 1.65;
+      color: #475569;
+      margin: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .fact {
+      position: relative;
+      min-height: 265px;
+      padding: 26px;
+      border-radius: 28px;
+      border: 1px solid rgba(34,197,94,.22);
+      background: var(--card);
+      box-shadow: 0 18px 60px rgba(15,23,42,.08);
+      overflow: hidden;
+      transform: translateY(28px);
+      opacity: 0;
+      transition: .8s ease;
+      backdrop-filter: blur(14px);
+    }
+
+    .fact.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .fact::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 80% 0%, rgba(34,197,94,.18), transparent 190px);
+      pointer-events: none;
+    }
+
+    .fact .number {
+      font-size: clamp(2.6rem, 5vw, 4.7rem);
+      font-weight: 900;
+      letter-spacing: -0.075em;
+      color: #0f9f52;
+      line-height: .95;
+      margin-bottom: 16px;
+    }
+
+    .fact h3 {
+      margin: 0 0 10px;
+      font-size: 1.25rem;
+      letter-spacing: -0.025em;
+    }
+
+    .fact p {
+      margin: 0 0 18px;
+      line-height: 1.55;
+      color: #475569;
+    }
+
+    .source {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: auto;
+      color: #059669;
+      font-weight: 760;
+      text-decoration: none;
+      position: relative;
+      z-index: 1;
+    }
+
+    .why {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .big-panel {
+      border: 1px solid rgba(34,197,94,.22);
+      border-radius: 36px;
+      background: rgba(255,255,255,.72);
+      box-shadow: var(--shadow);
+      padding: 34px;
+      backdrop-filter: blur(16px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .big-panel::after {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border-radius: 999px;
+      background: rgba(34,197,94,.12);
+      filter: blur(10px);
+      right: -190px;
+      bottom: -210px;
+    }
+
+    .reason-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .reason {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 14px;
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(255,255,255,.66);
+      border: 1px solid rgba(148,163,184,.22);
+      transform: translateX(24px);
+      opacity: 0;
+      transition: .72s ease;
+    }
+
+    .reason.visible {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    .badge {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--mint), #ffffff);
+      color: #059669;
+      font-weight: 900;
+      box-shadow: 0 0 28px rgba(34,197,94,.18);
+    }
+
+    .reason h3 { margin: 0 0 4px; }
+    .reason p { margin: 0; color: #475569; line-height: 1.5; }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 25px;
+      top: 20px;
+      bottom: 20px;
+      width: 2px;
+      background: linear-gradient(var(--green2), rgba(34,197,94,.15));
+      box-shadow: 0 0 18px rgba(0,230,118,.45);
+    }
+
+    .step {
+      position: relative;
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 16px;
+      align-items: start;
+      transform: translateY(26px);
+      opacity: 0;
+      transition: .72s ease;
+    }
+
+    .step.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .step-dot {
+      width: 52px;
+      height: 52px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: #fff;
+      border: 2px solid var(--green2);
+      color: #059669;
+      font-weight: 900;
+      box-shadow: 0 0 25px rgba(0,230,118,.28);
+      z-index: 1;
+    }
+
+    .step-content {
+      padding: 18px 20px;
+      border-radius: 22px;
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(148,163,184,.22);
+    }
+
+    .step-content h3 { margin: 0 0 6px; }
+    .step-content p { margin: 0; line-height: 1.55; color: #475569; }
+
+    footer {
+      min-height: 70vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 80px 28px;
+    }
+
+    .cta {
+      max-width: 980px;
+      padding: 54px;
+      border-radius: 42px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.72);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .cta h2 {
+      margin-bottom: 18px;
+    }
+
+    .cta p {
+      margin: 0 auto 24px;
+      max-width: 760px;
+      color: #475569;
+      font-size: 1.14rem;
+      line-height: 1.6;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 0 22px;
+      border-radius: 999px;
+      background: #0f9f52;
+      color: white;
+      font-weight: 850;
+      text-decoration: none;
+      box-shadow: 0 16px 40px rgba(15,159,82,.24);
+    }
+
+    .sources {
+      margin-top: 24px;
+      color: #64748b;
+      font-size: .92rem;
+      line-height: 1.7;
+    }
+
+    .sources a { color: #059669; font-weight: 700; }
+
+    @media (max-width: 920px) {
+      .hero, .why { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr; }
+      .scroll-net { opacity: .3; width: 42vw; }
+      main { padding-inline: 18px; }
+      header { padding: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="scroll-net" aria-hidden="true">
+    <div class="net-line" style="height:24vh; right: 82px; top: -4vh; transform: rotate(9deg);"></div>
+    <div class="net-line" style="height:22vh; right: 130px; top: 17vh; transform: rotate(-18deg);"></div>
+    <div class="net-line" style="height:30vh; right: 64px; top: 33vh; transform: rotate(17deg);"></div>
+    <div class="net-line" style="height:26vh; right: 156px; top: 55vh; transform: rotate(-10deg);"></div>
+    <div class="node" style="right: 92px; top: 10vh;"></div>
+    <div class="node" style="right: 154px; top: 26vh;"></div>
+    <div class="node" style="right: 72px; top: 42vh;"></div>
+    <div class="node" style="right: 178px; top: 61vh;"></div>
+    <div class="node" style="right: 94px; top: 78vh;"></div>
+    <div class="node" style="right: 142px; top: 94vh;"></div>
+  </div>
+
+  <header id="top">
+    <div class="hero">
+      <div>
+        <div class="eyebrow"><span class="pulse-dot"></span> Markttrend Automatisierung & KI</div>
+        <h1>Automatisierung wird zur <span>Grundlage</span> effizienter Arbeit.</h1>
+        <p class="lead">
+          Der Markt wächst, KI wird zur Infrastruktur und Unternehmen müssen Prozesse schneller, transparenter und fehlerärmer machen. Diese Seite fasst die wichtigsten Fakten mit Quellen zusammen.
+        </p>
+      </div>
+      <div class="hero-card">
+        <div class="dashboard">
+          <div class="dash-top"><div class="orb"></div></div>
+          <div class="metrics">
+            <div class="metric"><strong>+9,31%</strong><small>CAGR industrielle Automatisierung</small></div>
+            <div class="metric"><strong>$632 Mrd.</strong><small>KI-Ausgaben bis 2028</small></div>
+            <div class="metric"><strong>4,28 Mio.</strong><small>Roboter weltweit in Fabriken</small></div>
+            <div class="metric"><strong>6</strong><small>typische Use Cases für KMU</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="section-head">
+        <h2>Markt: Wachstum ist bereits messbar.</h2>
+        <p>Die Zahlen zeigen, dass Automatisierung und KI nicht nur Trendbegriffe sind, sondern echte Investitionsfelder in Industrie, Software, Gebäudetechnik und Unternehmensprozessen.</p>
+      </div>
+
+      <div class="grid">
+        <article class="fact reveal">
+          <div class="number">$613 Mrd.</div>
+          <h3>Industrielle Automatisierung wächst langfristig.</h3>
+          <p>Der globale Markt für industrielle Automatisierung soll von 256,02 Mrd. US-Dollar im Jahr 2025 auf rund 613,25 Mrd. US-Dollar bis 2035 steigen.</p>
+          <a class="source" href="https://www.precedenceresearch.com/industrial-automation-market" target="_blank">Quelle: Precedence Research ↗</a>
+        </article>
+
+        <article class="fact reveal">
+          <div class="number">$3,5 Bio.</div>
+          <h3>KI wird zu einer Kerntechnologie.</h3>
+          <p>Der weltweite KI-Markt wird für 2025 auf 390,91 Mrd. US-Dollar geschätzt und soll bis 2033 auf 3,497 Bio. US-Dollar wachsen.</p>
+          <a class="source" href="https://www.grandviewresearch.com/industry-analysis/artificial-intelligence-ai-market" target="_blank">Quelle: Grand View Research ↗</a>
+        </article>
+
+        <article class="fact reveal">
+          <div class="number">$632 Mrd.</div>
+          <h3>Unternehmen geben mehr für KI aus.</h3>
+          <p>IDC prognostiziert, dass weltweite Ausgaben für KI-Anwendungen, Infrastruktur und Services bis 2028 auf 632 Mrd. US-Dollar steigen.</p>
+          <a class="source" href="https://www.businesswire.com/news/home/20240819177906/en/Worldwide-Spending-on-Artificial-Intelligence-Forecast-to-Reach-%24632-Billion-in-2028-According-to-a-New-IDC-Spending-Guide" target="_blank">Quelle: IDC / Business Wire ↗</a>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>Warum ist das wichtig?</h2>
+        <p>Automatisierung löst nicht nur einzelne Aufgaben. Sie verändert, wie Arbeit organisiert wird: Daten werden sauberer, Abläufe schneller und Ressourcen besser genutzt.</p>
+      </div>
+
+      <div class="why">
+        <div class="big-panel">
+          <h2>Von manuell zu vernetzt.</h2>
+          <p class="lead">Der größte Hebel liegt in wiederkehrenden Abläufen: Termine, Bestände, Statusmeldungen, Füllstände, Gebäudezustände und Prozessdaten.</p>
+          <div class="timeline">
+            <div class="step reveal">
+              <div class="step-dot">1</div>
+              <div class="step-content"><h3>Daten erfassen</h3><p>Sensoren, Kalender, Formulare und Systeme liefern den Zustand des Prozesses.</p></div>
+            </div>
+            <div class="step reveal">
+              <div class="step-dot">2</div>
+              <div class="step-content"><h3>Automatisch bewerten</h3><p>Regeln oder KI prüfen Bedarf, Schwellenwerte, freie Slots oder Abweichungen.</p></div>
+            </div>
+            <div class="step reveal">
+              <div class="step-dot">3</div>
+              <div class="step-content"><h3>Aktion auslösen</h3><p>Das System sendet E-Mails, steuert Verbraucher, legt Daten ab oder löst Bestellungen aus.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reason-list">
+          <div class="reason reveal"><div class="badge">01</div><div><h3>Produktivität</h3><p>Goldman Sachs Research sieht durch generative KI langfristig Potenzial für 7 Prozent mehr globales BIP und 1,5 Prozentpunkte höheres Produktivitätswachstum über zehn Jahre.</p><a class="source" href="https://www.goldmansachs.com/insights/articles/generative-ai-could-raise-global-gdp-by-7-percent" target="_blank">Quelle ↗</a></div></div>
+          <div class="reason reveal"><div class="badge">02</div><div><h3>Fachkräftemangel</h3><p>Das World Economic Forum untersucht mit Daten von über 1.000 Arbeitgebern, wie KI, Digitalisierung und Automatisierung Jobs und Fähigkeiten bis 2030 verändern.</p><a class="source" href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank">Quelle ↗</a></div></div>
+          <div class="reason reveal"><div class="badge">03</div><div><h3>Industrie & Robotik</h3><p>IFR meldete 2023 weltweit 4.281.585 Industrieroboter in Fabriken. Das entspricht einem Plus von 10 Prozent gegenüber dem Vorjahr.</p><a class="source" href="https://ifr.org/ifr-press-releases/news/record-of-4-million-robots-working-in-factories-worldwide" target="_blank">Quelle ↗</a></div></div>
+          <div class="reason reveal"><div class="badge">04</div><div><h3>Vernetzte Technologien</h3><p>McKinsey zählt Cloud und Edge Computing, Advanced Connectivity, generative KI, Applied AI, Digital Trust und Robotics zu zentralen Technologietrends.</p><a class="source" href="https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-top-trends-in-tech-2024" target="_blank">Quelle ↗</a></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>Relevanz für kleine und mittlere Unternehmen.</h2>
+        <p>Der Einstieg muss nicht groß sein. Gerade kleine, klar abgegrenzte Automatisierungen liefern schnell sichtbaren Nutzen.</p>
+      </div>
+
+      <div class="grid">
+        <article class="fact reveal">
+          <div class="number">01</div>
+          <h3>Terminbuchung</h3>
+          <p>Anfragen werden automatisch geprüft, freie Slots erkannt und Bestätigungen verschickt.</p>
+        </article>
+        <article class="fact reveal">
+          <div class="number">02</div>
+          <h3>Workflow-Automatisierung</h3>
+          <p>Auslöser, Verarbeitung und Aktion werden zu einem reproduzierbaren Prozess verbunden.</p>
+        </article>
+        <article class="fact reveal">
+          <div class="number">03</div>
+          <h3>Bestandsmanagement</h3>
+          <p>Füllstände und Lagerbestände werden überwacht. Bei Unterschreitung wird automatisch bestellt.</p>
+        </article>
+        <article class="fact reveal">
+          <div class="number">04</div>
+          <h3>Objekterkennung</h3>
+          <p>Briefe, Pakete oder Bauteile können über Sensorik, Höhe, Intensität oder Bilddaten erkannt werden.</p>
+        </article>
+        <article class="fact reveal">
+          <div class="number">05</div>
+          <h3>Gebäudesteuerung</h3>
+          <p>Heizung und Licht werden nur dann aktiviert, wenn Räume laut Kalender wirklich genutzt werden.</p>
+        </article>
+        <article class="fact reveal">
+          <div class="number">06</div>
+          <h3>Füllstandsüberwachung</h3>
+          <p>Behälterstände werden automatisch gemessen, visualisiert und bei Bedarf gemeldet.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="cta reveal">
+      <h2>Automatisierung ist kein Selbstzweck.</h2>
+      <p>Sie wird wichtig, weil Unternehmen schneller reagieren, weniger manuelle Fehler machen und Mitarbeitende von wiederkehrenden Aufgaben entlasten müssen.</p>
+      <a class="btn" href="#top">Zurück nach oben</a>
+      <div class="sources">
+        Quellen: 
+        <a href="https://www.precedenceresearch.com/industrial-automation-market" target="_blank">Precedence Research</a>,
+        <a href="https://www.grandviewresearch.com/industry-analysis/artificial-intelligence-ai-market" target="_blank">Grand View Research</a>,
+        <a href="https://www.businesswire.com/news/home/20240819177906/en/Worldwide-Spending-on-Artificial-Intelligence-Forecast-to-Reach-%24632-Billion-in-2028-According-to-a-New-IDC-Spending-Guide" target="_blank">IDC / Business Wire</a>,
+        <a href="https://ifr.org/ifr-press-releases/news/record-of-4-million-robots-working-in-factories-worldwide" target="_blank">IFR</a>,
+        <a href="https://www.goldmansachs.com/insights/articles/generative-ai-could-raise-global-gdp-by-7-percent" target="_blank">Goldman Sachs</a>,
+        <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank">WEF</a>,
+        <a href="https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/the-top-trends-in-tech-2024" target="_blank">McKinsey</a>.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const revealItems = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.18 });
+    revealItems.forEach((el, i) => {
+      el.style.transitionDelay = `${Math.min(i % 6, 5) * 0.08}s`;
+      io.observe(el);
+    });
+
+    const nodes = Array.from(document.querySelectorAll('.node'));
+    const lines = Array.from(document.querySelectorAll('.net-line'));
+
+    function updateProgress() {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = max > 0 ? window.scrollY / max : 0;
+      const activeCount = Math.ceil(progress * nodes.length);
+
+      nodes.forEach((node, i) => {
+        node.classList.toggle('active', i < activeCount);
+      });
+
+      lines.forEach((line, i) => {
+        line.classList.toggle('active', i < Math.ceil(progress * lines.length));
+      });
+    }
+
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+  </script>
+</body>
+</html>

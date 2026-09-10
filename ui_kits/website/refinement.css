@@ -1,0 +1,84 @@
+/* FlexB: warm paper, precise rules, a single deliberate brand entrance. */
+:root { --paper: #f6f5f0; --ink: #14261f; --brand: #187344; }
+body { background: var(--paper); color: var(--ink); }
+section[id] { scroll-margin-top: 80px; }
+:focus-visible { outline: 2px solid #187344; outline-offset: 5px; }
+.entry-track { height: 125svh; }
+.entry-curtain { --entry-progress: 0; --entry-reveal: 0; position: fixed; inset: 0; height: 100svh; z-index: 500; overflow: hidden; color: #f4f3eb; background: #10281f; clip-path: inset(0 0 calc(var(--entry-reveal) * 100%) 0); }
+.entry-scene { position: absolute; inset: 0; background-image: linear-gradient(90deg, rgba(16,40,31,.85), rgba(16,40,31,.48)), url('/uploads/stock/landing-page-hero.png'); background-size: cover; background-position: center; opacity: clamp(0, calc(var(--entry-progress) * 2.5), 1); transform: scale(calc(1.12 - var(--entry-progress) * .12)); }
+.entry-top, .entry-bottom { position: absolute; left: clamp(24px, 5vw, 80px); right: clamp(24px, 5vw, 80px); display: flex; align-items: center; justify-content: space-between; gap: 24px; z-index: 2; }
+.entry-top { top: 30px; padding-bottom: 24px; border-bottom: 1px solid #ffffff26; font-size: 15px; letter-spacing: .02em; }
+.entry-curtain button { border: 0; background: transparent; color: inherit; cursor: pointer; font: inherit; padding: 10px 0; }
+.entry-curtain button:focus-visible { outline-color: #74d69a; }
+.entry-circuit { position: absolute; inset: 0; width: 100%; height: 100%; color: #507363; opacity: max(0, calc(.65 - var(--entry-progress) * 1.8)); }
+.entry-circuit__base { opacity: .45; }
+.entry-circuit__signal path { stroke-dasharray: 1; stroke-dashoffset: 1; animation: entry-connect 1.6s .2s cubic-bezier(.22,1,.36,1) forwards; }
+.entry-center { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; transform: translateY(calc(var(--entry-reveal) * -100px)) scale(calc(1 - var(--entry-progress) * .08)); }
+.entry-eyebrow { color: #a6beae; font-size: clamp(9px, 1vw, 12px); letter-spacing: .2em; margin-bottom: 22px; }
+.entry-wordmark { display: flex; font-size: clamp(110px, 22vw, 310px); font-weight: 600; line-height: .95; letter-spacing: -.065em; padding-right: .065em; }
+.entry-wordmark span { animation: entry-letter 1s both cubic-bezier(.16,1,.3,1); }
+.entry-wordmark span:nth-child(2) { animation-delay: .08s; }
+.entry-wordmark span:nth-child(3) { animation-delay: .16s; }
+.entry-wordmark span:nth-child(4) { animation-delay: .24s; }
+.entry-wordmark span:nth-child(5) {
+  animation-delay: .32s;
+  /* Das B wandert waehrend der Scroll-Animation vom hellen Mint ins Marken-Dunkelgruen
+     und trifft damit die Farbe des B im Hero. --entry-progress (0..1) setzt EntrySequence.
+     Fertig bei progress 0.33 - das B wird ab ca. 0.52 von der clip-path-Kante angeschnitten. */
+  color: color-mix(in oklab, var(--brand) clamp(0%, calc(var(--entry-progress, 0) * 300%), 100%), #74d69a);
+}
+.entry-rule { height: 1px; background: #6e947e; width: clamp(210px, 45vw, 630px); margin: 34px 0 20px; transform-origin: left; animation: entry-rule 1.4s .4s both; }
+.entry-signature { font-size: 12px; letter-spacing: .55em; padding-left: .55em; color: #c0cfc4; }
+.entry-bottom { bottom: 32px; justify-content: center; font-size: 13px; line-height: 1.65; color: #a6beae; }
+.entry-bottom button { display: flex; align-items: center; gap: 22px; color: #f4f3eb; }
+.entry-arrow { display: grid; place-items: center; width: 40px; height: 52px; border: 1px solid #6e947e; border-radius: 24px; font-size: 22px; }
+@keyframes entry-letter { from { opacity: 0; transform: translateY(45px); filter: blur(8px); } to { opacity: 1; transform: translateY(0); filter: blur(0); } }
+@keyframes entry-connect { to { stroke-dashoffset: 0; } }
+@keyframes entry-rule { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.site-nav { background: rgba(246,245,240,.96) !important; border-bottom-color: #d8ded6 !important; }
+.hero-section { background: var(--paper); }
+.hero-logo { animation: none; font-weight: 700; }
+.hero-section:before { filter: saturate(.65); background-attachment: scroll; }
+.hero-section:after { background: linear-gradient(90deg, #f6f5f0 0%, rgba(246,245,240,.94) 34%, rgba(246,245,240,.65) 60%, rgba(246,245,240,.12) 100%); }
+.hero-logo-sub strong { font-weight: 600; letter-spacing: .22em; }
+.hero-logo-sub span { color: #40574a; }
+.hero-title { font-weight: 600; letter-spacing: -.045em; line-height: 1.07; }
+.hero-title span, .hero-logo span { color: var(--brand) !important; }
+.hero-lead { font-weight: 400; font-size: clamp(17px, 1.4vw, 21px); max-width: 600px; line-height: 1.7; color: #405047; }
+.hero-section .hero-trust > div { font-weight: 400; color: #405047 !important; }
+.hero-ctas button { box-shadow: none !important; border-radius: 4px !important; }
+.hero-ctas button:first-child, .site-nav__links button { background: var(--brand) !important; }
+.hero-ctas button:nth-child(2) { background: transparent !important; border-color: #748c7b !important; color: #234d36 !important; }
+.hero-ctas button:hover, .site-nav__links button:hover { filter: brightness(.9); }
+#furwen, #kontakt { background: var(--paper) !important; }
+#ergebnisse { background: #183e2e !important; }
+#leistungen h2, #furwen h2, #ergebnisse h2, #ubermich h2, #kontakt h2, .company-title { font-weight: 600 !important; letter-spacing: -.035em !important; }
+.service-feature-row { border-radius: 6px !important; box-shadow: none !important; }
+.service-feature-row > div { border-radius: 6px !important; box-shadow: none !important; }
+.forwhom-grid > div { border-radius: 4px !important; border-color: #dce1d8 !important; box-shadow: none !important; border-top: 2px solid #688b73 !important; }
+.about-photo, .company-map, .company-image-stage { border-radius: 6px !important; box-shadow: none !important; border-color: #dce1d8 !important; }
+.company-map { background: #f6f5f0; }
+.reveal-base { transition-duration: .65s; }
+[data-reveal-side="left"] { --reveal-x: -24px; }
+[data-reveal-side="right"] { --reveal-x: 24px; }
+[data-reveal-side="bottom"] { --reveal-y: 24px; }
+[data-reveal-side="zoom"] { --reveal-scale: .97; }
+@media (max-width: 900px) {
+  .hero-section:after { background: linear-gradient(180deg, rgba(246,245,240,.83), rgba(246,245,240,.95)); }
+}
+@media (max-width: 640px) {
+  .entry-top { top: 16px; padding-bottom: 16px; }
+  .entry-bottom { bottom: 26px; align-items: flex-end; }
+  .entry-bottom button { gap: 12px; font-size: 12px; }
+  .entry-eyebrow { letter-spacing: .11em; }
+  .entry-circuit { opacity: .35; }
+  .hero-logo-lockup { flex-wrap: wrap; }
+  .hero-logo-divider { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *:before, *:after { animation: none !important; transition: none !important; }
+  .entry-curtain, .entry-track { display: none; }
+}
+
+[inert] .flexbot-fab, [inert] .flexbot-panel { visibility: hidden; }

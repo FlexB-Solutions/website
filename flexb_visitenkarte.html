@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>FlexB Solutions – Visitenkarte</title>
+<style>
+  @page { size: 85mm 55mm; margin: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #ddd; }
+  body { font-family: Arial, Helvetica, sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .card {
+    width: 85mm; height: 55mm; position: relative; overflow: hidden;
+    page-break-after: always;
+  }
+  .front {
+    background: #0d3027;
+    color: #f4f1e8;
+  }
+  .front::before {
+    content:""; position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 2% 38%, rgba(104,215,157,.55) 0 1.3mm, transparent 2.5mm),
+      radial-gradient(circle at 98% 38%, rgba(104,215,157,.55) 0 1.3mm, transparent 2.5mm),
+      radial-gradient(circle at 2% 75%, rgba(104,215,157,.42) 0 1.2mm, transparent 2.4mm),
+      radial-gradient(circle at 98% 75%, rgba(104,215,157,.42) 0 1.2mm, transparent 2.4mm),
+      radial-gradient(circle at 50% 50%, rgba(34,92,70,.20), transparent 62%);
+    pointer-events:none;
+  }
+  .front .strap {
+    position:absolute; top:3.3mm; left:0; width:100%; text-align:center;
+    font-size:2.35mm; letter-spacing:1.0mm; font-weight:400; color:#a8b8b0;
+  }
+  .front .brand {
+    position:absolute; left:6.8mm; right:6.8mm; top:16.1mm;
+    display:flex; align-items:baseline; justify-content:center;
+    font-size:23.5mm; line-height:.86; font-weight:700; letter-spacing:-1.65mm;
+  }
+  .brand .flex { color:#f3f0e7; }
+  .brand .b { color:#72d49a; margin-left:.45mm; }
+  .front .bottom-line {
+    position:absolute; left:21mm; right:21mm; bottom:6.7mm; height:.22mm; background:rgba(145,173,160,.28);
+  }
+  .front .solutions {
+    position:absolute; left:0; width:100%; bottom:1.9mm; text-align:center;
+    font-size:2.35mm; letter-spacing:2.3mm; color:#b9c6c0; font-weight:400;
+  }
+
+  .back { background:#f6f4ee; color:#0d2a23; padding:4.5mm 5.2mm; }
+  .back::after {
+    content:""; position:absolute; left:-8mm; bottom:-14mm; width:45mm; height:27mm;
+    border-radius:50%; background:rgba(114,212,154,.07); pointer-events:none;
+  }
+  .header { display:flex; align-items:center; height:12.2mm; }
+  .mini-brand { display:flex; align-items:baseline; font-size:8.2mm; font-weight:700; letter-spacing:-.55mm; line-height:1; white-space:nowrap; }
+  .mini-brand .flex { color:#102b24; }
+  .mini-brand .b { color:#137342; }
+  .divider { width:.35mm; height:10.2mm; background:#8dcbb0; margin:0 3.2mm 0 3mm; }
+  .headcopy { min-width:0; }
+  .headcopy .sol { font-size:3.45mm; letter-spacing:1.8mm; font-weight:600; line-height:1; white-space:nowrap; }
+  .headcopy .desc { margin-top:1.55mm; font-size:2.55mm; letter-spacing:.05mm; color:#486158; white-space:nowrap; }
+  .rule { position:absolute; left:5.2mm; right:5.2mm; top:18.2mm; height:.18mm; background:rgba(13,42,35,.10); }
+
+  .portrait {
+    position:absolute; left:5.2mm; top:21.4mm; width:19mm; height:27mm;
+    border-radius:1.2mm; overflow:hidden; background:#d6dedb;
+  }
+  .portrait img { width:100%; height:100%; object-fit:cover; object-position:50% 37%; display:block; }
+
+  .contact { position:absolute; left:28.3mm; top:22mm; width:36.5mm; }
+  .name { font-size:4.1mm; font-weight:700; margin-bottom:4.8mm; letter-spacing:-.12mm; }
+  .row { display:grid; grid-template-columns:4mm 1fr; column-gap:2mm; align-items:center; margin-bottom:3.2mm; }
+  .icon {
+    width:4mm; height:4mm; border-radius:50%; background:#2f9a65; color:white;
+    display:flex; align-items:center; justify-content:center; font-size:1.8mm; font-weight:700;
+  }
+  .value { font-size:2.72mm; color:#15342c; white-space:nowrap; }
+  .value.email { font-size:2.45mm; }
+
+  .qrzone { position:absolute; right:5.3mm; top:22mm; width:13.2mm; text-align:center; }
+  .qr {
+    width:12.5mm; height:12.5mm; margin:0 auto; position:relative;
+    background:
+      linear-gradient(90deg,#d8d7d1 12%,transparent 12% 24%,#d8d7d1 24% 36%,transparent 36% 49%,#d8d7d1 49% 61%,transparent 61% 75%,#d8d7d1 75% 88%,transparent 88%),
+      linear-gradient(#d8d7d1 12%,transparent 12% 24%,#d8d7d1 24% 36%,transparent 36% 49%,#d8d7d1 49% 61%,transparent 61% 75%,#d8d7d1 75% 88%,transparent 88%);
+    opacity:.62;
+  }
+  .qr::before, .qr::after { content:""; position:absolute; width:4mm; height:4mm; border:1mm solid #c7c7c2; background:#f6f4ee; }
+  .qr::before { left:.7mm; top:.7mm; } .qr::after { right:.7mm; top:.7mm; }
+  .scan { margin-top:2.5mm; font-size:1.85mm; letter-spacing:1.05mm; color:#17382f; }
+  .qr-label { margin-top:6.1mm; font-size:1.55mm; letter-spacing:.35mm; color:#70837b; line-height:1.35; }
+  .qr-sep { position:absolute; left:-2.7mm; top:.5mm; width:.2mm; height:24mm; background:#8dcbb0; opacity:.75; }
+</style>
+</head>
+<body>
+<section class="card front">
+  <div class="strap">AUTOMATISIERUNG &amp; PROZESSOPTIMIERUNG</div>
+  <div class="brand"><span class="flex">Flex</span><span class="b">B</span></div>
+  <div class="bottom-line"></div>
+  <div class="solutions">SOLUTIONS</div>
+</section>
+
+<section class="card back">
+  <div class="header">
+    <div class="mini-brand"><span class="flex">Flex</span><span class="b">B</span></div>
+    <div class="divider"></div>
+    <div class="headcopy">
+      <div class="sol">SOLUTIONS</div>
+      <div class="desc">Automatisierung &amp; Prozessoptimierung</div>
+    </div>
+  </div>
+  <div class="rule"></div>
+
+  <div class="portrait"><img src="AFD67AA2-0670-4A68-9860-5F1880D1E6B0.jpeg" alt="Felix Breitner"></div>
+
+  <div class="contact">
+    <div class="name">Felix Breitner</div>
+    <div class="row"><div class="icon">T</div><div class="value">+49 151 59916160</div></div>
+    <div class="row"><div class="icon">@</div><div class="value email">flexbsolutions@outlook.com</div></div>
+  </div>
+
+  <div class="qrzone">
+    <div class="qr-sep"></div>
+    <div class="qr"></div>
+    <div class="scan">SCAN ME</div>
+    <div class="qr-label">QR-CODE<br>PLATZHALTER</div>
+  </div>
+</section>
+</body>
+</html>
