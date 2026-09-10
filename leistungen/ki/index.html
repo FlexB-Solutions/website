@@ -311,7 +311,7 @@ h1{font-size:clamp(44px,6vw,82px);line-height:1.01;letter-spacing:-.05em;margin:
     <div class="inner">
       <div class="section-head">
         <div class="eyebrow">Beispiele</div>
-        <h2>Beispielhafte KI- und Workflow-Ansichten</h2>
+        <h2>KI- und Workflow-Ansichten</h2>
         <p>Als Grundlage zeigen wir typische Ansichten rund um KI-gestützte Abläufe. Die Beispiele lassen sich im Fokusmodus öffnen und später mit konkreteren Inhalten weiter schärfen.</p>
       </div>
       <div class="example-grid" id="exampleGrid">
@@ -517,6 +517,10 @@ h1{font-size:clamp(44px,6vw,82px);line-height:1.01;letter-spacing:-.05em;margin:
     return date ? `${weekdays[date.getDay()]}, ${date.getDate()}. ${months[date.getMonth()]}` : '';
   }
 
+  function escapeHtml(value) {
+    return String(value ?? '').replace(/[&<>"']/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+  }
+
   function resetBooking() {
     bookingState.step = 1;
     bookingState.selectedDate = null;
@@ -693,11 +697,11 @@ h1{font-size:clamp(44px,6vw,82px);line-height:1.01;letter-spacing:-.05em;margin:
         event.preventDefault();
         const formData = new FormData(bookingForm);
         bookingState.form = {
-          name: formData.get('name') || '',
-          email: formData.get('email') || '',
-          phone: formData.get('phone') || '',
+          name: escapeHtml(formData.get('name') || ''),
+          email: escapeHtml(formData.get('email') || ''),
+          phone: escapeHtml(formData.get('phone') || ''),
           type: formData.get('type') || 'Unternehmen',
-          message: formData.get('message') || ''
+          message: escapeHtml(formData.get('message') || '')
         };
         bookingState.step = 4;
         renderBooking();

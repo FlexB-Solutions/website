@@ -33,7 +33,7 @@ const servicePillars = [
   {
     id: 'produktfertigung',
     name: 'Produktfertigung',
-    lead: 'Vom digitalen Entwurf zum fertigen Teil — erst das Muster, das passen muss, dann die Stückzahl.',
+    lead: 'Vom digitalen Modell zum fertigen Teil — erst das Muster, das passen muss, dann die Stückzahl.',
     image: '../../uploads/stock/service-fertigung.jpg',
     items: [
       { title: 'Prototypen & Individualanfertigungen', desc: 'Das Teil, das es nicht zu kaufen gibt — konstruiert gegen die reale Einbausituation.', slug: '3d-druck' },

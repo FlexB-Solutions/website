@@ -129,7 +129,7 @@ function Inspiration() {
       <div className="company-inner">
         <div className="company-header">
           <div className="company-eyebrow">Virtuelle Firma</div>
-          <h2 className="company-title">Klicken Sie sich durch eine automatisierte Firma.</h2>
+          <h2 className="company-title">Klicken Sie sich durch einen automatisierten Unternehmensprozess.</h2>
           <p className="company-sub">
             Die Zahlen markieren konkrete Bereiche. Ein Klick zoomt in das passende Automatisierungsbeispiel.
           </p>
@@ -137,7 +137,7 @@ function Inspiration() {
 
         <div className="company-map">
           <div className="company-map__top">
-            <div className="company-map__label">FlexB Demo-Firma</div>
+            <div className="company-map__label">FlexB Solutions</div>
             <div className="company-map__hint">Nummer anklicken, Beispiel ansehen</div>
           </div>
           <div className="company-image-stage">

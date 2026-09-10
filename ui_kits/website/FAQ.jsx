@@ -220,7 +220,7 @@ function FAQ() {
       setStatusText('Die Antworten bleiben auf deine Website-Themen begrenzt und laufen mit reduziertem Tokenverbrauch.');
     } catch (error) {
       const fallbackText = window.location.hostname === 'localhost'
-        ? 'Der KI-Chat ist lokal über den einfachen Python-Server nicht erreichbar. Für den echten Test starte die Seite später über Netlify Dev oder nach dem Deploy mit gesetztem API-Key.'
+        ? 'Der KI-Chat ist derzeit nicht erreichbar. Bitte nutzen Sie für Ihre Anfrage das Kontaktformular oder die direkte E-Mail-Adresse.'
         : (error.message || 'Der Chat ist gerade nicht erreichbar.');
 
       setMessages((current) => [...current, { role: 'bot', text: fallbackText }]);
