@@ -40,6 +40,7 @@ function Contact() {
             </div>
           </div>
           <button style={contactStyles.calBtn} type="button" onClick={() => window.openBooking && window.openBooking()}>Termin buchen</button>
+          <a style={{ ...contactStyles.calBtn, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none', background: 'transparent', color: 'var(--brand-ink)', border: '1px solid var(--brand)' }} href="mailto:flexbsolutions@outlook.com?subject=Anfrage%20an%20FlexB%20Solutions">E-Mail schreiben</a>
         </div>
         <div style={contactStyles.formCol} data-guide-target="contact-form">
           <form
