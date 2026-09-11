@@ -19,6 +19,7 @@
   .brand-sub strong { display: block; color: #111827; letter-spacing: 0.16em; font-size: 11px; }
   .nav-actions { display: flex; gap: 12px; align-items: center; }
   .nav-link { text-decoration: none; color: var(--muted); font-weight: 650; font-size: 14px; }
+  .nav-actions .nav-link:last-of-type { color: var(--brand-ink); font-weight: 800; }
   .btn { display: inline-flex; align-items: center; justify-content: center; border-radius: 10px; border: 1.5px solid var(--brand); padding: 13px 20px; font-weight: 800; font-size: 15px; text-decoration: none; cursor: pointer; transition: transform .18s, box-shadow .18s, background .18s; }
   .btn-primary { background: var(--brand); color: #fff; box-shadow: 0 14px 34px rgba(24,115,68,0.24); }
   .btn-secondary { background: rgba(255,255,255,0.12); color: #fff; border-color: rgba(255,255,255,0.48); }
@@ -153,6 +154,7 @@
     .process-step:not(:last-child):after { content: "↓"; right: auto; left: 50%; top: auto; bottom: -26px; transform: translateX(-50%); }
     .process { gap: 28px; }
     .nav-actions .nav-link { display: none; }
+    .nav-actions .nav-link:last-of-type { display: inline-flex; }
     .brand-sub { display: none; }
     .section { padding: 72px 18px; }
     .card { padding: 22px; }
@@ -195,8 +197,12 @@
       <div class="brand-sub"><strong>SOLUTIONS</strong>Automatisierung &amp; Prozessoptimierung</div>
     </a>
     <div class="nav-actions">
-      <a class="nav-link" href="/ui_kits/website/">Zur Startseite</a>
-      <a class="btn btn-primary" href="/ui_kits/website/#kontakt">Erstberatung</a>
+      <a class="nav-link" href="/ui_kits/website/#leistungen">Leistungen</a>
+      <a class="nav-link" href="/ui_kits/website/#furwen">Für wen?</a>
+      <a class="nav-link" href="/ui_kits/website/#ergebnisse">Ergebnisse</a>
+      <a class="nav-link" href="/ui_kits/website/#ubermich">Über mich</a>
+      <a class="nav-link" href="/ui_kits/website/#ergebnisse">Zurück</a>
+      <a class="btn btn-primary" href="/ui_kits/website/#kontakt">Termin buchen</a>
     </div>
   </div>
 </nav>
