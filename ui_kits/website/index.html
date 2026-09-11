@@ -608,7 +608,7 @@
     .booking-summary-react { align-items: flex-start !important; }
   }
 </style>
-<link rel="stylesheet" href="refinement.css?v=3">
+<link rel="stylesheet" href="refinement.css?v=4">
 <link rel="stylesheet" href="/assets/flexb-theme.css?v=2">
 <link rel="stylesheet" href="entry-laser.css?v=2">
 <script src="laser-stage.js?v=4" defer></script>
@@ -670,7 +670,7 @@
     React.useEffect(() => {
       window.openBooking = () => {
         window.Cal('init', { origin: 'https://cal.com' });
-        window.Cal('ui', { theme: 'light', styles: { branding: { brandColor: '#187344' } }, hideEventTypeDetails: false });
+        window.Cal('ui', { theme: 'light', hideEventTypeDetails: false, cssVarsPerTheme: { light: { 'cal-brand': '#187344', 'cal-brand-emphasis': '#135e39', 'cal-brand-text': '#ffffff', 'cal-brand-subtle': '#dfeee3', 'cal-text': '#405047', 'cal-text-emphasis': '#14261f', 'cal-text-subtle': '#6b7d73', 'cal-bg': '#f6f5f0', 'cal-bg-emphasis': '#ffffff', 'cal-bg-subtle': '#edf4ef', 'cal-border': '#d8ded6' } } });
         window.Cal('modal', { calLink: 'flexb/kostenloses-erstgesprach' });
       };
       return () => { delete window.openBooking; };

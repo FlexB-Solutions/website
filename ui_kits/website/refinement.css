@@ -53,12 +53,12 @@ section[id] { scroll-margin-top: 80px; }
 #furwen, #kontakt { background: var(--paper) !important; }
 #ergebnisse { background: #183e2e !important; }
 #leistungen {
-  background: #dfeee3 !important;
+  background: #d4eadb !important;
   border-top: 1px solid #c5ddcc;
   border-bottom: 1px solid #c5ddcc;
 }
 #ubermich {
-  background: #e3edf3 !important;
+  background: #d9eaf3 !important;
   border-top: 1px solid #c8dbe5;
   border-bottom: 1px solid #c8dbe5;
 }
