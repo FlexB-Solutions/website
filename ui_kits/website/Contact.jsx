@@ -29,7 +29,7 @@ function Contact() {
         <div style={contactStyles.infoCol} data-guide-target="contact-info">
           <div style={contactStyles.eyebrow}>Kontakt</div>
           <h2 style={contactStyles.h2}>Lassen Sie uns sprechen.</h2>
-          <p style={contactStyles.lead}>Sie haben eine Idee, ein Problem oder möchten einfach wissen, was möglich ist? Schreiben Sie uns. Wir melden uns innerhalb von 24 Stunden.</p>
+          <p style={contactStyles.lead}>Sie haben eine Idee, ein Problem oder möchten einfach wissen, was möglich ist? Schreiben Sie uns direkt per E-Mail oder buchen Sie ein Erstgespräch.</p>
           <div style={contactStyles.calBox}>
             <div style={contactStyles.calIcon}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
@@ -40,13 +40,12 @@ function Contact() {
             </div>
           </div>
           <button style={contactStyles.calBtn} type="button" onClick={() => window.openBooking && window.openBooking()}>Termin buchen</button>
-          <a style={{ ...contactStyles.calBtn, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none', background: 'transparent', color: 'var(--brand-ink)', border: '1px solid var(--brand)' }} href="mailto:flexbsolutions@outlook.com?subject=Anfrage%20an%20FlexB%20Solutions">E-Mail schreiben</a>
         </div>
         <div style={contactStyles.formCol} data-guide-target="contact-form">
           <div style={{ ...contactStyles.calBox, flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'center', flex: 1, padding: '32px' }}>
             <div style={contactStyles.eyebrow}>Direkter Kontakt</div>
             <h3 style={{ ...contactStyles.calTitle, fontSize: 24 }}>Schreiben Sie uns direkt.</h3>
-            <p style={{ ...contactStyles.lead, marginBottom: 24 }}>Ihr E-Mail-Programm öffnet sich mit FlexB Solutions als Empfänger. Beschreiben Sie kurz Ihr Anliegen – wir melden uns innerhalb von 24 Stunden.</p>
+            <p style={{ ...contactStyles.lead, marginBottom: 24 }}>Ihr E-Mail-Programm öffnet sich mit FlexB Solutions als Empfänger. Beschreiben Sie kurz Ihr Anliegen und senden Sie die Nachricht direkt ab.</p>
             <a style={{ ...contactStyles.calBtn, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none' }} href="mailto:flexbsolutions@outlook.com?subject=Anfrage%20an%20FlexB%20Solutions">E-Mail schreiben</a>
             <p style={{ ...contactStyles.privacyHint, marginTop: 16 }}>E-Mail: flexbsolutions@outlook.com</p>
           </div>
