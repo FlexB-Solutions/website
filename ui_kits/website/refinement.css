@@ -80,6 +80,7 @@ section[id] { scroll-margin-top: 80px; }
   .hero-section:after { background: linear-gradient(180deg, rgba(246,245,240,.83), rgba(246,245,240,.95)); }
 }
 @media (max-width: 640px) {
+  .contact-card { height: auto !important; min-height: 0 !important; }
   .entry-top { top: 16px; padding-bottom: 16px; }
   .entry-bottom { bottom: 26px; align-items: flex-end; }
   .entry-bottom button { gap: 12px; font-size: 12px; }

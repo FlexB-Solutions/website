@@ -30,10 +30,8 @@ function Contact() {
           <div style={contactStyles.eyebrow}>Kontakt</div>
           <h2 style={contactStyles.h2}>Lassen Sie uns sprechen.</h2>
           <p style={contactStyles.lead}>Sie haben eine Idee, ein Problem oder möchten einfach wissen, was möglich ist? Schreiben Sie uns direkt per E-Mail oder buchen Sie ein Erstgespräch.</p>
-          <div style={{ ...contactStyles.calBox, flexDirection: 'column', alignItems: 'stretch', minHeight: 320, padding: 28 }}>
-            <div style={{ ...contactStyles.calIcon, alignSelf: 'flex-start' }}>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--brand)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-            </div>
+          <div className="contact-card" style={{ ...contactStyles.calBox, flexDirection: 'column', alignItems: 'stretch', minHeight: 320, height: 420, padding: 28 }}>
+            <div style={contactStyles.eyebrow}>TERMIN BUCHEN</div>
             <div>
               <div style={contactStyles.calTitle}>Termin buchen</div>
               <div style={contactStyles.calDesc}>30 Minuten kostenloses Erstgespräch. Unverbindlich und direkt online.</div>
@@ -42,7 +40,7 @@ function Contact() {
           </div>
         </div>
         <div style={{ ...contactStyles.formCol, justifyContent: 'flex-end' }} data-guide-target="contact-form">
-          <div style={{ ...contactStyles.calBox, flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'flex-start', minHeight: 320, padding: '32px' }}>
+          <div className="contact-card" style={{ ...contactStyles.calBox, flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'flex-start', minHeight: 320, height: 420, padding: '32px' }}>
             <div style={contactStyles.eyebrow}>Direkter Kontakt</div>
             <h3 style={{ ...contactStyles.calTitle, fontSize: 24 }}>Schreiben Sie uns direkt.</h3>
             <p style={{ ...contactStyles.lead, marginBottom: 24 }}>Ihr E-Mail-Programm öffnet sich mit FlexB Solutions als Empfänger. Beschreiben Sie kurz Ihr Anliegen und senden Sie die Nachricht direkt ab.</p>
