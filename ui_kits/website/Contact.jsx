@@ -33,18 +33,18 @@ function Contact() {
           <div className="contact-card" style={{ ...contactStyles.calBox, flexDirection: 'column', alignItems: 'stretch', minHeight: 320, height: 320, padding: 28 }}>
             <div style={contactStyles.eyebrow}>TERMIN BUCHEN</div>
             <div>
-              <div style={contactStyles.calTitle}>Termin buchen</div>
-              <div style={contactStyles.calDesc}>30 Minuten kostenloses Erstgespräch. Unverbindlich und direkt online.</div>
+              <div className="contact-card-title" style={contactStyles.calTitle}>Termin buchen</div>
+              <div className="contact-card-copy" style={contactStyles.calDesc}>30 Minuten kostenloses Erstgespräch. Unverbindlich und direkt online.</div>
             </div>
-            <button style={{ ...contactStyles.calBtn, height: 64, minHeight: 64, marginTop: 'auto' }} type="button" onClick={() => window.openBooking && window.openBooking()}>Termin buchen</button>
+            <button className="contact-action-main" style={{ ...contactStyles.calBtn, height: 64, minHeight: 64, marginTop: 'auto' }} type="button" onClick={() => window.openBooking && window.openBooking()}>Termin buchen</button>
           </div>
         </div>
         <div style={{ ...contactStyles.formCol, justifyContent: 'flex-end' }} data-guide-target="contact-form">
           <div className="contact-card" style={{ ...contactStyles.calBox, flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'flex-start', minHeight: 320, height: 320, padding: '28px' }}>
             <div style={contactStyles.eyebrow}>Direkter Kontakt</div>
-            <h3 style={contactStyles.calTitle}>Schreiben Sie uns direkt.</h3>
-            <p style={{ ...contactStyles.lead, marginBottom: 24 }}>Ihr E-Mail-Programm öffnet sich mit FlexB Solutions als Empfänger. Beschreiben Sie kurz Ihr Anliegen und senden Sie die Nachricht direkt ab.</p>
-            <a style={{ ...contactStyles.calBtn, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', alignSelf: 'stretch', height: 64, minHeight: 64, textDecoration: 'none', marginTop: 'auto' }} href="mailto:flexbsolutions@outlook.com?subject=Anfrage%20an%20FlexB%20Solutions">E-Mail schreiben</a>
+            <h3 className="contact-card-title" style={contactStyles.calTitle}>Schreiben Sie uns direkt.</h3>
+            <p className="contact-card-copy" style={{ ...contactStyles.calDesc, marginBottom: 24 }}>Ihr E-Mail-Programm öffnet sich mit FlexB Solutions als Empfänger. Beschreiben Sie kurz Ihr Anliegen und senden Sie die Nachricht direkt ab.</p>
+            <a className="contact-action-main" style={{ ...contactStyles.calBtn, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', alignSelf: 'stretch', height: 64, minHeight: 64, textDecoration: 'none', marginTop: 'auto' }} href="mailto:flexbsolutions@outlook.com?subject=Anfrage%20an%20FlexB%20Solutions">E-Mail schreiben</a>
           </div>
         </div>
       </div>

@@ -55,6 +55,45 @@ section[id] { scroll-margin-top: 0; }
 .section-heading > div:first-child, .company-eyebrow, .eyebrow, .service-kicker { font-weight: 500 !important; font-size: 11px !important; letter-spacing: .12em !important; }
 #furwen { background: #eeefe9 !important; }
 #kontakt { background: #fff !important; }
+/* Beide Kontaktwege sind bewusst dieselbe Komponente: Button und Link bekommen
+   daher dieselbe Typografie und Form, auch wenn globale Button-Regeln aktiv sind. */
+.contact-action, .contact-action-main {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 64px !important;
+  min-height: 64px !important;
+  box-sizing: border-box !important;
+  border: 0 !important;
+  border-radius: 8px !important;
+  background: var(--brand) !important;
+  color: #fff !important;
+  font-family: var(--font-body) !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  line-height: 1 !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+}
+.contact-card-title {
+  margin: 0 0 5px !important;
+  color: var(--ink) !important;
+  font-family: var(--font-body) !important;
+  font-size: 24px !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -.035em !important;
+}
+.contact-card-copy {
+  margin-top: 0 !important;
+  color: var(--muted) !important;
+  font-family: var(--font-body) !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 1.55 !important;
+}
 /* Existing alternating service rows, with open space instead of card shells. */
 .service-feature-row { gap: clamp(28px, 5vw, 76px) !important; padding: 38px 0; border-top: 1px solid var(--brand-border); border-radius: 0 !important; }
 .service-feature-row > .service-photo { border-radius: 2px !important; background: #e5e7df !important; height: 350px !important; }
