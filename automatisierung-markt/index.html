@@ -3,844 +3,93 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Warum Automatisierung jetzt entscheidend wird | FlexB Solutions</title>
+<title>Warum Automatisierung wichtig ist | FlexB Solutions</title>
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; overflow-x: hidden; width: 100%; }
-  body { font-family: Inter, Outfit, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #111827; background: var(--paper); -webkit-font-smoothing: antialiased; overflow-x: hidden; width: 100%; max-width: 100%; }
-  a { color: inherit; }
-  .nav { position: sticky; top: 0; z-index: 50; background: rgba(238,248,238,0.92); backdrop-filter: blur(14px); border-bottom: 1px solid var(--brand-border); }
-  .nav-inner { max-width: 1180px; margin: 0 auto; height: 72px; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-  .brand-main { font-size: 24px; font-weight: 900; letter-spacing: -0.03em; }
-  .brand-main span { color: var(--brand); }
-  .brand-line { width: 1px; height: 30px; background: var(--brand-light); }
-  .brand-sub { font-size: 11px; line-height: 1.25; color: var(--muted); }
-  .brand-sub strong { display: block; color: #111827; letter-spacing: 0.16em; font-size: 11px; }
-  .nav-actions { display: flex; gap: 12px; align-items: center; }
-  .nav-link { text-decoration: none; color: var(--muted); font-weight: 650; font-size: 14px; }
-  .btn { display: inline-flex; align-items: center; justify-content: center; border-radius: 10px; border: 1.5px solid var(--brand); padding: 13px 20px; font-weight: 800; font-size: 15px; text-decoration: none; cursor: pointer; transition: transform .18s, box-shadow .18s, background .18s; }
-  .btn-primary { background: var(--brand); color: #fff; box-shadow: 0 14px 34px rgba(24,115,68,0.24); }
-  .btn-secondary { background: rgba(255,255,255,0.12); color: #fff; border-color: rgba(255,255,255,0.48); }
-  .btn:hover { transform: translateY(-2px); box-shadow: 0 18px 42px rgba(24,115,68,0.22); }
-  .section { padding: 96px 24px; }
-  .inner { max-width: 1180px; margin: 0 auto; }
-  .hero { padding: 100px 24px 64px; position: relative; overflow: hidden; }
-  .hero:before { content: ""; position: absolute; inset: 60px auto auto 50%; width: 640px; height: 640px; border-radius: 50%; background: radial-gradient(circle, rgba(167,243,208,0.48), transparent 64%); transform: translateX(-10%); pointer-events: none; }
-  .eyebrow { color: var(--brand-ink); font-size: 12px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 16px; }
-  h1 { font-size: clamp(46px, 6vw, 84px); line-height: 1.02; letter-spacing: -0.04em; max-width: 900px; }
-  .lead { margin-top: 26px; font-size: clamp(18px, 1.6vw, 22px); line-height: 1.65; color: var(--muted); max-width: 780px; }
-  .section-head { max-width: 820px; margin-bottom: 38px; }
-  h2 { font-size: clamp(34px, 4vw, 56px); line-height: 1.08; letter-spacing: -0.03em; margin-bottom: 16px; }
-  .section-head p, .copy { color: var(--muted); font-size: 17px; line-height: 1.75; }
-  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: stretch; }
-  .card { background: rgba(255,255,255,0.76); border: 1px solid var(--brand-border); border-radius: 22px; padding: 28px; box-shadow: 0 16px 48px rgba(24,62,46,0.08); }
-  .gap-24 { display: grid; gap: 24px; }
-  .bridge { display: grid; grid-template-columns: 1fr auto 1fr; gap: 20px; align-items: center; }
-  .icon-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 22px; }
-  .mini { border-radius: 16px; background: var(--brand-tint); border: 1px solid var(--brand-border); padding: 16px; text-align: center; color: var(--brand-ink); font-weight: 800; min-height: 76px; display: flex; align-items: center; justify-content: center; }
-  .workforce-chart { width: 100%; height: auto; margin-top: 18px; overflow: visible; }
-  .arrow-card { width: 170px; min-height: 120px; border-radius: 20px; background: var(--brand); color: #fff; display: grid; place-items: center; text-align: center; padding: 18px; font-weight: 900; box-shadow: 0 20px 42px rgba(24,115,68,0.24); }
-  .curve-card { position: relative; min-height: 340px; overflow: hidden; }
-  .chart-card { overflow: hidden; }
-  .chart-title { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; margin-bottom: 10px; }
-  .chart-title h3 { font-size: 20px; line-height: 1.25; }
-  .chart-source { color: #6b7280; font-size: 12px; line-height: 1.4; text-align: right; }
-  .curve-svg, .chart-svg { width: 100%; height: auto; margin-top: 8px; overflow: visible; }
-  .data-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-  .data-grid .wide-card { grid-column: 1 / -1; }
-  .source-under { margin-top: 12px; color: #6b7280; font-size: 12px; line-height: 1.5; }
-  .source-under a { color: var(--brand-ink); font-weight: 900; text-decoration: none; }
-  .chart-bar { shape-rendering: crispEdges; }
-  .curve-line { stroke-dasharray: 720; stroke-dashoffset: 720; transition: stroke-dashoffset 1.5s ease; }
-  .visible .curve-line { stroke-dashoffset: 0; }
-  .axis-label { font-size: 13px; fill: var(--muted); font-weight: 800; }
-  .axis-small { font-size: 11px; fill: #6b7280; font-weight: 700; }
-  .grid-line { stroke: var(--brand-border); stroke-width: 1; }
-  .axis-line { stroke: var(--brand-light); stroke-width: 2; }
-  .bar-animated { transform-origin: bottom; transform: scaleY(0); transition: transform 1s ease; }
-  .visible .bar-animated { transform: scaleY(1); }
-  .chart-note { color: #6b7280; font-size: 12px; line-height: 1.5; margin-top: 12px; }
-  .process { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; align-items: center; }
-  .process-step { border-radius: 18px; padding: 22px; background: #fff; border: 1px solid var(--brand-border); text-align: center; min-height: 118px; display: grid; place-items: center; font-weight: 900; color: var(--brand-ink); position: relative; }
-  .process-step:not(:last-child):after { content: "→"; position: absolute; right: -17px; top: 50%; transform: translateY(-50%); color: var(--brand); font-size: 26px; }
-  .tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-  .tile { border-radius: 20px; border: 1px solid var(--brand-border); background: rgba(255,255,255,0.82); padding: 24px; min-height: 150px; box-shadow: 0 14px 34px rgba(24,62,46,0.08); }
-  .tile strong { display: block; font-size: 22px; margin-bottom: 10px; }
-  .roi-flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 20px; }
-  .roi-step { position: relative; border: 1px solid var(--brand-border); border-radius: 18px; background: #fff; padding: 18px; min-height: 120px; }
-  .roi-step:not(:last-child):after { content: "→"; position: absolute; right: -14px; top: 50%; transform: translateY(-50%); color: var(--brand); font-size: 24px; font-weight: 900; }
-  .roi-step strong { display: block; color: var(--brand-ink); margin-bottom: 8px; }
-  .roi-step span { color: var(--muted); line-height: 1.45; font-size: 14px; }
-  .use-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-  .use-card { border-radius: 20px; border: 1px solid var(--brand-border); background: rgba(255,255,255,0.82); padding: 24px; transition: transform .18s, box-shadow .18s, border-color .18s; }
-  .use-card:hover { transform: translateY(-5px); border-color: var(--brand); box-shadow: 0 0 0 5px rgba(167,243,208,0.34), 0 20px 46px rgba(24,62,46,0.11); }
-  .use-card strong { display: block; font-size: 19px; margin-bottom: 10px; }
-  .ladder { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-top: 24px; }
-  .level { border-radius: 18px; padding: 22px 14px; text-align: center; background: #fff; border: 1px solid var(--brand-border); color: var(--muted); font-weight: 900; transform: translateY(18px); opacity: .35; transition: transform .5s ease, opacity .5s ease, background .5s ease, color .5s ease; }
-  .visible .level { transform: translateY(0); opacity: 1; }
-  .visible .level:nth-child(1) { transition-delay: .05s; }
-  .visible .level:nth-child(2) { transition-delay: .16s; }
-  .visible .level:nth-child(3) { transition-delay: .27s; background: var(--brand-tint); color: var(--brand-ink); }
-  .visible .level:nth-child(4) { transition-delay: .38s; background: var(--brand-border); color: var(--brand-ink); }
-  .visible .level:nth-child(5) { transition-delay: .49s; background: var(--brand); color: #fff; }
-  .source-list { display: grid; gap: 10px; color: var(--muted); font-size: 14px; line-height: 1.55; }
-  .source-list a { color: var(--brand-ink); font-weight: 800; text-decoration: none; }
-  .ref { color: var(--brand-ink); font-weight: 900; white-space: nowrap; }
-  .source-item { display: grid; grid-template-columns: 42px 1fr; gap: 12px; align-items: start; }
-  .source-num { color: var(--brand-ink); font-weight: 900; }
-  .cta-band { background: #111827; color: #fff; border-radius: 28px; padding: 46px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; box-shadow: 0 24px 70px rgba(17,24,39,0.18); }
-  .cta-band p { color: #d1d5db; line-height: 1.65; margin-top: 10px; max-width: 620px; }
-  .reveal { opacity: .98; transform: translateY(14px); transition: opacity .55s ease, transform .55s ease; }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-
-  /* Story map */
-  .story-map { display: flex; margin-top: 52px; border: 1px solid var(--brand-border); border-radius: 22px; overflow: hidden; box-shadow: 0 12px 40px rgba(24,62,46,0.12); }
-  .story-step { flex: 1; padding: 32px 20px; background: rgba(255,255,255,0.82); text-align: center; font-size: 13px; font-weight: 900; color: var(--brand-ink); letter-spacing: .09em; text-transform: uppercase; border-right: 1px solid var(--brand-border); }
-  .story-step:last-child { border-right: none; }
-  .story-step > span { display: block; font-size: 12px; font-weight: 500; color: #6b7280; margin-top: 8px; letter-spacing: 0; text-transform: none; line-height: 1.4; }
-  .story-num { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: var(--brand); color: #fff; border-radius: 50%; font-size: 17px; font-weight: 900; margin: 0 auto 14px; flex-shrink: 0; line-height: 1; padding: 0; }
-  .age-compare { display:grid; grid-template-columns:1fr auto 1fr; gap:14px; align-items:center; margin-top:18px; }
-  .age-box { text-align:center; border-radius:16px; padding:24px 14px; }
-  .age-box--soft { background:var(--brand-tint); }
-  .age-box--strong { background:var(--brand-tint); }
-  .age-arrow { font-size:24px; font-weight:900; color:var(--brand); text-align:center; flex-shrink:0; padding:0 4px; }
-
-  /* Chart insight */
-  .chart-insight { margin-top: 14px; padding: 14px 18px; background: var(--brand-tint); border-left: 3px solid var(--brand); border-radius: 0 10px 10px 0; font-size: 14px; line-height: 1.65; color: var(--muted); }
-  .chart-insight strong { color: var(--brand-ink); display: block; margin-bottom: 3px; font-size: 11px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
-
-  /* ROI calculation */
-  .roi-calc { margin-top: 24px; background: #111827; border-radius: 18px; padding: 28px; }
-  .roi-calc-label { color: var(--brand-light); font-size: 11px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 20px; }
-  .roi-calc-rows { display: grid; gap: 0; }
-  .roi-calc-row { display: grid; grid-template-columns: 28px 1fr auto; gap: 12px; align-items: center; padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
-  .roi-calc-row:last-of-type { border-bottom: none; }
-  .roi-op { color: var(--brand); font-size: 18px; font-weight: 900; text-align: center; }
-  .roi-desc { color: #9ca3af; font-size: 13px; line-height: 1.4; }
-  .roi-val { color: var(--brand-tint); font-size: 16px; font-weight: 900; text-align: right; white-space: nowrap; }
-  .roi-result { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--brand); color: var(--brand); font-size: 17px; font-weight: 900; line-height: 1.5; }
-  .roi-note { color: #6b7280; font-size: 12px; line-height: 1.5; margin-top: 12px; }
-
-  /* Use card tag */
-  .use-tag { display: inline-block; font-size: 10px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; color: var(--brand-ink); background: var(--brand-tint); border-radius: 6px; padding: 3px 8px; margin-bottom: 10px; }
-
-  /* Empfehlung */
-  .rec-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-top: 30px; }
-  .rec-step { border-radius: 18px; padding: 26px 18px; background: rgba(255,255,255,0.82); border: 1px solid var(--brand-border); text-align: center; position: relative; box-shadow: 0 8px 24px rgba(24,62,46,0.07); }
-  .rec-step:not(:last-child):after { content: "→"; position: absolute; right: -13px; top: 50%; transform: translateY(-50%); color: var(--brand); font-size: 22px; font-weight: 900; z-index: 1; }
-  .rec-num { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: var(--brand-tint); color: var(--brand-ink); border-radius: 50%; font-size: 15px; font-weight: 900; margin: 0 auto 12px; flex-shrink: 0; }
-  .rec-step strong { display: block; font-size: 14px; color: #111827; margin-bottom: 8px; font-weight: 800; }
-  .rec-step p { font-size: 13px; color: #6b7280; line-height: 1.5; }
-  .rec-note { margin-top: 28px; background: var(--brand-tint); border: 1px solid var(--brand-border); border-radius: 18px; padding: 28px 32px; }
-  .rec-note p { color: var(--muted); font-size: 16px; line-height: 1.75; }
-  .rec-note strong { color: var(--brand-ink); }
-
-  @media (max-width: 900px) {
-    .hero { padding: 72px 18px 48px; }
-    h1 { font-size: clamp(38px, 11vw, 54px); letter-spacing: -0.035em; }
-    h2 { font-size: clamp(30px, 9vw, 44px); }
-    .lead { font-size: 17px; line-height: 1.65; }
-    .split, .bridge, .cta-band { grid-template-columns: 1fr; }
-    .data-grid { grid-template-columns: 1fr; }
-    .data-grid .wide-card { grid-column: auto; }
-    .arrow-card { width: 100%; }
-    .process, .tiles, .use-grid, .ladder { grid-template-columns: 1fr; }
-    .roi-flow { grid-template-columns: 1fr; gap: 28px; }
-    .roi-step:not(:last-child):after { content: "↓"; right: auto; left: 50%; top: auto; bottom: -26px; transform: translateX(-50%); }
-    .chart-title { display: block; }
-    .chart-source { text-align: left; margin-top: 6px; }
-    .process-step:not(:last-child):after { content: "↓"; right: auto; left: 50%; top: auto; bottom: -26px; transform: translateX(-50%); }
-    .process { gap: 28px; }
-    .nav-actions .nav-link { display: none; }
-    .brand-sub { display: none; }
-    .section { padding: 72px 18px; }
-    .card { padding: 22px; }
-    .story-map { flex-direction: column; }
-    .story-step { border-right: none; border-bottom: 1px solid var(--brand-border); }
-    .story-step:last-child { border-bottom: none; }
-    .roi-calc-row { grid-template-columns: 28px 1fr; }
-    .roi-val { display: none; }
-    .rec-steps { grid-template-columns: 1fr; gap: 28px; }
-    .rec-step:not(:last-child):after { content: "↓"; right: auto; left: 50%; top: auto; bottom: -22px; transform: translateX(-50%); }
-  }
-
-  @media (max-width: 640px) {
-    .nav-inner { height: 64px; padding: 0 18px; }
-    .btn { width: 100%; }
-    .hero { padding: 68px 18px 40px; }
-    .hero:before { width: 440px; height: 440px; inset: 36px auto auto 56%; transform: translateX(-18%); }
-    .section { padding: 60px 16px; }
-    .card { padding: 18px; border-radius: 18px; }
-    .chart-title h3 { font-size: 18px; }
-    .section-head p, .copy { font-size: 16px; line-height: 1.68; }
-    .workforce-chart, .curve-svg, .chart-svg { margin-top: 12px; }
-    .chart-note, .source-under { font-size: 11px; line-height: 1.45; }
-    .cta-band { padding: 28px 20px; border-radius: 20px; }
-    .cta-band h2 { font-size: 30px; }
-    .age-compare { grid-template-columns: 1fr; gap: 10px; }
-    .age-box { padding: 18px 14px; }
-    .age-arrow { font-size: 22px; transform: rotate(90deg); padding: 0; }
-  }
+  :root { --paper:#f4f1eb; --ink:#10281f; --muted:#5e6d66; --green:#187344; --soft:#e6efe8; --line:#d5dfd7; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html { scroll-behavior:smooth; }
+  body { font-family:Inter,Outfit,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--ink); background:var(--paper); line-height:1.6; }
+  a { color:inherit; }
+  .nav { position:sticky; top:0; z-index:20; background:rgba(244,241,235,.94); backdrop-filter:blur(14px); border-bottom:1px solid var(--line); }
+  .nav-inner { max-width:1180px; height:72px; margin:auto; padding:0 24px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+  .brand { display:flex; align-items:center; gap:12px; text-decoration:none; }
+  .brand-main { font-size:24px; font-weight:900; letter-spacing:-.03em; }
+  .brand-main span { color:var(--green); }
+  .brand-line { width:1px; height:30px; background:#a9c8b2; }
+  .brand-sub { font-size:11px; line-height:1.25; color:var(--muted); }
+  .brand-sub strong { display:block; color:var(--ink); letter-spacing:.16em; font-size:11px; }
+  .nav-actions { display:flex; align-items:center; gap:14px; }
+  .nav-link { color:var(--muted); font-size:14px; font-weight:700; text-decoration:none; }
+  .btn { display:inline-flex; align-items:center; justify-content:center; padding:12px 18px; border-radius:10px; border:1px solid var(--green); font-weight:800; text-decoration:none; transition:transform .18s,box-shadow .18s; }
+  .btn:hover { transform:translateY(-2px); box-shadow:0 12px 28px rgba(24,115,68,.18); }
+  .btn-primary { background:var(--green); color:#fff; }
+  .btn-secondary { background:transparent; color:var(--green); }
+  .hero,.section { padding:86px 24px; }
+  .hero { padding-top:100px; border-bottom:1px solid var(--line); }
+  .inner { max-width:1180px; margin:auto; }
+  .eyebrow { color:var(--green); font-size:12px; font-weight:900; letter-spacing:.15em; text-transform:uppercase; margin-bottom:14px; }
+  h1 { max-width:850px; font-size:clamp(44px,7vw,80px); line-height:1.03; letter-spacing:-.045em; }
+  .lead { max-width:720px; margin-top:24px; color:var(--muted); font-size:clamp(18px,2vw,22px); line-height:1.6; }
+  h2 { max-width:780px; margin-bottom:14px; font-size:clamp(32px,4vw,54px); line-height:1.08; letter-spacing:-.035em; }
+  .section-intro { max-width:760px; color:var(--muted); font-size:18px; line-height:1.7; }
+  .section-head { margin-bottom:34px; }
+  .hero-note { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:52px; max-width:900px; }
+  .hero-note div { padding:18px 20px; border:1px solid var(--line); border-radius:14px; background:rgba(255,255,255,.6); color:var(--muted); }
+  .hero-note strong { display:block; color:var(--ink); font-size:18px; margin-bottom:3px; }
+  .benefits { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+  .benefit { min-height:190px; padding:24px; background:#fff; border:1px solid var(--line); border-radius:18px; box-shadow:0 12px 30px rgba(16,40,31,.06); }
+  .benefit-num { display:flex; align-items:center; justify-content:center; width:34px; height:34px; margin-bottom:20px; border-radius:50%; background:var(--soft); color:var(--green); font-weight:900; }
+  .benefit h3 { font-size:21px; line-height:1.2; margin-bottom:9px; }
+  .benefit p { color:var(--muted); font-size:16px; line-height:1.55; }
+  .examples { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  .example { padding:24px; border-left:3px solid var(--green); background:var(--soft); border-radius:0 16px 16px 0; }
+  .example h3 { font-size:20px; margin-bottom:8px; }
+  .example p { color:var(--muted); font-size:16px; }
+  .steps { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; counter-reset:step; }
+  .step { position:relative; padding:28px 24px 24px; background:#fff; border:1px solid var(--line); border-radius:18px; }
+  .step::before { counter-increment:step; content:counter(step); display:flex; align-items:center; justify-content:center; width:34px; height:34px; margin-bottom:18px; border-radius:50%; background:var(--green); color:#fff; font-weight:900; }
+  .step h3 { font-size:20px; margin-bottom:8px; }
+  .step p { color:var(--muted); font-size:16px; }
+  .cta { padding:40px; display:flex; align-items:center; justify-content:space-between; gap:24px; border-radius:22px; background:var(--ink); color:#fff; }
+  .cta h2 { font-size:34px; margin-bottom:8px; }
+  .cta p { max-width:650px; color:#c8d5cd; }
+  .cta .btn-secondary { color:#fff; border-color:#a8c4b1; }
+  .sources { padding-top:30px; }
+  .sources summary { cursor:pointer; color:var(--green); font-weight:800; }
+  .sources ul { margin-top:16px; padding-left:20px; color:var(--muted); font-size:14px; }
+  .sources a { color:var(--green); }
+  .reveal { opacity:0; transform:translateY(14px); transition:opacity .55s ease,transform .55s ease; }
+  .reveal.visible { opacity:1; transform:none; }
+  @media(max-width:900px) { .benefits{grid-template-columns:repeat(2,1fr)} .examples,.steps{grid-template-columns:1fr} .hero-note{grid-template-columns:1fr} .cta{display:grid} .nav-actions .nav-link{display:none} .brand-sub{display:none} }
+  @media(max-width:600px) { .nav-inner{height:64px;padding:0 16px} .hero,.section{padding:64px 16px} .hero{padding-top:74px} .benefits{grid-template-columns:1fr} .cta{padding:26px 20px} .cta h2{font-size:29px} .btn{width:100%} }
 </style>
-<link rel="stylesheet" href="/assets/flexb-theme.css?v=2">
+<link rel="stylesheet" href="/assets/flexb-theme.css?v=3">
 </head>
-<body class="flexb-market">
-
-<nav class="nav">
-  <div class="nav-inner">
-    <a class="brand" href="/ui_kits/website/">
-      <div class="brand-main">Flex<span>B</span></div>
-      <div class="brand-line"></div>
-      <div class="brand-sub"><strong>SOLUTIONS</strong>Automatisierung &amp; Prozessoptimierung</div>
-    </a>
-    <div class="nav-actions">
-      <a class="nav-link" href="/ui_kits/website/">Zur Startseite</a>
-      <a class="btn btn-primary" href="/ui_kits/website/#kontakt">Erstberatung</a>
-    </div>
-  </div>
-</nav>
-
+<body>
+<nav class="nav"><div class="nav-inner">
+  <a class="brand" href="/ui_kits/website/"><div class="brand-main">Flex<span>B</span></div><div class="brand-line"></div><div class="brand-sub"><strong>SOLUTIONS</strong>Automatisierung &amp; Prozessoptimierung</div></a>
+  <div class="nav-actions"><a class="nav-link" href="/ui_kits/website/">Zur Startseite</a><a class="btn btn-primary" href="/ui_kits/website/#kontakt">Erstgespräch buchen</a></div>
+</div></nav>
 <main>
+  <section class="hero"><div class="inner">
+    <div class="eyebrow reveal">Einfach erklärt</div>
+    <h1 class="reveal">Warum Automatisierung wichtig ist</h1>
+    <p class="lead reveal">Viele Abläufe wiederholen sich jeden Tag. Automatisierung übernimmt passende Schritte zuverlässig, damit mehr Zeit für wichtige Aufgaben bleibt.</p>
+    <div class="hero-note reveal"><div><strong>Weniger Routine</strong>Wiederkehrende Aufgaben laufen selbstständig ab.</div><div><strong>Weniger Fehler</strong>Feste Abläufe werden jedes Mal gleich ausgeführt.</div><div><strong>Mehr Überblick</strong>Informationen und Zuständigkeiten bleiben nachvollziehbar.</div></div>
+  </div></section>
 
-  <!-- ① HERO -->
-  <section class="hero">
-    <div class="inner">
-      <div class="reveal">
-        <div class="eyebrow">Markt &amp; Bedarf</div>
-        <h1>Warum Automatisierung jetzt entscheidend wird</h1>
-      </div>
-      <div class="story-map reveal">
-        <div class="story-step">
-          <div class="story-num">1</div>
-          Problem
-          <span>Demografie &amp; Fachkräftemangel</span>
-        </div>
-        <div class="story-step">
-          <div class="story-num">2</div>
-          Markttrend
-          <span>Automatisierung, Robotik &amp; KI wachsen</span>
-        </div>
-        <div class="story-step">
-          <div class="story-num">3</div>
-          Wirtschaftlicher Nutzen
-          <span>ROI, Produktivität &amp; Entlastung</span>
-        </div>
-        <div class="story-step">
-          <div class="story-num">4</div>
-          Einsatzfälle
-          <span>Büro, Lager, Gebäude &amp; Service</span>
-        </div>
-        <div class="story-step">
-          <div class="story-num">5</div>
-          Empfehlung
-          <span>Klein starten, schnell skalieren</span>
-        </div>
-      </div>
-    </div>
-  </section>
+  <section class="section"><div class="inner"><div class="section-head reveal"><div class="eyebrow">Die wichtigsten Vorteile</div><h2>Was sich im Alltag verbessert</h2><p class="section-intro">Automatisierung muss kein großes Projekt sein. Schon ein einzelner klarer Ablauf kann spürbar entlasten.</p></div>
+    <div class="benefits"><article class="benefit reveal"><div class="benefit-num">1</div><h3>Zeit gewinnen</h3><p>Standardaufgaben erledigen sich im Hintergrund. Das Team kann sich auf Kunden, Qualität und Entscheidungen konzentrieren.</p></article><article class="benefit reveal"><div class="benefit-num">2</div><h3>Fehler vermeiden</h3><p>Schritte werden nach denselben Regeln ausgeführt. Vergessene Übertragungen und doppelte Eingaben werden seltener.</p></article><article class="benefit reveal"><div class="benefit-num">3</div><h3>Wissen sichern</h3><p>Ein Ablauf hängt weniger von einer einzelnen Person ab. Zuständigkeiten und Informationen bleiben im Prozess sichtbar.</p></article><article class="benefit reveal"><div class="benefit-num">4</div><h3>Wachsen können</h3><p>Mehr Anfragen oder Aufträge lassen sich bearbeiten, ohne jede Aufgabe im gleichen Maß manuell zu vervielfachen.</p></article></div>
+  </div></section>
 
-  <!-- ② SCHRITT 1: Demografischer Wandel -->
-  <section class="section">
-    <div class="inner split">
-      <div class="section-head reveal">
-        <div class="eyebrow">Schritt 1 · Das Problem</div>
-        <h2>Der demografische Wandel macht Automatisierung zur Notwendigkeit</h2>
-        <p>Deutschland wird strukturell älter. Destatis geht davon aus, dass 2035 etwa jede vierte Person in Deutschland 67 Jahre oder älter sein wird – 2024 war es noch jede fünfte <span class="ref">[1]</span>. In den nächsten zehn Jahren verlassen mehr erfahrene Fachkräfte den Arbeitsmarkt als junge Menschen nachrücken. Die Konsequenz: Unternehmen werden dieselben Aufgaben mit weniger Personal bewältigen müssen.</p>
-      </div>
-      <div class="card chart-card reveal">
-        <div class="chart-title">
-          <h3>Anteil 67+ – jede vierte Person bis 2035</h3>
-          <div class="chart-source">Quelle: Destatis <span class="ref">[1]</span></div>
-        </div>
-        <div class="age-compare">
-          <div class="age-box age-box--soft">
-            <div style="font-size:11px;font-weight:900;color:#6b7280;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px">2024</div>
-            <div style="font-size:36px;font-weight:900;color:var(--brand-ink);line-height:1">1 von 5</div>
-            <div style="font-size:13px;color:var(--muted);margin-top:7px">Personen ist 67+</div>
-            <div style="font-size:20px;font-weight:900;color:var(--brand);margin-top:7px">≈ 20 %</div>
-          </div>
-          <div class="age-arrow">→</div>
-          <div class="age-box age-box--strong">
-            <div style="font-size:11px;font-weight:900;color:var(--brand-ink);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px">2035</div>
-            <div style="font-size:36px;font-weight:900;color:var(--brand-ink);line-height:1">1 von 4</div>
-            <div style="font-size:13px;color:var(--muted);margin-top:7px">Personen ist 67+</div>
-            <div style="font-size:20px;font-weight:900;color:var(--brand);margin-top:7px">≈ 25 %</div>
-          </div>
-        </div>
-        <div style="margin-top:11px;text-align:center;font-size:12px;color:#6b7280">+5 Prozentpunkte innerhalb einer Dekade</div>
-        <div class="source-under">Destatis, 16. koordinierte Bevölkerungsvorausberechnung <a href="https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bevoelkerung/Bevoelkerungsvorausberechnung/annahmen_ergebnisse_16te_kBv.html" target="_blank" rel="noopener">[1]</a>. Prognose für den Bevölkerungsanteil ab 67 Jahren in Deutschland.</div>
-        <div class="chart-insight"><strong>Was das für Unternehmen bedeutet</strong>Bis 2035 verlassen Millionen erfahrene Fachkräfte den Arbeitsmarkt. Unternehmen, die Prozesse heute dokumentieren und automatisieren, sichern ihr operatives Wissen – und reduzieren die Abhängigkeit von einzelnen Mitarbeitenden.</div>
-      </div>
-    </div>
-  </section>
+  <section class="section" style="background:var(--soft);"><div class="inner"><div class="section-head reveal"><div class="eyebrow">Beispiele</div><h2>Wo Automatisierung helfen kann</h2><p class="section-intro">Der passende Einsatz hängt vom jeweiligen Ablauf ab. Diese Beispiele zeigen die Richtung.</p></div><div class="examples"><article class="example reveal"><h3>Im Büro</h3><p>Neue Anfragen werden sortiert, Aufgaben zugewiesen und Rückmeldungen vorbereitet.</p></article><article class="example reveal"><h3>In der Fertigung</h3><p>Messwerte, Bestände oder Fertigungsschritte werden erfasst und weitergegeben.</p></article><article class="example reveal"><h3>Im Gebäude</h3><p>Heizung, Licht und andere Abläufe reagieren automatisch auf Zeit, Nutzung oder Messwerte.</p></article></div></div></section>
 
-  <!-- Struktureller Druck -->
-  <section class="section">
-    <div class="inner">
-      <div class="section-head reveal">
-        <div class="eyebrow">Struktureller Druck</div>
-        <h2>Die Infrastruktur bleibt. Die Arbeitskräfte werden knapper.</h2>
-        <p>Die Aufgaben verschwinden nicht. Räume, Waren, Kundenanfragen, Termine und technische Anlagen müssen weiterhin gesteuert werden. Die OECD beschreibt, dass bestehende Fachkräfteengpässe durch die schnelle Alterung weiter verschärft werden – besonders in Logistik, Bau, Einzelhandel und medizinischen Berufen <span class="ref">[2]</span>. Das zeigt: Automatisierung betrifft nicht nur Industrieanlagen, sondern auch alltägliche Prozesse in Büros, Lagern und Dienstleistungsbetrieben.</p>
-      </div>
-      <div class="bridge reveal">
-        <div class="card">
-          <h3>Gleichbleibende Infrastruktur</h3>
-          <div class="icon-grid">
-            <div class="mini">Gebäude</div>
-            <div class="mini">Lager</div>
-            <div class="mini">Büro</div>
-            <div class="mini">Service</div>
-            <div class="mini">Energie</div>
-            <div class="mini">Verwaltung</div>
-          </div>
-        </div>
-        <div class="arrow-card">Automatisierung schließt die Lücke</div>
-        <div class="card">
-          <h3>Sinkende Verfügbarkeit von Arbeitskräften</h3>
-          <div class="source-under" style="margin-top:4px;margin-bottom:14px">Personen im Erwerbsalter (20–66 J.), in Mio. · Quelle: Destatis 16. kBv <span class="ref">[1]</span></div>
-          <svg class="workforce-chart" viewBox="0 0 520 320" role="img" aria-label="Destatis 16. kBv: Bevölkerung im Erwerbsalter 20 bis 66 Jahre sinkt von 51,2 Mio. (2024) auf 47,2 Mio. (2035) und auf 37,1 bis 45,3 Mio. in 2070.">
-            <line class="grid-line" x1="80" y1="230" x2="460" y2="230"/>
-            <line class="grid-line" x1="80" y1="190" x2="460" y2="190"/>
-            <line class="grid-line" x1="80" y1="150" x2="460" y2="150"/>
-            <line class="grid-line" x1="80" y1="110" x2="460" y2="110"/>
-            <line class="grid-line" x1="80" y1="70"  x2="460" y2="70"/>
-            <line class="axis-line" x1="80" y1="50"  x2="80"  y2="270"/>
-            <line class="axis-line" x1="80" y1="270" x2="460" y2="270"/>
-            <text x="52" y="274" class="axis-small">0</text>
-            <text x="40" y="234" class="axis-small">10</text>
-            <text x="40" y="194" class="axis-small">20</text>
-            <text x="40" y="154" class="axis-small">30</text>
-            <text x="40" y="114" class="axis-small">40</text>
-            <text x="40" y="74"  class="axis-small">50</text>
-            <text x="80" y="38"  class="axis-small" text-anchor="middle">Mio.</text>
-            <rect class="bar-animated chart-bar" x="100" y="65" width="80" height="205" fill="var(--brand)" style="transform-box: fill-box"/>
-            <text x="140" y="53"  class="axis-label" text-anchor="middle">51,2</text>
-            <text x="140" y="292" class="axis-label" text-anchor="middle">2024</text>
-            <rect class="bar-animated chart-bar" x="220" y="81" width="80" height="189" fill="var(--brand-light)" style="transition-delay:.18s; transform-box: fill-box"/>
-            <text x="260" y="69"  class="axis-label" text-anchor="middle">47,2</text>
-            <text x="260" y="292" class="axis-label" text-anchor="middle">2035</text>
-            <rect class="bar-animated chart-bar" x="340" y="89" width="80" height="181" fill="var(--brand-tint)" stroke="var(--brand-border)" stroke-width="1.5" stroke-dasharray="5,3" style="transform-box: fill-box"/>
-            <line x1="340" y1="122" x2="420" y2="122" stroke="var(--brand-light)" stroke-width="2"/>
-            <text x="380" y="77"  class="axis-label" text-anchor="middle">45,3</text>
-            <text x="380" y="113" class="axis-label" text-anchor="middle">37,1</text>
-            <text x="380" y="292" class="axis-label" text-anchor="middle">2070</text>
-            <text x="380" y="307" class="axis-small" text-anchor="middle">Spanne</text>
-          </svg>
-          <div class="source-under">Destatis, 16. koordinierte Bevölkerungsvorausberechnung: 2024 lebten 51,2 Mio. Menschen im Erwerbsalter (20–66 J.) in Deutschland. Bis 2035 sinkt diese Zahl in der moderaten Variante um rund 4,0 Mio. auf etwa 47,2 Mio. Für 2070 weist Destatis je nach Variante eine Spanne von 37,1 bis 45,3 Mio. aus. Y-Achse ab 0. <a href="https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bevoelkerung/Bevoelkerungsvorausberechnung/annahmen_ergebnisse_16te_kBv.html" target="_blank" rel="noopener">[1]</a></div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <section class="section"><div class="inner"><div class="section-head reveal"><div class="eyebrow">Der Einstieg</div><h2>Schritt für Schritt statt alles auf einmal</h2><p class="section-intro">Ein überschaubarer Start macht den Nutzen sichtbar und lässt Raum für Anpassungen.</p></div><div class="steps"><article class="step reveal"><h3>Ablauf auswählen</h3><p>Wir schauen auf Aufgaben, die häufig vorkommen oder heute viel Zeit kosten.</p></article><article class="step reveal"><h3>Lösung umsetzen</h3><p>Wir verbinden die vorhandenen Werkzeuge und legen klare Regeln für den Ablauf fest.</p></article><article class="step reveal"><h3>Ergebnis prüfen</h3><p>Nach dem Start sehen wir gemeinsam, was gut funktioniert und wo weiter verbessert werden kann.</p></article></div></div></section>
 
-  <!-- ③ SCHRITT 2: Markttrend -->
-  <section class="section">
-    <div class="inner">
-      <div class="section-head reveal">
-        <div class="eyebrow">Schritt 2 · Der Markttrend</div>
-        <h2>Der Automatisierungsmarkt wächst – weil der Nutzen belegt ist</h2>
-        <p>Investoren und Unternehmen weltweit treiben den Automatisierungsmarkt voran. Dieses Wachstum entsteht, weil messbare Effizienzgewinne, nachweisbare ROI-Daten und zunehmender Arbeitskräftemangel gemeinsam auf dieselbe Lösung hinweisen. Die folgenden Kennzahlen zeigen Rahmen und Richtung.</p>
-      </div>
+  <section class="section" style="padding-top:20px;"><div class="inner"><div class="cta reveal"><div><h2>Sie möchten einen Ablauf vereinfachen?</h2><p>In einem kostenlosen Erstgespräch schauen wir gemeinsam, wo Automatisierung in Ihrem Alltag sinnvoll eingesetzt werden kann.</p></div><div style="display:flex;gap:12px;flex-wrap:wrap;"><a class="btn btn-primary" href="/ui_kits/website/#kontakt">Termin buchen</a><a class="btn btn-secondary" href="mailto:flexbsolutions@outlook.com?subject=Anfrage%20an%20FlexB%20Solutions">E-Mail schreiben</a></div></div></div></section>
 
-      <div class="card chart-card reveal" style="margin-bottom:28px">
-        <div class="chart-title">
-          <h3>Technologie verändert Geschäftsmodelle bis 2030</h3>
-          <div class="chart-source">Anteil der Arbeitgeber, die Transformation erwarten<br>Quelle: WEF Future of Jobs Report 2025 <span class="ref">[4]</span></div>
-        </div>
-        <svg class="chart-svg" viewBox="0 0 720 330" role="img" aria-label="WEF: 86 Prozent der Arbeitgeber erwarten KI-getriebene Transformation bis 2030, 58 Prozent Robotik und Automation, 41 Prozent Energie-Technologien.">
-          <line class="grid-line" x1="108" y1="252" x2="660" y2="252"/>
-          <line class="grid-line" x1="108" y1="206" x2="660" y2="206"/>
-          <line class="grid-line" x1="108" y1="160" x2="660" y2="160"/>
-          <line class="grid-line" x1="108" y1="114" x2="660" y2="114"/>
-          <line class="grid-line" x1="108" y1="68"  x2="660" y2="68"/>
-          <line class="axis-line" x1="108" y1="46"  x2="108" y2="252"/>
-          <line class="axis-line" x1="108" y1="252" x2="660" y2="252"/>
-          <text x="58"  y="256" class="axis-small">0 %</text>
-          <text x="52"  y="210" class="axis-small">20 %</text>
-          <text x="52"  y="164" class="axis-small">40 %</text>
-          <text x="52"  y="118" class="axis-small">60 %</text>
-          <text x="52"  y="72"  class="axis-small">80 %</text>
-          <rect class="bar-animated chart-bar" x="165" y="54"  width="118" height="198" fill="var(--brand)" style="transform-box: fill-box"/>
-          <rect class="bar-animated chart-bar" x="350" y="119" width="118" height="133" fill="var(--brand-light)" style="transition-delay:.16s; transform-box: fill-box"/>
-          <rect class="bar-animated chart-bar" x="535" y="158" width="118" height="94"  fill="var(--brand-border)" style="transition-delay:.28s; transform-box: fill-box"/>
-          <text x="224" y="38"  class="axis-label" text-anchor="middle">86 %</text>
-          <text x="409" y="103" class="axis-label" text-anchor="middle">58 %</text>
-          <text x="594" y="142" class="axis-label" text-anchor="middle">41 %</text>
-          <text x="224" y="286" class="axis-label" text-anchor="middle">KI &amp; Daten</text>
-          <text x="409" y="286" class="axis-label" text-anchor="middle">Robotik &amp; Automation</text>
-          <text x="594" y="286" class="axis-label" text-anchor="middle">Energie-Tech</text>
-        </svg>
-        <div class="source-under">WEF, The Future of Jobs Report 2025 – Befragung von über 1.000 globalen Arbeitgebern zu Transformationstreibern bis 2030 <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/digest/" target="_blank" rel="noopener">[4]</a>.</div>
-        <div class="chart-insight"><strong>Was das für Unternehmen bedeutet</strong>86 % der befragten Arbeitgeber erwarten, dass KI und Datenverarbeitung ihr Geschäft grundlegend verändern. Automatisierung ist keine Nischenentwicklung – sie ist Mainstream-Agenda, auch im Mittelstand und bei kleineren Betrieben.</div>
-      </div>
-
-      <div class="data-grid">
-
-        <div class="card chart-card reveal wide-card">
-          <div class="chart-title">
-            <h3>Marktvolumen Industrie-/Manufacturing-Automatisierung</h3>
-            <div class="chart-source">Mrd. USD, 2023–2030 · Quelle: Grand View Research <span class="ref">[7]</span></div>
-          </div>
-          <svg class="chart-svg" viewBox="0 0 920 360" role="img" aria-label="Marktvolumen Manufacturing Automation von 12,28 Milliarden US-Dollar 2023 auf 23,96 Milliarden US-Dollar 2030">
-            <line class="grid-line" x1="90" y1="290" x2="870" y2="290"/>
-            <line class="grid-line" x1="90" y1="250" x2="870" y2="250"/>
-            <line class="grid-line" x1="90" y1="210" x2="870" y2="210"/>
-            <line class="grid-line" x1="90" y1="170" x2="870" y2="170"/>
-            <line class="grid-line" x1="90" y1="130" x2="870" y2="130"/>
-            <line class="grid-line" x1="90" y1="90"  x2="870" y2="90"/>
-            <line class="axis-line" x1="90" y1="90"  x2="90"  y2="290"/>
-            <line class="axis-line" x1="90" y1="290" x2="870" y2="290"/>
-            <text x="42" y="294" class="axis-small">0</text>
-            <text x="38" y="254" class="axis-small">5</text>
-            <text x="32" y="214" class="axis-small">10</text>
-            <text x="32" y="174" class="axis-small">15</text>
-            <text x="32" y="134" class="axis-small">20</text>
-            <text x="32" y="94"  class="axis-small">25</text>
-            <rect class="bar-animated chart-bar" x="130" y="192" width="44" height="98"  fill="var(--brand-light)" style="transform-box: fill-box"/>
-            <rect class="bar-animated chart-bar" x="220" y="182" width="44" height="108" fill="var(--brand-light)" style="transition-delay:.04s; transform-box: fill-box"/>
-            <rect class="bar-animated chart-bar" x="310" y="172" width="44" height="118" fill="var(--brand-light)" style="transition-delay:.08s; transform-box: fill-box"/>
-            <rect class="bar-animated chart-bar" x="400" y="160" width="44" height="130" fill="var(--brand-light)" style="transition-delay:.12s; transform-box: fill-box"/>
-            <rect class="bar-animated chart-bar" x="490" y="148" width="44" height="142" fill="var(--brand)" style="transition-delay:.16s; transform-box: fill-box"/>
-            <rect class="bar-animated chart-bar" x="580" y="134" width="44" height="156" fill="var(--brand)" style="transition-delay:.20s; transform-box: fill-box"/>
-            <rect class="bar-animated chart-bar" x="670" y="119" width="44" height="171" fill="var(--brand)" style="transition-delay:.24s; transform-box: fill-box"/>
-            <rect class="bar-animated chart-bar" x="760" y="98"  width="44" height="192" fill="var(--brand)" style="transition-delay:.28s; transform-box: fill-box"/>
-            <text x="152" y="322" class="axis-small" text-anchor="middle">2023</text>
-            <text x="242" y="322" class="axis-small" text-anchor="middle">2024</text>
-            <text x="332" y="322" class="axis-small" text-anchor="middle">2025</text>
-            <text x="422" y="322" class="axis-small" text-anchor="middle">2026</text>
-            <text x="512" y="322" class="axis-small" text-anchor="middle">2027</text>
-            <text x="602" y="322" class="axis-small" text-anchor="middle">2028</text>
-            <text x="692" y="322" class="axis-small" text-anchor="middle">2029</text>
-            <text x="782" y="322" class="axis-small" text-anchor="middle">2030</text>
-          </svg>
-          <div class="source-under">Grand View Research: 12,28 Mrd. USD (2023), 23,96 Mrd. USD (2030), 9,7 % CAGR 2024–2030. Zwischenjahre aus CAGR abgeleitet. <a href="https://www.grandviewresearch.com/industry-analysis/manufacturing-automation-market-report" target="_blank" rel="noopener">[7]</a></div>
-          <div class="chart-insight"><strong>Was das für Unternehmen bedeutet</strong>Der Markt wächst, weil nachgewiesene Effizienzgewinne Investitionen rechtfertigen. Wer jetzt einsteigt, profitiert von ausgereiften, kostengünstigeren Lösungen – statt von Frühphasen-Risiken und hohen Einzelkosten.</div>
-        </div>
-
-        <div class="card chart-card reveal">
-          <div class="chart-title">
-            <h3>CAGR-Wachstumskurve der Branche</h3>
-            <div class="chart-source">Index, 2025 = 100 · Quelle: MarketsandMarkets <span class="ref">[8]</span></div>
-          </div>
-          <svg class="chart-svg" viewBox="0 0 560 330" role="img" aria-label="CAGR-Kurve: 9,6 Prozent jährliches Wachstum, Index von 100 im Jahr 2025 auf 158 im Jahr 2030">
-            <line class="grid-line" x1="74" y1="260" x2="520" y2="260"/>
-            <line class="grid-line" x1="74" y1="215" x2="520" y2="215"/>
-            <line class="grid-line" x1="74" y1="170" x2="520" y2="170"/>
-            <line class="grid-line" x1="74" y1="125" x2="520" y2="125"/>
-            <line class="grid-line" x1="74" y1="80"  x2="520" y2="80"/>
-            <line class="axis-line" x1="74" y1="60"  x2="74"  y2="260"/>
-            <line class="axis-line" x1="74" y1="260" x2="520" y2="260"/>
-            <text x="28" y="264" class="axis-small">0</text>
-            <text x="22" y="219" class="axis-small">45</text>
-            <text x="22" y="174" class="axis-small">90</text>
-            <text x="16" y="129" class="axis-small">135</text>
-            <text x="16" y="84"  class="axis-small">180</text>
-            <path class="curve-line" d="M92 149 L178 138 L264 127 L350 114 L436 100 L502 84" fill="none" stroke="var(--brand)" stroke-width="6" stroke-linecap="butt"/>
-            <circle cx="92"  cy="149" r="6" fill="var(--brand-ink)"/>
-            <circle cx="502" cy="84"  r="6" fill="var(--brand-ink)"/>
-            <text x="92"  y="292" class="axis-small" text-anchor="middle">2025</text>
-            <text x="502" y="292" class="axis-small" text-anchor="middle">2030</text>
-            <text x="360" y="50"  class="axis-label">9,6 % CAGR</text>
-          </svg>
-          <div class="source-under">MarketsandMarkets, Industrial Control &amp; Factory Automation Market: 274,99 Mrd. USD (2025), 435,24 Mrd. USD (2030), 9,6 % CAGR. <a href="https://www.prnewswire.com/news-releases/industrial-control--factory-automation-market-worth-435-24-billion-by-2030---exclusive-report-by-marketsandmarkets-302658335.html" target="_blank" rel="noopener">[8]</a></div>
-          <div class="chart-insight"><strong>Was das für Unternehmen bedeutet</strong>Starkes Marktwachstum treibt Wettbewerb unter Anbietern, senkt Preise und erhöht die Lösungsreife. Der Einstieg wird günstiger – aber früh startende Unternehmen bauen schon heute operative Vorteile auf.</div>
-        </div>
-
-        <div class="card chart-card reveal">
-          <div class="chart-title">
-            <h3>Automatisierbare Tätigkeiten nach Branche</h3>
-            <div class="chart-source">Technisches Potenzial in % · Quelle: McKinsey <span class="ref">[9]</span></div>
-          </div>
-          <svg class="chart-svg" viewBox="0 0 560 360" role="img" aria-label="Automatisierbare Tätigkeiten: Gastronomie 73 Prozent, Fertigung 59, Handel 53, Finanz 43, Gesundheit 36, Bildung 27 Prozent">
-            <line class="axis-line" x1="150" y1="50"  x2="150" y2="280"/>
-            <line class="axis-line" x1="150" y1="280" x2="520" y2="280"/>
-            <line class="grid-line" x1="150" y1="50"  x2="150" y2="280"/>
-            <line class="grid-line" x1="224" y1="50"  x2="224" y2="280"/>
-            <line class="grid-line" x1="298" y1="50"  x2="298" y2="280"/>
-            <line class="grid-line" x1="372" y1="50"  x2="372" y2="280"/>
-            <line class="grid-line" x1="446" y1="50"  x2="446" y2="280"/>
-            <line class="grid-line" x1="520" y1="50"  x2="520" y2="280"/>
-            <text x="150" y="306" class="axis-small" text-anchor="middle">0 %</text>
-            <text x="224" y="306" class="axis-small" text-anchor="middle">20 %</text>
-            <text x="298" y="306" class="axis-small" text-anchor="middle">40 %</text>
-            <text x="372" y="306" class="axis-small" text-anchor="middle">60 %</text>
-            <text x="446" y="306" class="axis-small" text-anchor="middle">80 %</text>
-            <text x="520" y="306" class="axis-small" text-anchor="middle">100 %</text>
-            <text x="20" y="75"  class="axis-small">Gastronomie</text>
-            <rect class="bar-animated chart-bar" x="150" y="58"  width="270" height="22" fill="var(--brand)" style="transform-box: fill-box"/>
-            <text x="428" y="75"  class="axis-label">73 %</text>
-            <text x="20" y="112" class="axis-small">Fertigung</text>
-            <rect class="bar-animated chart-bar" x="150" y="95"  width="218" height="22" fill="var(--brand)" style="transition-delay:.05s; transform-box: fill-box"/>
-            <text x="376" y="112" class="axis-label">59 %</text>
-            <text x="20" y="149" class="axis-small">Handel</text>
-            <rect class="bar-animated chart-bar" x="150" y="132" width="196" height="22" fill="var(--brand-light)" style="transition-delay:.10s; transform-box: fill-box"/>
-            <text x="354" y="149" class="axis-label">53 %</text>
-            <text x="20" y="186" class="axis-small">Finanz/Vers.</text>
-            <rect class="bar-animated chart-bar" x="150" y="169" width="159" height="22" fill="var(--brand-light)" style="transition-delay:.15s; transform-box: fill-box"/>
-            <text x="317" y="186" class="axis-label">43 %</text>
-            <text x="20" y="223" class="axis-small">Gesundheit</text>
-            <rect class="bar-animated chart-bar" x="150" y="206" width="133" height="22" fill="var(--brand-border)" style="transition-delay:.20s; transform-box: fill-box"/>
-            <text x="291" y="223" class="axis-label">36 %</text>
-            <text x="20" y="260" class="axis-small">Bildung</text>
-            <rect class="bar-animated chart-bar" x="150" y="243" width="100" height="22" fill="var(--brand-border)" style="transition-delay:.25s; transform-box: fill-box"/>
-            <text x="258" y="260" class="axis-label">27 %</text>
-          </svg>
-          <div class="source-under">McKinsey, „Where machines could replace humans" – technische Automatisierungspotenziale nach Sektor. <a href="https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/where-machines-could-replace-humans-and-where-they-cant-yet" target="_blank" rel="noopener">[9]</a> Deloitte Smart Manufacturing Survey 2025 bestätigt: 74 % der Industrieunternehmen planen erhöhte Automatisierungsinvestitionen <a href="https://www2.deloitte.com/us/en/pages/about-deloitte/articles/press-releases/deloitte-2025-smart-manufacturing-survey.html" target="_blank" rel="noopener">[13]</a>.</div>
-          <div class="chart-insight"><strong>Was das für Unternehmen bedeutet</strong>Mehr als jede zweite Tätigkeit in Handel und Fertigung ist technisch automatisierbar – das gilt auch für Büros, Lager und Dienstleistungsbetriebe. Viele dieser Potenziale sind mit überschaubarem Aufwand erschließbar.</div>
-        </div>
-
-        <div class="card chart-card reveal">
-          <div class="chart-title">
-            <h3>ROI nach Automatisierungs-/KI-Reifegrad</h3>
-            <div class="chart-source">Erwarteter ROI in % · Quelle: BCG <span class="ref">[10]</span></div>
-          </div>
-          <svg class="chart-svg" viewBox="0 0 560 330" role="img" aria-label="ROI nach Reifegrad: geringe KI-Nutzung 6 Prozent, Median 10 Prozent, hoher Reifegrad 18 Prozent">
-            <line class="grid-line" x1="78" y1="260" x2="520" y2="260"/>
-            <line class="grid-line" x1="78" y1="210" x2="520" y2="210"/>
-            <line class="grid-line" x1="78" y1="160" x2="520" y2="160"/>
-            <line class="grid-line" x1="78" y1="110" x2="520" y2="110"/>
-            <line class="grid-line" x1="78" y1="60"  x2="520" y2="60"/>
-            <line class="axis-line" x1="78" y1="60"  x2="78"  y2="260"/>
-            <line class="axis-line" x1="78" y1="260" x2="520" y2="260"/>
-            <text x="38" y="264" class="axis-small">0 %</text>
-            <text x="32" y="214" class="axis-small">5 %</text>
-            <text x="26" y="164" class="axis-small">10 %</text>
-            <text x="26" y="114" class="axis-small">15 %</text>
-            <text x="26" y="64"  class="axis-small">20 %</text>
-            <rect class="bar-animated chart-bar" x="130" y="200" width="80" height="60"  fill="var(--brand-border)" style="transform-box: fill-box"/>
-            <rect class="bar-animated chart-bar" x="250" y="160" width="80" height="100" fill="var(--brand-light)" style="transition-delay:.12s; transform-box: fill-box"/>
-            <rect class="bar-animated chart-bar" x="370" y="80"  width="80" height="180" fill="var(--brand)" style="transition-delay:.24s; transform-box: fill-box"/>
-            <text x="170" y="188" class="axis-label" text-anchor="middle">6 %</text>
-            <text x="290" y="148" class="axis-label" text-anchor="middle">10 %</text>
-            <text x="410" y="68"  class="axis-label" text-anchor="middle">18 %</text>
-            <text x="170" y="296" class="axis-small" text-anchor="middle">gering</text>
-            <text x="290" y="296" class="axis-small" text-anchor="middle">Median</text>
-            <text x="410" y="296" class="axis-small" text-anchor="middle">hoch reif</text>
-          </svg>
-          <div class="source-under">BCG AI Value Gap 2025: Unternehmen mit hohem KI-Reifegrad erzielen einen ROI von 18 % vs. 6 % bei geringer Nutzung. <a href="https://www.bcg.com/publications/2025/are-you-generating-value-from-ai-the-widening-gap" target="_blank" rel="noopener">[10]</a></div>
-          <div class="chart-insight"><strong>Was das für Unternehmen bedeutet</strong>Reife Unternehmen erzielen dreifach so hohen ROI wie Einsteiger – und der Abstand wächst. Wer früh beginnt, steigt schneller in die oberen Reifegradstufen auf und profitiert dauerhaft überproportional.</div>
-        </div>
-
-        <div class="card chart-card reveal">
-          <div class="chart-title">
-            <h3>Roboternachfrage: Wachstum nach Region</h3>
-            <div class="chart-source">Jährliches Wachstum in % · Quelle: IFR 2025 <span class="ref">[11]</span></div>
-          </div>
-          <svg class="chart-svg" viewBox="0 0 560 330" role="img" aria-label="IFR: Roboter-Nachfragewachstum nach Region: Asien 9 Prozent, Amerika 7 Prozent, Europa 5 Prozent jährlich">
-            <line class="grid-line" x1="78" y1="260" x2="520" y2="260"/>
-            <line class="grid-line" x1="78" y1="220" x2="520" y2="220"/>
-            <line class="grid-line" x1="78" y1="180" x2="520" y2="180"/>
-            <line class="grid-line" x1="78" y1="140" x2="520" y2="140"/>
-            <line class="grid-line" x1="78" y1="100" x2="520" y2="100"/>
-            <line class="grid-line" x1="78" y1="60"  x2="520" y2="60"/>
-            <line class="axis-line" x1="78" y1="60"  x2="78"  y2="260"/>
-            <line class="axis-line" x1="78" y1="260" x2="520" y2="260"/>
-            <text x="38" y="264" class="axis-small">0 %</text>
-            <text x="32" y="224" class="axis-small">2 %</text>
-            <text x="32" y="184" class="axis-small">4 %</text>
-            <text x="32" y="144" class="axis-small">6 %</text>
-            <text x="32" y="104" class="axis-small">8 %</text>
-            <text x="26" y="64"  class="axis-small">10 %</text>
-            <rect class="bar-animated chart-bar" x="130" y="80"  width="86" height="180" fill="var(--brand)" style="transform-box: fill-box"/>
-            <rect class="bar-animated chart-bar" x="250" y="120" width="86" height="140" fill="var(--brand-light)" style="transition-delay:.14s; transform-box: fill-box"/>
-            <rect class="bar-animated chart-bar" x="370" y="160" width="86" height="100" fill="var(--brand-border)" style="transition-delay:.28s; transform-box: fill-box"/>
-            <text x="173" y="68"  class="axis-label" text-anchor="middle">9 %</text>
-            <text x="293" y="108" class="axis-label" text-anchor="middle">7 %</text>
-            <text x="413" y="148" class="axis-label" text-anchor="middle">5 %</text>
-            <text x="173" y="296" class="axis-small" text-anchor="middle">Asien</text>
-            <text x="293" y="296" class="axis-small" text-anchor="middle">Amerika</text>
-            <text x="413" y="296" class="axis-small" text-anchor="middle">Europa</text>
-          </svg>
-          <div class="source-under">IFR World Robotics 2025: Globale Roboternachfrage in Fabriken hat sich in 10 Jahren verdoppelt. Regionales Wachstum als Indikator. <a href="https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years?stream=top" target="_blank" rel="noopener">[11]</a></div>
-          <div class="chart-insight"><strong>Was das für Unternehmen bedeutet</strong>Europa wächst beim Automatisierungseinsatz, liegt aber hinter Asien zurück. Für deutsche Unternehmen bedeutet das: Der Aufholbedarf ist real – und Wettbewerber bauen bereits strukturelle Vorteile auf.</div>
-        </div>
-
-      </div><!-- /data-grid -->
-
-      <div class="card reveal" style="margin-top:24px">
-        <div class="eyebrow">Quellen dieses Abschnitts</div>
-        <div class="source-list">
-          <div class="source-item"><span class="source-num">[4]</span><a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/digest/" target="_blank" rel="noopener">World Economic Forum, <em>The Future of Jobs Report 2025</em>, Key Findings, 2025.</a></div>
-          <div class="source-item"><span class="source-num">[7]</span><a href="https://www.grandviewresearch.com/industry-analysis/manufacturing-automation-market-report" target="_blank" rel="noopener">Grand View Research, <em>Manufacturing Automation Market Size &amp; Share Report, 2030</em>.</a></div>
-          <div class="source-item"><span class="source-num">[8]</span><a href="https://www.prnewswire.com/news-releases/industrial-control--factory-automation-market-worth-435-24-billion-by-2030---exclusive-report-by-marketsandmarkets-302658335.html" target="_blank" rel="noopener">MarketsandMarkets, <em>Industrial Control &amp; Factory Automation Market worth $435.24 billion by 2030</em>, 2026.</a></div>
-          <div class="source-item"><span class="source-num">[9]</span><a href="https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/where-machines-could-replace-humans-and-where-they-cant-yet" target="_blank" rel="noopener">McKinsey Global Institute, <em>Where machines could replace humans—and where they can't (yet)</em>.</a></div>
-          <div class="source-item"><span class="source-num">[10]</span><a href="https://www.bcg.com/publications/2025/are-you-generating-value-from-ai-the-widening-gap" target="_blank" rel="noopener">BCG, <em>Are You Generating Value from AI? The Widening Gap</em>, 2025.</a></div>
-          <div class="source-item"><span class="source-num">[11]</span><a href="https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years?stream=top" target="_blank" rel="noopener">International Federation of Robotics, <em>Global Robot Demand in Factories Doubles over 10 Years</em>, World Robotics 2025.</a></div>
-          <div class="source-item"><span class="source-num">[13]</span><a href="https://www2.deloitte.com/us/en/pages/about-deloitte/articles/press-releases/deloitte-2025-smart-manufacturing-survey.html" target="_blank" rel="noopener">Deloitte, <em>2025 Smart Manufacturing Survey</em>, 2025.</a></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- KI als Verstärker -->
-  <section class="section">
-    <div class="inner">
-      <div class="section-head reveal">
-        <div class="eyebrow">KI als Verstärker</div>
-        <h2>KI macht Automatisierung breiter einsetzbar</h2>
-        <p>Klassische Automatisierung führt starre Regeln aus. KI-gestützte Automatisierung kann darüber hinaus Daten auswerten, Muster erkennen, Texte verstehen und Entscheidungen vorbereiten. Damit werden auch Prozesse automatisierbar, die keine klaren Wenn-dann-Regeln haben – zum Beispiel die Klassifikation eingehender E-Mails, die Prüfung von Dokumenten oder die Steuerung variabler Ressourcen.</p>
-      </div>
-      <div class="card reveal">
-        <div class="process">
-          <div class="process-step">Datenquelle</div>
-          <div class="process-step">KI / Regelwerk</div>
-          <div class="process-step">Entscheidung</div>
-          <div class="process-step">Automatische Aktion</div>
-        </div>
-      </div>
-      <div class="card chart-card reveal" style="margin-top:24px">
-        <div class="chart-title">
-          <h3>Weltweite KI-Ausgaben: 2024 vs. 2028 (IDC)</h3>
-          <div class="chart-source">Ausgaben in Mrd. USD · Quelle: IDC <span class="ref">[3]</span></div>
-        </div>
-        <svg class="chart-svg" viewBox="0 0 720 330" role="img" aria-label="IDC: weltweite KI-Ausgaben 235 Milliarden USD 2024, über 630 Milliarden USD bis 2028.">
-          <line class="grid-line" x1="96" y1="252" x2="660" y2="252"/>
-          <line class="grid-line" x1="96" y1="204" x2="660" y2="204"/>
-          <line class="grid-line" x1="96" y1="156" x2="660" y2="156"/>
-          <line class="grid-line" x1="96" y1="108" x2="660" y2="108"/>
-          <line class="grid-line" x1="96" y1="60"  x2="660" y2="60"/>
-          <line class="axis-line" x1="96" y1="42"  x2="96"  y2="252"/>
-          <line class="axis-line" x1="96" y1="252" x2="660" y2="252"/>
-          <text x="48" y="256" class="axis-small">0</text>
-          <text x="38" y="208" class="axis-small">200</text>
-          <text x="38" y="160" class="axis-small">400</text>
-          <text x="38" y="112" class="axis-small">600</text>
-          <text x="38" y="64"  class="axis-small">800</text>
-          <rect class="bar-animated chart-bar" x="185" y="196" width="112" height="56"  fill="var(--brand-light)" style="transform-box: fill-box"/>
-          <rect class="bar-animated chart-bar" x="430" y="101" width="112" height="151" fill="var(--brand)" style="transition-delay:.18s; transform-box: fill-box"/>
-          <text x="241" y="181" class="axis-label" text-anchor="middle">235</text>
-          <text x="486" y="86"  class="axis-label" text-anchor="middle">&gt;630</text>
-          <text x="241" y="286" class="axis-label" text-anchor="middle">2024</text>
-          <text x="486" y="286" class="axis-label" text-anchor="middle">2028</text>
-          <text x="486" y="48"  class="axis-label">knapp 30 % CAGR</text>
-        </svg>
-        <div class="source-under">IDC: 235 Mrd. USD KI-Ausgaben 2024, über 630 Mrd. USD bis 2028 <a href="https://www.idc.com/resource-center/blog/a-deep-dive-into-idcs-global-ai-and-generative-ai-spending/" target="_blank" rel="noopener">[3]</a>. Gartner prognostiziert für 2025 allein im GenAI-Bereich weltweite Ausgaben von 644 Mrd. USD <span class="ref">[12]</span> – ein anderes, aber ergänzendes Marktsegment.</div>
-        <div class="chart-insight"><strong>Was das für Unternehmen bedeutet</strong>Das steigende Investitionsvolumen treibt Preisverfall und Lösungsreife bei KI-Werkzeugen. Module, die 2020 noch teuer und komplex waren, sind heute auch für kleinere Betriebe verfügbar.</div>
-      </div>
-      <p class="copy reveal" style="margin-top:20px">Der Stanford AI Index 2026 bestätigt: KI-Investitionen fließen zunehmend in operative Unternehmensanwendungen – weg von Forschungsprojekten, hin zu messbarem Produktionseinsatz <span class="ref">[6]</span>.</p>
-    </div>
-  </section>
-
-  <!-- ④ SCHRITT 3: Wirtschaftlicher Nutzen / ROI -->
-  <section class="section">
-    <div class="inner">
-      <div class="section-head reveal">
-        <div class="eyebrow">Schritt 3 · Wirtschaftlicher Nutzen</div>
-        <h2>Der ROI entsteht durch wiederholte Einsparung – nicht durch einen einmaligen Effekt</h2>
-        <p>Automatisierung lohnt sich besonders dann, wenn ein Prozess regelmäßig stattfindet. Jede eingesparte manuelle Bearbeitung wirkt nicht einmal, sondern dauerhaft. Die Investition fällt einmalig an – die Einsparung akkumuliert sich täglich.</p>
-      </div>
-      <div class="split" style="margin-top:28px">
-        <div class="card reveal">
-          <div class="chart-title">
-            <h3>ROI-Mechanik: Wie Automatisierung wirtschaftlich wirkt</h3>
-            <div class="chart-source">Qualitative Nutzenkette · projektspezifisch zu beziffern</div>
-          </div>
-          <div class="roi-flow">
-            <div class="roi-step"><strong>1. Einrichtung</strong><span>Prozess aufnehmen, Regeln definieren, Schnittstellen verbinden.</span></div>
-            <div class="roi-step"><strong>2. Automatisierung</strong><span>Der Ablauf läuft bei jedem Trigger konsistent und dokumentiert.</span></div>
-            <div class="roi-step"><strong>3. Wiederholung</strong><span>Jede Ausführung spart manuelle Bearbeitung – ohne weiteres Zutun.</span></div>
-            <div class="roi-step"><strong>4. Nutzen</strong><span>Zeitgewinn, weniger Fehler und schnellere Reaktion kumulieren dauerhaft.</span></div>
-          </div>
-        </div>
-        <div class="card reveal">
-          <div class="chart-title">
-            <h3>Rechenbeispiel: Automatischer Rechnungseingang</h3>
-            <div class="chart-source">Illustrativ · typische Prozesszeiten kleiner KMU</div>
-          </div>
-          <div class="roi-calc">
-            <div class="roi-calc-label">Zeitersparnis pro Jahr – Schritt für Schritt</div>
-            <div class="roi-calc-rows">
-              <div class="roi-calc-row">
-                <div class="roi-op">=</div>
-                <div class="roi-desc">manuelle Bearbeitung pro Beleg<br><small style="color:#6b7280">Prüfen, Ablegen, Weiterleiten, Freigabe anfragen</small></div>
-                <div class="roi-val">8 min</div>
-              </div>
-              <div class="roi-calc-row">
-                <div class="roi-op">×</div>
-                <div class="roi-desc">Belege pro Tag<br><small style="color:#6b7280">Typischer Durchschnitt eines kleinen Betriebs</small></div>
-                <div class="roi-val">15 Belege</div>
-              </div>
-              <div class="roi-calc-row">
-                <div class="roi-op">×</div>
-                <div class="roi-desc">Arbeitstage pro Jahr</div>
-                <div class="roi-val">220 Tage</div>
-              </div>
-            </div>
-            <div class="roi-result">= 26.400 Minuten · 440 Stunden pro Jahr gespart<br>entspricht rund 11 Vollzeitwochen</div>
-            <div class="roi-note">Illustrative Schätzung auf Basis typischer Prozesszeiten. Tatsächliche Einsparung hängt von Belegvolumen, bisherigem Prozess und Systemintegration ab. McKinsey beziffert das technische Automatisierungspotenzial im Finance/Insurance-Bereich auf 43 % der Tätigkeiten <span class="ref">[9]</span>.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Operative Wirkung -->
-  <section class="section">
-    <div class="inner">
-      <div class="section-head reveal">
-        <div class="eyebrow">Operative Wirkung</div>
-        <h2>Wer nicht automatisiert, verliert operative Geschwindigkeit</h2>
-        <p>Automatisierung wirkt dort am stärksten, wo Prozesse häufig wiederholt werden, klare Regeln haben oder viele kleine manuelle Schritte enthalten: Terminabstimmung, Bestandsprüfung, Nachbestellung, Statusmeldungen, Dokumentenablage, Energie- und Gebäudesteuerung. Diese Aufgaben summieren sich täglich zu erheblichem Zeitaufwand – und genau dort setzt Automatisierung direkt an.</p>
-      </div>
-      <div class="tiles">
-        <div class="tile reveal"><strong>Zeit sparen</strong>Routinearbeit wird dauerhaft reduziert. Mitarbeitende gewinnen Kapazitäten für wertschöpfende Tätigkeiten.</div>
-        <div class="tile reveal"><strong>Fehler reduzieren</strong>Automatisierte Regeln laufen konsistent, nachvollziehbar und ohne Flüchtigkeitsfehler – auch bei hohem Volumen.</div>
-        <div class="tile reveal"><strong>Personal entlasten</strong>Engpässe durch Fachkräftemangel werden abgepuffert. Teams arbeiten stärker an Aufgaben, die echtes Urteilsvermögen erfordern.</div>
-        <div class="tile reveal"><strong>Prozesse skalieren</strong>Mehr Volumen ohne linearen Mehraufwand – Wachstum ohne proportionalen Personalaufbau.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ⑤ SCHRITT 4: Konkrete Einsatzfälle -->
-  <section class="section">
-    <div class="inner">
-      <div class="section-head reveal">
-        <div class="eyebrow">Schritt 4 · Konkrete Einsatzfälle</div>
-        <h2>Wo Automatisierung sofort wirkt – auch ohne IT-Abteilung</h2>
-        <p>Der Einstieg muss nicht komplex sein. Büros, Lager, Dienstleister und Gebäudebetreiber profitieren bereits von klar abgegrenzten Automatisierungen, die innerhalb von Wochen eingerichtet sind und ab dem ersten Tag Zeit sparen.</p>
-      </div>
-      <div class="use-grid">
-        <div class="use-card reveal">
-          <div class="use-tag">Büro &amp; Verwaltung</div>
-          <strong>Rechnungseingang automatisieren</strong>
-          Eingehende Belege werden automatisch erfasst, geprüft, kategorisiert und zur Freigabe weitergeleitet. Typisch: 8–15 Minuten manuelle Arbeit pro Beleg entfallen vollständig.
-        </div>
-        <div class="use-card reveal">
-          <div class="use-tag">Dienstleister &amp; Büro</div>
-          <strong>Automatische Terminbuchung &amp; -bestätigung</strong>
-          Anfragen werden entgegengenommen, freie Kapazitäten geprüft und Termine direkt bestätigt – ohne Telefonat, ohne manuellen Abgleich, mit automatischen Erinnerungen.
-        </div>
-        <div class="use-card reveal">
-          <div class="use-tag">Lager &amp; Handel</div>
-          <strong>Bestandsüberwachung &amp; Nachbestellung</strong>
-          Bestände werden laufend überwacht. Unterschreitet ein Artikel einen definierten Schwellenwert, wird automatisch eine Nachbestellung ausgelöst oder eine Meldung an den Einkauf gesendet.
-        </div>
-        <div class="use-card reveal">
-          <div class="use-tag">Gebäude &amp; Gewerbe</div>
-          <strong>Intelligente Gebäude- und Energiesteuerung</strong>
-          Heizung, Kühlung und Beleuchtung werden abhängig von Raumbelegung, Tageszeit oder Wetterdaten gesteuert. Je nach Gebäude und Nutzung kann das deutliche Energieeinsparungen ermöglichen.
-        </div>
-        <div class="use-card reveal">
-          <div class="use-tag">Service &amp; Logistik</div>
-          <strong>Automatische Statusmeldungen</strong>
-          Aufträge, Lieferungen und Serviceeinsätze lösen automatisch Statusmeldungen per E-Mail oder Nachricht aus. Kunden werden informiert, ohne dass jede Nachricht einzeln verfasst wird.
-        </div>
-        <div class="use-card reveal">
-          <div class="use-tag">Büro &amp; Verwaltung</div>
-          <strong>Datenextraktion aus Dokumenten &amp; E-Mails</strong>
-          Relevante Informationen aus eingehenden E-Mails, Formularen oder PDF-Dokumenten werden automatisch extrahiert und in Systeme übertragen – ohne Copy-Paste und manuelle Eingabe.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Reifegrad & Perspektive -->
-  <section class="section">
-    <div class="inner">
-      <div class="section-head reveal">
-        <div class="eyebrow">Reifegrad &amp; Perspektive</div>
-        <h2>Automatisierung wird vom Vorteil zur Voraussetzung</h2>
-        <p>Unternehmen, die früh beginnen, bauen schrittweise digitale Fähigkeiten auf: Sie verstehen Prozesse besser, erfassen relevante Daten, schaffen Schnittstellen und können später KI gezielter einsetzen. Wer wartet, muss später größere Lücken schließen – mit weniger Zeit und mehr Wettbewerbsdruck. BCG zeigt: Der ROI-Abstand zwischen Einsteigern und reifen Nutzern beträgt bereits heute Faktor drei <span class="ref">[10]</span>.</p>
-      </div>
-      <div class="ladder reveal">
-        <div class="level">Manuell</div>
-        <div class="level">Digital unterstützt</div>
-        <div class="level">Automatisiert</div>
-        <div class="level">Vernetzt</div>
-        <div class="level">KI-gestützt</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ⑥ SCHRITT 5: Empfehlung -->
-  <section class="section">
-    <div class="inner">
-      <div class="section-head reveal">
-        <div class="eyebrow">Schritt 5 · Empfehlung</div>
-        <h2>Klein starten, Wirkung messen, gezielt skalieren</h2>
-        <p>Ein vollständiger Umbau aller Prozesse ist weder nötig noch sinnvoll. Der wirksamste Einstieg beginnt mit einem klar abgegrenzten Prozess – einem, der regelmäßig stattfindet, klare Regeln hat und heute spürbar Zeit kostet. Dieser Prozess wird analysiert, automatisiert und anhand messbarer Kennzahlen bewertet. Erst dann werden weitere Prozesse einbezogen. So entsteht Automatisierung schrittweise, kontrolliert und wirtschaftlich nachvollziehbar.</p>
-      </div>
-      <div class="rec-steps reveal">
-        <div class="rec-step">
-          <div class="rec-num">1</div>
-          <strong>Prozess auswählen</strong>
-          <p>Einen Ablauf identifizieren, der häufig vorkommt, klare Regeln hat und heute spürbar Zeit kostet.</p>
-        </div>
-        <div class="rec-step">
-          <div class="rec-num">2</div>
-          <strong>Aufwand messen</strong>
-          <p>Zeit, Häufigkeit und Fehlerrate des heutigen Prozesses dokumentieren – als Ausgangsbasis für den ROI.</p>
-        </div>
-        <div class="rec-step">
-          <div class="rec-num">3</div>
-          <strong>Automatisieren</strong>
-          <p>Den Prozess mit einem klar abgegrenzten Werkzeug umsetzen. Fokus auf Messbarkeit und Nachvollziehbarkeit.</p>
-        </div>
-        <div class="rec-step">
-          <div class="rec-num">4</div>
-          <strong>Wirkung prüfen</strong>
-          <p>Zeitersparnis, Fehlerquote und Zufriedenheit im Betrieb nach vier bis acht Wochen auswerten.</p>
-        </div>
-        <div class="rec-step">
-          <div class="rec-num">5</div>
-          <strong>Skalieren</strong>
-          <p>Mit Erfahrung, Daten und bewährten Abläufen gezielt weitere Prozesse anbinden.</p>
-        </div>
-      </div>
-      <div class="rec-note reveal">
-        <p><strong>Warum nicht alles auf einmal?</strong> Großprojekte scheitern häufig an fehlender Akzeptanz, unklaren Anforderungen und zu langen Vorlaufzeiten. Ein erster automatisierter Prozess schafft dagegen sofortige Beweise: Er baut Vertrauen auf, zeigt dem Team wie Automatisierung im eigenen Betrieb funktioniert – und schafft eine verlässliche Basis, bevor weitere Ressourcen gebunden werden.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="section">
-    <div class="inner">
-      <div class="cta-band reveal">
-        <div>
-          <h2 style="color:#fff;margin-bottom:0">3 Prozesse finden, die sich sofort automatisieren lassen</h2>
-          <p>In einem kostenlosen Erstgespräch identifizieren wir gemeinsam wiederkehrende Aufgaben, Engpässe und konkrete Prozesse, die sich mit überschaubarem Aufwand automatisieren lassen – mit direktem Effekt auf Zeit, Personal und Betriebskosten.</p>
-        </div>
-        <div style="display:flex;gap:12px;flex-wrap:wrap">
-          <a class="btn btn-primary" href="/ui_kits/website/#kontakt">Kostenloses Potenzial-Gespräch buchen</a>
-          <a class="btn btn-secondary" href="/ui_kits/website/#kontakt">Erstberatung anfragen</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Quellen gesamt -->
-  <section class="section" style="padding-top:40px">
-    <div class="inner card reveal">
-      <div class="eyebrow">Quellen</div>
-      <div class="source-list">
-        <div class="source-item"><span class="source-num">[1]</span><a href="https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bevoelkerung/Bevoelkerungsvorausberechnung/annahmen_ergebnisse_16te_kBv.html" target="_blank" rel="noopener">Statistisches Bundesamt (Destatis), <em>16. koordinierte Bevölkerungsvorausberechnung – Annahmen und Ergebnisse</em>, 2024.</a></div>
-        <div class="source-item"><span class="source-num">[2]</span><a href="https://www.oecd.org/en/publications/oecd-economic-surveys-germany-2025_39d62aed-en/full-report/addressing-skilled-labour-shortages_9edb78e6.html" target="_blank" rel="noopener">OECD, <em>OECD Economic Surveys: Germany 2025</em>, Abschnitt „Addressing skilled labour shortages," 2025.</a></div>
-        <div class="source-item"><span class="source-num">[3]</span><a href="https://www.idc.com/resource-center/blog/a-deep-dive-into-idcs-global-ai-and-generative-ai-spending/" target="_blank" rel="noopener">International Data Corporation (IDC), „A Deep Dive into IDC's Global AI and Generative AI Spending Guide," 2024.</a></div>
-        <div class="source-item"><span class="source-num">[4]</span><a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/digest/" target="_blank" rel="noopener">World Economic Forum, <em>The Future of Jobs Report 2025</em>, Key Findings, 2025.</a></div>
-        <div class="source-item"><span class="source-num">[5]</span><a href="https://www.goldmansachs.com/insights/articles/generative-ai-could-raise-global-gdp-by-7-percent.html" target="_blank" rel="noopener">Goldman Sachs Research, „Generative AI could raise global GDP by 7%," 2023.</a></div>
-        <div class="source-item"><span class="source-num">[6]</span><a href="https://hai.stanford.edu/ai-index/2026-ai-index-report/economy" target="_blank" rel="noopener">Stanford University HAI, <em>AI Index Report 2026</em>, Kapitel Economy, 2026.</a></div>
-        <div class="source-item"><span class="source-num">[7]</span><a href="https://www.grandviewresearch.com/industry-analysis/manufacturing-automation-market-report" target="_blank" rel="noopener">Grand View Research, <em>Manufacturing Automation Market Size &amp; Share Report, 2030</em>.</a></div>
-        <div class="source-item"><span class="source-num">[8]</span><a href="https://www.prnewswire.com/news-releases/industrial-control--factory-automation-market-worth-435-24-billion-by-2030---exclusive-report-by-marketsandmarkets-302658335.html" target="_blank" rel="noopener">MarketsandMarkets, <em>Industrial Control &amp; Factory Automation Market worth $435.24 billion by 2030</em>, 2026.</a></div>
-        <div class="source-item"><span class="source-num">[9]</span><a href="https://www.mckinsey.com/capabilities/tech-and-ai/our-insights/where-machines-could-replace-humans-and-where-they-cant-yet" target="_blank" rel="noopener">McKinsey Global Institute, <em>Where machines could replace humans—and where they can't (yet)</em>.</a></div>
-        <div class="source-item"><span class="source-num">[10]</span><a href="https://www.bcg.com/publications/2025/are-you-generating-value-from-ai-the-widening-gap" target="_blank" rel="noopener">BCG, <em>Are You Generating Value from AI? The Widening Gap</em>, 2025.</a></div>
-        <div class="source-item"><span class="source-num">[11]</span><a href="https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years?stream=top" target="_blank" rel="noopener">International Federation of Robotics, <em>Global Robot Demand in Factories Doubles over 10 Years</em>, World Robotics 2025.</a></div>
-        <div class="source-item"><span class="source-num">[12]</span><a href="https://www.gartner.com/en/newsroom/press-releases/2025-03-31-gartner-forecasts-worldwide-genai-spending-to-reach-644-billion-in-2025" target="_blank" rel="noopener">Gartner, „Gartner Forecasts Worldwide GenAI Spending to Reach $644 Billion in 2025," Pressemitteilung, 2025.</a></div>
-        <div class="source-item"><span class="source-num">[13]</span><a href="https://www2.deloitte.com/us/en/pages/about-deloitte/articles/press-releases/deloitte-2025-smart-manufacturing-survey.html" target="_blank" rel="noopener">Deloitte, <em>2025 Smart Manufacturing Survey</em>, 2025.</a></div>
-      </div>
-    </div>
-  </section>
-
+  <section class="section sources"><div class="inner"><details><summary>Quellen und Hintergrund</summary><ul><li><a href="https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bevoelkerung/Bevoelkerungsvorausberechnung/annahmen_ergebnisse_16te_kBv.html" target="_blank" rel="noopener">Destatis – 16. koordinierte Bevölkerungsvorausberechnung</a></li><li><a href="https://www.oecd.org/en/publications/oecd-economic-surveys-germany-2025_39d62aed-en/full-report/addressing-skilled-labour-shortages_9edb78e6.html" target="_blank" rel="noopener">OECD – Fachkräfteengpässe in Deutschland</a></li><li><a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/digest/" target="_blank" rel="noopener">World Economic Forum – Future of Jobs Report 2025</a></li></ul></details></div></section>
 </main>
-
-<script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  }, { threshold: 0.16 });
-
-  document.querySelectorAll('.reveal, .curve-card, .card, .ladder').forEach((el) => observer.observe(el));
-</script>
+<script>const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('visible')}),{threshold:.14});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));</script>
 </body>
 </html>
