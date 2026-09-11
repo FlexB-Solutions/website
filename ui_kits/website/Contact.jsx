@@ -36,7 +36,7 @@ function Contact() {
               <div style={contactStyles.calTitle}>Termin buchen</div>
               <div style={contactStyles.calDesc}>30 Minuten kostenloses Erstgespräch. Unverbindlich und direkt online.</div>
             </div>
-            <button style={{ ...contactStyles.calBtn, marginTop: 'auto' }} type="button" onClick={() => window.openBooking && window.openBooking()}>Termin buchen</button>
+            <button style={{ ...contactStyles.calBtn, height: 64, minHeight: 64, marginTop: 'auto' }} type="button" onClick={() => window.openBooking && window.openBooking()}>Termin buchen</button>
           </div>
         </div>
         <div style={{ ...contactStyles.formCol, justifyContent: 'flex-end' }} data-guide-target="contact-form">
@@ -44,7 +44,7 @@ function Contact() {
             <div style={contactStyles.eyebrow}>Direkter Kontakt</div>
             <h3 style={{ ...contactStyles.calTitle, fontSize: 24 }}>Schreiben Sie uns direkt.</h3>
             <p style={{ ...contactStyles.lead, marginBottom: 24 }}>Ihr E-Mail-Programm öffnet sich mit FlexB Solutions als Empfänger. Beschreiben Sie kurz Ihr Anliegen und senden Sie die Nachricht direkt ab.</p>
-            <a style={{ ...contactStyles.calBtn, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', alignSelf: 'stretch', textDecoration: 'none', marginTop: 'auto' }} href="mailto:flexbsolutions@outlook.com?subject=Anfrage%20an%20FlexB%20Solutions">E-Mail schreiben</a>
+            <a style={{ ...contactStyles.calBtn, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', alignSelf: 'stretch', height: 64, minHeight: 64, textDecoration: 'none', marginTop: 'auto' }} href="mailto:flexbsolutions@outlook.com?subject=Anfrage%20an%20FlexB%20Solutions">E-Mail schreiben</a>
           </div>
         </div>
       </div>
