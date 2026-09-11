@@ -30,7 +30,7 @@ function Contact() {
           <div style={contactStyles.eyebrow}>Kontakt</div>
           <h2 style={contactStyles.h2}>Lassen Sie uns sprechen.</h2>
           <p style={contactStyles.lead}>Sie haben eine Idee, ein Problem oder möchten einfach wissen, was möglich ist? Schreiben Sie uns direkt per E-Mail oder buchen Sie ein Erstgespräch.</p>
-          <div className="contact-card" style={{ ...contactStyles.calBox, flexDirection: 'column', alignItems: 'stretch', minHeight: 320, height: 420, padding: 28 }}>
+          <div className="contact-card" style={{ ...contactStyles.calBox, flexDirection: 'column', alignItems: 'stretch', minHeight: 280, height: 280, padding: 28 }}>
             <div style={contactStyles.eyebrow}>TERMIN BUCHEN</div>
             <div>
               <div style={contactStyles.calTitle}>Termin buchen</div>
@@ -40,11 +40,10 @@ function Contact() {
           </div>
         </div>
         <div style={{ ...contactStyles.formCol, justifyContent: 'flex-end' }} data-guide-target="contact-form">
-          <div className="contact-card" style={{ ...contactStyles.calBox, flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'flex-start', minHeight: 320, height: 420, padding: '32px' }}>
+          <div className="contact-card" style={{ ...contactStyles.calBox, flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'flex-start', minHeight: 280, height: 280, padding: '28px' }}>
             <div style={contactStyles.eyebrow}>Direkter Kontakt</div>
             <h3 style={{ ...contactStyles.calTitle, fontSize: 24 }}>Schreiben Sie uns direkt.</h3>
             <p style={{ ...contactStyles.lead, marginBottom: 24 }}>Ihr E-Mail-Programm öffnet sich mit FlexB Solutions als Empfänger. Beschreiben Sie kurz Ihr Anliegen und senden Sie die Nachricht direkt ab.</p>
-            <p style={{ ...contactStyles.privacyHint, marginTop: 16 }}>E-Mail: flexbsolutions@outlook.com</p>
             <a style={{ ...contactStyles.calBtn, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none', marginTop: 'auto' }} href="mailto:flexbsolutions@outlook.com?subject=Anfrage%20an%20FlexB%20Solutions">E-Mail schreiben</a>
           </div>
         </div>
