@@ -53,7 +53,6 @@ section[id] { scroll-margin-top: 0; }
 .section-heading { text-align: left !important; max-width: 760px !important; margin: 0 0 52px !important; }
 .section-heading p { margin-left: 0 !important; }
 .section-heading > div:first-child, .company-eyebrow, .eyebrow, .service-kicker { font-weight: 500 !important; font-size: 11px !important; letter-spacing: .12em !important; }
-#leistungen, #ubermich { background: var(--paper) !important; }
 #furwen { background: #eeefe9 !important; }
 #kontakt { background: #fff !important; }
 /* Existing alternating service rows, with open space instead of card shells. */

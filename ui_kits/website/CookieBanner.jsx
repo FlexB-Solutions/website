@@ -35,8 +35,7 @@ function CookieBanner() {
           </div>
           <p style={cookieStyles.body}>
             Diese Website verwendet keine Analyse-, Tracking- oder Marketing-Cookies. Gespeichert werden nur technisch notwendige Einstellungen und eine lokale FlexBot-Session-ID zur Begrenzung von Missbrauch. Cal.com wird erst geladen, wenn Sie die Terminbuchung öffnen.
-            Für diese technisch notwendigen Speicherungen ist keine Einwilligung erforderlich. Weitere Informationen finden Sie in unserer
-            Weitere Informationen finden Sie in unserer{' '}
+            Für diese technisch notwendigen Speicherungen ist keine Einwilligung erforderlich. Weitere Informationen finden Sie in unserer{' '}
             <a href="datenschutz.html" style={cookieStyles.link}>Datenschutzerklärung</a>.
           </p>
 
