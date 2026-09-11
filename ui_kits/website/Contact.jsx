@@ -39,10 +39,10 @@ function Contact() {
               <div style={contactStyles.calDesc}>30 Minuten kostenloses Erstgespräch. Unverbindlich und direkt online.</div>
             </div>
           </div>
-          <button style={contactStyles.calBtn} type="button" onClick={() => window.openBooking && window.openBooking()}>Termin buchen</button>
+          <button style={{ ...contactStyles.calBtn, marginBottom: 32 }} type="button" onClick={() => window.openBooking && window.openBooking()}>Termin buchen</button>
         </div>
         <div style={contactStyles.formCol} data-guide-target="contact-form">
-          <div style={{ ...contactStyles.calBox, flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'center', flex: 1, padding: '32px' }}>
+          <div style={{ ...contactStyles.calBox, flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'flex-start', flex: 1, padding: '32px' }}>
             <div style={contactStyles.eyebrow}>Direkter Kontakt</div>
             <h3 style={{ ...contactStyles.calTitle, fontSize: 24 }}>Schreiben Sie uns direkt.</h3>
             <p style={{ ...contactStyles.lead, marginBottom: 24 }}>Ihr E-Mail-Programm öffnet sich mit FlexB Solutions als Empfänger. Beschreiben Sie kurz Ihr Anliegen und senden Sie die Nachricht direkt ab.</p>
