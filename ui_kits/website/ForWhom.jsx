@@ -18,20 +18,17 @@ const fwStyles = {
 };
 
 const b2bItems = [
-  'Automatisierung von Buchhaltungs- und Reportingprozessen',
-  'KI-gestützte Kundenbetreuung und Ticketsysteme',
-  'Schnittstellenverbindung zwischen CRM, ERP und Tools',
-  'Onboarding-Workflows für neue Mitarbeitende',
-  'Automatische Datenpflege und -synchronisation',
-  'Gebäudeautomation für Unternehmen und gewerbliche Flächen',
+  'Abläufe und wiederkehrende Aufgaben',
+  'Daten, Systeme und Schnittstellen',
+  'Individuelle Software und digitale Werkzeuge',
+  'KI-Unterstützung für passende Anwendungsfälle',
 ];
 
 const privatItems = [
-  'Gebäudeautomation für Licht, Heizung und Verschattung',
-  'Smart-Home-Automatisierungen mit Gebäudefokus',
-  'Sensorik für Räume, Zugänge und Verbrauchswerte',
-  'Digitale Steuerung wiederkehrender Abläufe im Gebäude',
-  'Individuelle Lösungen für Wohnhaus, Ferienobjekt oder Vermietung',
+  'Abläufe im Zuhause und im Alltag',
+  'Gebäude, Räume und technische Ausstattung',
+  'Sensorik und Auswertung',
+  'Individuelle digitale Lösungen',
 ];
 
 

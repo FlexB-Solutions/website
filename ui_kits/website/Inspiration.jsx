@@ -86,105 +86,29 @@ function unlockPageScroll() {
 }
 
 function Inspiration() {
-  const [activeId, setActiveId] = React.useState(companyAreas[0].id);
-  const [zoomOpen, setZoomOpen] = React.useState(false);
-  const activeIndex = companyAreas.findIndex(area => area.id === activeId);
-  const safeIndex = activeIndex >= 0 ? activeIndex : 0;
-  const activeArea = companyAreas[safeIndex] || companyAreas[0];
-
-  React.useEffect(() => {
-    if (!zoomOpen) return;
-    const handler = (event) => {
-      if (event.key === 'Escape') setZoomOpen(false);
-      if (event.key === 'ArrowLeft') showPrevious();
-      if (event.key === 'ArrowRight') showNext();
-    };
-    window.addEventListener('keydown', handler);
-    return () => window.removeEventListener('keydown', handler);
-  }, [zoomOpen, safeIndex]);
-
-  React.useEffect(() => {
-    if (!zoomOpen) return undefined;
-    lockPageScroll();
-    return () => unlockPageScroll();
-  }, [zoomOpen]);
-
-  const openArea = (id) => {
-    setActiveId(id);
-    setZoomOpen(true);
-  };
-
-  const showPrevious = () => {
-    const previousIndex = (safeIndex - 1 + companyAreas.length) % companyAreas.length;
-    setActiveId(companyAreas[previousIndex].id);
-  };
-
-  const showNext = () => {
-    const nextIndex = (safeIndex + 1) % companyAreas.length;
-    setActiveId(companyAreas[nextIndex].id);
-  };
-
+  const items = [
+    ['Erfassen', 'Informationen und wiederkehrende Aufgaben werden klar strukturiert.'],
+    ['Verbinden', 'Systeme und Daten greifen sinnvoll ineinander.'],
+    ['Reagieren', 'Definierte Abläufe laufen zuverlässig und nachvollziehbar.'],
+  ];
   return (
     <section id="inspiration" className="company-section">
       <div className="company-inner">
         <div className="company-header">
-          <div className="company-eyebrow">Virtuelle Firma</div>
-          <h2 className="company-title">Klicken Sie sich durch einen automatisierten Unternehmensprozess.</h2>
-          <p className="company-sub">
-            Die Zahlen markieren konkrete Bereiche. Ein Klick zoomt in das passende Automatisierungsbeispiel.
-          </p>
+          <div className="company-eyebrow">Automatisierte Abläufe</div>
+          <h2 className="company-title">Von der Anfrage bis zur passenden Reaktion.</h2>
+          <p className="company-sub">Automatisierung verbindet Informationen, Systeme und Aufgaben zu einem klaren Ablauf.</p>
         </div>
-
-        <div className="company-map">
-          <div className="company-map__top">
-            <div className="company-map__label">FlexB Solutions</div>
-            <div className="company-map__hint">Nummer anklicken, Beispiel ansehen</div>
-          </div>
-          <div className="company-image-stage">
-            <img
-              className="company-base-image"
-              src="../../uploads/optimized/Anklicken_Firma.jpg"
-              width="1280"
-              height="853"
-              alt="Virtuelle Firma mit markierten Bereichen"
-            />
-            {companyAreas.map(area => (
-              <button
-                key={area.id}
-                className={`company-hotspot ${activeArea.id === area.id ? 'is-active' : ''}`}
-                style={area.hotspot}
-                type="button"
-                onClick={() => openArea(area.id)}
-                aria-label={`${area.number} ${area.name}: ${area.title}`}
-                title={`${area.number} ${area.name}: ${area.title}`}
-              >
-                <span>{area.number}</span>
-              </button>
-            ))}
-          </div>
+        <div className="company-map inspiration-cards">
+          {items.map(([title, copy], index) => (
+            <article key={title} className="service-feature-row" style={{padding: '28px 24px', background: '#fff', border: '1px solid var(--brand-tint)', borderRadius: 6}}>
+              <div className="company-eyebrow">0{index + 1}</div>
+              <h3 style={{margin: '12px 0 8px', color: 'var(--ink)'}}>{title}</h3>
+              <p style={{margin: 0, color: 'var(--muted)', lineHeight: 1.6}}>{copy}</p>
+            </article>
+          ))}
         </div>
       </div>
-
-      {zoomOpen && (
-        <div className="company-lightbox" onClick={event => event.target === event.currentTarget && setZoomOpen(false)}>
-          <div className="company-lightbox__inner">
-            <button className="company-lightbox__close" type="button" onClick={() => setZoomOpen(false)} aria-label="Schließen">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
-            </button>
-            <button className="company-lightbox__arrow company-lightbox__arrow--left" type="button" onClick={showPrevious} aria-label="Vorheriges Beispiel">
-              ‹
-            </button>
-            <button className="company-lightbox__arrow company-lightbox__arrow--right" type="button" onClick={showNext} aria-label="Nächstes Beispiel">
-              ›
-            </button>
-            <img className="company-lightbox__image" src={activeArea.image} alt={activeArea.title} />
-            <div className="company-lightbox__caption">
-              <strong>{activeArea.number} · {activeArea.name}: {activeArea.title}</strong>
-              <span>{activeArea.copy}</span>
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 }
