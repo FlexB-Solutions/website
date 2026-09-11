@@ -43,45 +43,13 @@ function Contact() {
           <a style={{ ...contactStyles.calBtn, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none', background: 'transparent', color: 'var(--brand-ink)', border: '1px solid var(--brand)' }} href="mailto:flexbsolutions@outlook.com?subject=Anfrage%20an%20FlexB%20Solutions">E-Mail schreiben</a>
         </div>
         <div style={contactStyles.formCol} data-guide-target="contact-form">
-          <form
-            id="contact-form"
-            style={contactStyles.form}
-            action="https://formsubmit.co/flexbsolutions@outlook.com"
-            method="POST"
-          >
-            <input type="hidden" name="_subject" value="Neue Nachricht über FlexB Solutions" />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="text" name="_honey" style={{ display: 'none' }} tabIndex="-1" autoComplete="off" />
-            <div className="contact-row" style={contactStyles.row}>
-              <div style={contactStyles.field}>
-                <label style={contactStyles.label} htmlFor="contact-first-name">Vorname</label>
-                <input id="contact-first-name" name="Vorname" style={contactStyles.input} type="text" placeholder="Max" required />
-              </div>
-              <div style={contactStyles.field}>
-                <label style={contactStyles.label} htmlFor="contact-last-name">Nachname</label>
-                <input id="contact-last-name" name="Nachname" style={contactStyles.input} type="text" placeholder="Mustermann" required />
-              </div>
-            </div>
-            <div style={contactStyles.field}>
-              <label style={contactStyles.label} htmlFor="contact-email">E-Mail</label>
-              <input id="contact-email" name="E-Mail" style={contactStyles.input} type="email" placeholder="max@beispiel.de" required />
-            </div>
-            <div style={contactStyles.field}>
-              <label style={contactStyles.label} htmlFor="contact-type">Ich bin…</label>
-              <select id="contact-type" name="Ich bin" style={contactStyles.input}>
-                <option>Unternehmen (B2B)</option>
-                <option>Privatkunde</option>
-                <option>Selbstständig</option>
-              </select>
-            </div>
-            <div style={contactStyles.field}>
-              <label style={contactStyles.label} htmlFor="contact-message">Nachricht</label>
-              <textarea id="contact-message" name="Nachricht" style={contactStyles.textarea} placeholder="Wie können wir Ihnen helfen?" required></textarea>
-            </div>
-            <p style={contactStyles.privacyHint}>Mit dem Absenden werden Ihre Angaben zur Bearbeitung Ihrer Anfrage an FormSubmit übermittelt. Details finden Sie in der <a href="datenschutz.html" style={{ color: 'var(--brand)' }}>Datenschutzerklärung</a>.</p>
-            <button style={contactStyles.submitBtn} type="submit">Nachricht senden</button>
-          </form>
+          <div style={{ ...contactStyles.calBox, flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'center', flex: 1, padding: '32px' }}>
+            <div style={contactStyles.eyebrow}>Direkter Kontakt</div>
+            <h3 style={{ ...contactStyles.calTitle, fontSize: 24 }}>Schreiben Sie uns direkt.</h3>
+            <p style={{ ...contactStyles.lead, marginBottom: 24 }}>Ihr E-Mail-Programm öffnet sich mit FlexB Solutions als Empfänger. Beschreiben Sie kurz Ihr Anliegen – wir melden uns innerhalb von 24 Stunden.</p>
+            <a style={{ ...contactStyles.calBtn, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none' }} href="mailto:flexbsolutions@outlook.com?subject=Anfrage%20an%20FlexB%20Solutions">E-Mail schreiben</a>
+            <p style={{ ...contactStyles.privacyHint, marginTop: 16 }}>E-Mail: flexbsolutions@outlook.com</p>
+          </div>
         </div>
       </div>
     </section>

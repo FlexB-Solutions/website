@@ -475,7 +475,7 @@
   .company-lightbox__arrow {
     position: fixed;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-50%) !important;
     width: 48px;
     height: 48px;
     border-radius: 999px;
@@ -489,7 +489,12 @@
     font-size: 28px;
     line-height: 1;
     box-shadow: 0 14px 28px rgba(0,0,0,0.18);
+    transition: background .18s ease, box-shadow .18s ease;
+    will-change: auto;
   }
+  .company-lightbox__arrow:hover,
+  .company-lightbox__arrow:focus-visible,
+  .company-lightbox__arrow:active { transform: translateY(-50%) !important; }
   .company-lightbox__arrow--left { left: max(18px, calc(50% - 520px)); }
   .company-lightbox__arrow--right { right: max(18px, calc(50% - 520px)); }
   .company-lightbox__caption { margin-top: 14px; color: #fff; display: grid; gap: 6px; max-width: 760px; }
