@@ -106,7 +106,7 @@ h1{font-size:clamp(44px,6vw,82px);line-height:1.01;letter-spacing:-.05em;margin:
 .cal-desc{font-size:14px;color:var(--muted);line-height:1.55}
 .cal-btn,.submit-btn{background:var(--brand);color:#fff;border:none;border-radius:8px;padding:14px 28px;font-size:16px;font-weight:600;cursor:pointer;font-family:inherit;width:100%;box-shadow:0 4px 16px rgba(24,115,68,.25)}
 .cal-btn{margin-top:auto}
-.contact-form{display:flex;flex-direction:column;gap:16px;height:100%}
+.contact-form{display:flex;flex-direction:column;gap:16px;height:100%}.contact-direct{height:100%;min-height:320px;display:flex;flex-direction:column;gap:14px;padding:28px;background:var(--paper);border:1px solid var(--brand-tint);border-radius:4px}.contact-direct h3{font-size:26px;line-height:1.2}.contact-direct p{color:var(--muted);font-size:16px;line-height:1.6}.contact-direct .submit-btn{margin-top:auto;text-align:center;text-decoration:none}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .field{display:flex;flex-direction:column;gap:6px}
 .label{font-size:13px;font-weight:600;color:var(--ink)}
@@ -405,41 +405,7 @@ h1{font-size:clamp(44px,6vw,82px);line-height:1.01;letter-spacing:-.05em;margin:
         <button class="cal-btn btn-primary js-open-booking" type="button">Termin buchen</button>
       </div>
 
-      <div class="contact-form-col">
-        <form class="contact-form" action="https://formsubmit.co/flexbsolutions@outlook.com" method="POST">
-          <input type="hidden" name="_subject" value="Neue Nachricht über FlexB Solutions - Custom Workflows">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-          <div class="form-row">
-            <div class="field">
-              <label class="label" for="prozess-first-name">Vorname</label>
-              <input class="input" id="prozess-first-name" name="Vorname" type="text" placeholder="Max" required>
-            </div>
-            <div class="field">
-              <label class="label" for="prozess-last-name">Nachname</label>
-              <input class="input" id="prozess-last-name" name="Nachname" type="text" placeholder="Mustermann" required>
-            </div>
-          </div>
-          <div class="field">
-            <label class="label" for="prozess-email">E-Mail</label>
-            <input class="input" id="prozess-email" name="E-Mail" type="email" placeholder="max@beispiel.de" required>
-          </div>
-          <div class="field">
-            <label class="label" for="prozess-type">Ich bin...</label>
-            <select class="select" id="prozess-type" name="Ich bin">
-              <option>Unternehmen (B2B)</option>
-              <option>Privatkunde</option>
-              <option>Selbstständig</option>
-            </select>
-          </div>
-          <div class="field">
-            <label class="label" for="prozess-message">Nachricht</label>
-            <textarea class="textarea" id="prozess-message" name="Nachricht" placeholder="Welcher individuelle Workflow soll entstehen?" required></textarea>
-          </div>
-          <button class="submit-btn" type="submit">Nachricht senden</button>
-        </form>
-      </div>
+      <div class="contact-form-col"><div class="contact-direct"><div class="eyebrow">Direkter Kontakt</div><h3>Schreiben Sie uns direkt.</h3><p>Ihr E-Mail-Programm öffnet sich mit FlexB Solutions als Empfänger. Beschreiben Sie kurz Ihr Anliegen und senden Sie die Nachricht direkt ab.</p><a class="submit-btn" href="mailto:flexbsolutions@outlook.com?subject=Anfrage%20an%20FlexB%20Solutions">E-Mail schreiben</a></div></div>
     </div>
   </section>
 </main>
