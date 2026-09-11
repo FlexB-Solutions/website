@@ -41,7 +41,7 @@ function Contact() {
             <button style={{ ...contactStyles.calBtn, marginTop: 'auto' }} type="button" onClick={() => window.openBooking && window.openBooking()}>Termin buchen</button>
           </div>
         </div>
-        <div style={contactStyles.formCol} data-guide-target="contact-form">
+        <div style={{ ...contactStyles.formCol, justifyContent: 'flex-end' }} data-guide-target="contact-form">
           <div style={{ ...contactStyles.calBox, flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'flex-start', minHeight: 320, padding: '32px' }}>
             <div style={contactStyles.eyebrow}>Direkter Kontakt</div>
             <h3 style={{ ...contactStyles.calTitle, fontSize: 24 }}>Schreiben Sie uns direkt.</h3>
