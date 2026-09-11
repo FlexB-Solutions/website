@@ -9,9 +9,9 @@ const contactStyles = {
   lead: { fontSize: 16, color: 'var(--muted)', lineHeight: 1.65, marginBottom: 32 },
   calBox: { background: 'var(--paper)', borderRadius: 4, padding: '24px 26px', border: '1px solid var(--brand-tint)', display: 'flex', alignItems: 'center', gap: 16 },
   calIcon: { width: 48, height: 48, background: 'var(--brand-tint)', borderRadius: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', flex: '0 0 auto' },
-  calTitle: { fontSize: 18, fontWeight: 700, color: 'var(--ink)', marginBottom: 5 },
+  calTitle: { fontSize: 24, lineHeight: 1.2, fontWeight: 700, color: 'var(--ink)', marginBottom: 5 },
   calDesc: { fontSize: 14, color: 'var(--muted)', lineHeight: 1.55 },
-  calBtn: { background: 'var(--brand)', color: '#fff', border: 'none', borderRadius: 8, padding: '14px 28px', fontSize: 16, fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit', width: '100%', boxShadow: '0 4px 16px rgba(24,115,68,0.25)', marginTop: 'auto' },
+  calBtn: { background: 'var(--brand)', color: '#fff', border: 'none', borderRadius: 8, boxSizing: 'border-box', padding: '14px 28px', fontSize: 16, lineHeight: 1, fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit', width: '100%', boxShadow: '0 4px 16px rgba(24,115,68,0.25)', marginTop: 'auto' },
   form: { display: 'flex', flexDirection: 'column', gap: 16, height: '100%' },
   row: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 },
   field: { display: 'flex', flexDirection: 'column', gap: 6 },
@@ -42,7 +42,7 @@ function Contact() {
         <div style={{ ...contactStyles.formCol, justifyContent: 'flex-end' }} data-guide-target="contact-form">
           <div className="contact-card" style={{ ...contactStyles.calBox, flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'flex-start', minHeight: 320, height: 320, padding: '28px' }}>
             <div style={contactStyles.eyebrow}>Direkter Kontakt</div>
-            <h3 style={{ ...contactStyles.calTitle, fontSize: 24 }}>Schreiben Sie uns direkt.</h3>
+            <h3 style={contactStyles.calTitle}>Schreiben Sie uns direkt.</h3>
             <p style={{ ...contactStyles.lead, marginBottom: 24 }}>Ihr E-Mail-Programm öffnet sich mit FlexB Solutions als Empfänger. Beschreiben Sie kurz Ihr Anliegen und senden Sie die Nachricht direkt ab.</p>
             <a style={{ ...contactStyles.calBtn, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', alignSelf: 'stretch', height: 64, minHeight: 64, textDecoration: 'none', marginTop: 'auto' }} href="mailto:flexbsolutions@outlook.com?subject=Anfrage%20an%20FlexB%20Solutions">E-Mail schreiben</a>
           </div>
