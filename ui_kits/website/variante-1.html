@@ -625,7 +625,7 @@
 <script type="text/babel" src="FAQ.jsx?v=15"></script>
 <script type="text/babel" src="Contact.jsx?v=13"></script>
 <script type="text/babel" src="Footer.jsx?v=9"></script>
-<script type="text/babel" src="CookieBanner.jsx?v=6"></script>
+<script type="text/babel" src="CookieBanner.jsx?v=7"></script>
 <!-- Cal.com stellt die Buchungsansicht und die Zoom-Termin-Erstellung bereit. -->
 <script>
   (function (C, A, L) {
@@ -658,15 +658,17 @@
       }
     };
   })(window, 'https://app.cal.com/embed/embed.js', 'init');
-  Cal('init', { origin: 'https://cal.com' });
-  Cal('ui', { styles: { branding: { brandColor: '#187344' } }, hideEventTypeDetails: false });
 </script>
 <script type="text/babel">
   function App() {
     const [introActive, setIntroActive] = React.useState(() => !window.location.hash && !window.matchMedia('(prefers-reduced-motion: reduce)').matches);
     // Alle Termin-Buttons öffnen den veröffentlichten Cal.com-Eventtyp.
     React.useEffect(() => {
-      window.openBooking = () => window.Cal('modal', { calLink: 'flexb/kostenloses-erstgesprach' });
+      window.openBooking = () => {
+        window.Cal('init', { origin: 'https://cal.com' });
+        window.Cal('ui', { theme: 'light', styles: { branding: { brandColor: '#187344' } }, hideEventTypeDetails: false });
+        window.Cal('modal', { calLink: 'flexb/kostenloses-erstgesprach' });
+      };
       return () => { delete window.openBooking; };
     }, []);
     React.useEffect(() => {

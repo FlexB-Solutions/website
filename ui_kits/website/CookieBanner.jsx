@@ -1,11 +1,10 @@
-// CookieBanner.jsx – Hinweis zu technisch notwendigen Speicherungen
+// CookieBanner.jsx – transparenter Hinweis zu technisch notwendigen Speicherungen
 function CookieBanner() {
   const hasConsent = () => {
-    return localStorage.getItem('flexb_cookies_accepted') || document.cookie.includes('flexb_cookies_accepted=');
+    return localStorage.getItem('flexb_cookies_accepted');
   };
   const rememberConsent = (value) => {
     localStorage.setItem('flexb_cookies_accepted', value);
-    document.cookie = `flexb_cookies_accepted=${value}; max-age=31536000; path=/; SameSite=Lax`;
   };
 
   const [visible, setVisible] = React.useState(() => !hasConsent());
@@ -30,13 +29,13 @@ function CookieBanner() {
               </svg>
             </div>
             <div>
-              <div style={cookieStyles.title}>Hinweis zu Cookies und lokaler Speicherung</div>
-              <div style={cookieStyles.subtitle}>Es werden nur technisch notwendige Speicherungen für die Website und FlexBot verwendet.</div>
+            <div style={cookieStyles.title}>Datenschutzhinweis</div>
+              <div style={cookieStyles.subtitle}>Diese Website verwendet nur technisch notwendige Speicherungen.</div>
             </div>
           </div>
           <p style={cookieStyles.body}>
-            Diese Website verwendet keine Analyse-, Tracking- oder Marketing-Cookies.
-            Gespeichert werden nur Ihre Auswahl zu diesem Hinweis sowie eine lokale FlexBot-Session-ID zur Begrenzung von Missbrauch. Die Terminbuchung setzt keine zusätzlichen Cookies.
+            Diese Website verwendet keine Analyse-, Tracking- oder Marketing-Cookies. Gespeichert werden nur technisch notwendige Einstellungen und eine lokale FlexBot-Session-ID zur Begrenzung von Missbrauch. Cal.com wird erst geladen, wenn Sie die Terminbuchung öffnen.
+            Für diese technisch notwendigen Speicherungen ist keine Einwilligung erforderlich. Weitere Informationen finden Sie in unserer
             Weitere Informationen finden Sie in unserer{' '}
             <a href="datenschutz.html" style={cookieStyles.link}>Datenschutzerklärung</a>.
           </p>
@@ -63,7 +62,7 @@ function CookieBanner() {
 
         <div style={cookieStyles.actions}>
           <button style={cookieStyles.btnAll} onClick={accept}>
-            Schließen
+            Verstanden
           </button>
         </div>
       </div>
