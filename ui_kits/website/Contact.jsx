@@ -46,8 +46,8 @@ function Contact() {
             <div style={contactStyles.eyebrow}>Direkter Kontakt</div>
             <h3 style={{ ...contactStyles.calTitle, fontSize: 24 }}>Schreiben Sie uns direkt.</h3>
             <p style={{ ...contactStyles.lead, marginBottom: 24 }}>Ihr E-Mail-Programm öffnet sich mit FlexB Solutions als Empfänger. Beschreiben Sie kurz Ihr Anliegen und senden Sie die Nachricht direkt ab.</p>
-            <a style={{ ...contactStyles.calBtn, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none' }} href="mailto:flexbsolutions@outlook.com?subject=Anfrage%20an%20FlexB%20Solutions">E-Mail schreiben</a>
             <p style={{ ...contactStyles.privacyHint, marginTop: 16 }}>E-Mail: flexbsolutions@outlook.com</p>
+            <a style={{ ...contactStyles.calBtn, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none', marginTop: 'auto' }} href="mailto:flexbsolutions@outlook.com?subject=Anfrage%20an%20FlexB%20Solutions">E-Mail schreiben</a>
           </div>
         </div>
       </div>
