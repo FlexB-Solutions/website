@@ -11,7 +11,12 @@ body{font-family:Outfit,system-ui,sans-serif;background:var(--paper);color:var(-
 a{text-decoration:none;color:inherit}
 input,select,textarea,button{font:inherit}
 button{cursor:pointer}
-.nav{height:76px;padding:0 24px;display:flex;align-items:center;justify-content:space-between;max-width:1180px;margin:0 auto}
+.nav{min-height:76px;padding:0 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:1000;background:rgba(246,245,240,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--brand-tint)}
+.subnav-actions{display:flex;align-items:center;gap:28px}
+.subnav-links{display:flex;align-items:center;gap:28px;color:var(--muted);font-size:14px;font-weight:600}
+.subnav-links a:hover{color:var(--brand)}
+.subnav-booking{border:0;border-radius:6px;background:var(--brand);color:#fff;padding:12px 20px;font-weight:800}
+@media (max-width:900px){.subnav-links{display:none}.subnav-actions{gap:14px}.nav{padding:0 18px}}
 .brand-lockup{display:flex;align-items:center;gap:16px}
 .brand{font-size:30px;font-weight:900;letter-spacing:-.05em;color:var(--ink)}
 .brand span{color:var(--brand)}
@@ -185,7 +190,16 @@ h1{font-size:clamp(44px,6vw,82px);line-height:1.01;letter-spacing:-.05em;margin:
       <span>Automatisierung &amp; Prozessoptimierung</span>
     </div>
   </div>
-  <a class="back" href="/ui_kits/website/#leistungen">Zurück zur Startseite</a>
+  <div class="subnav-actions">
+    <div class="subnav-links">
+      <a href="/ui_kits/website/#leistungen">Leistungen</a>
+      <a href="/ui_kits/website/#furwen">Für wen?</a>
+      <a href="/ui_kits/website/#ergebnisse">Ergebnisse</a>
+      <a href="/ui_kits/website/#ubermich">Über mich</a>
+    </div>
+    <a class="back" href="/ui_kits/website/#leistungen">Zurück</a>
+    <button class="subnav-booking js-open-booking" type="button">Termin buchen</button>
+  </div>
 </nav>
 
 <main>

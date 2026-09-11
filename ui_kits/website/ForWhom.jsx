@@ -22,7 +22,7 @@ const b2bItems = [
   'Daten, Systeme und Schnittstellen',
   'Individuelle Software und digitale Werkzeuge',
   'KI-Unterstützung für passende Anwendungsfälle',
-  'Konstruktion und Fertigung von Einzelteilen und Kleinserien',
+  'Konstruktion und Fertigung von Einzelteilen, Kleinserien und 3D-Druck',
 ];
 
 const privatItems = [
@@ -30,7 +30,7 @@ const privatItems = [
   'Gebäude, Räume und technische Ausstattung',
   'Sensorik und Auswertung',
   'Individuelle digitale Lösungen',
-  'Konstruktion und Fertigung passender Einzelteile',
+  'Konstruktion und Fertigung passender Einzelteile im 3D-Druck',
 ];
 
 
