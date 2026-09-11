@@ -17,15 +17,6 @@ function pickRandomItems(items, count = 2) {
   return shuffled.slice(0, count);
 }
 
-function getSessionId() {
-  const storageKey = 'flexb_chat_session_id';
-  const existing = localStorage.getItem(storageKey);
-  if (existing) return existing;
-  const sessionId = `flexb_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 10)}`;
-  localStorage.setItem(storageKey, sessionId);
-  return sessionId;
-}
-
 const chatActions = {
   overview: {
     label: 'Leistungen öffnen',
@@ -153,25 +144,17 @@ function ChatMessage({ role, text, action }) {
   );
 }
 
-async function fetchChatAnswer(question, history) {
-  const response = await fetch('/api/chat', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-session-id': getSessionId(),
-    },
-    body: JSON.stringify({
-      message: question,
-      history: history.slice(-4).map(({ role, text }) => ({ role, text })),
-    }),
-  });
-
-  const data = await response.json().catch(() => ({}));
-  if (!response.ok) {
-    throw new Error(data.error || 'Der Chat ist gerade nicht verfügbar.');
-  }
-
-  return data;
+function getLocalAnswer(question) {
+  const normalized = String(question || '').toLowerCase();
+  if (/preis|kosten|angebot|budget/.test(normalized)) return { answer: 'Preise hängen vom Umfang und der technischen Tiefe ab. Nach einem Erstgespräch gibt es eine realistische Einschätzung.', action: 'overview' };
+  if (/termin|gespräch|gespraech|kontakt/.test(normalized)) return { answer: 'Ein kostenloses Erstgespräch kann direkt über die Terminbuchung gewählt werden. Alternativ erreichen Sie FlexB per E-Mail.', action: 'overview' };
+  if (/3d|druck|prototyp|kleinserie|fertigung/.test(normalized)) return { answer: 'FlexB unterstützt bei Prototypen, individuellen Teilen und Kleinserien im 3D-Druck – von der Idee bis zum passenden Teil.', action: 'overview' };
+  if (/sensor|hardware|microcontroller|mess/.test(normalized)) return { answer: 'Sensorik verbindet Messwerte aus der realen Umgebung mit einer digitalen Auswertung und passenden Abläufen.', action: 'sensorik' };
+  if (/ki|ai act|machine learning|ml|vorhersag|anomal/.test(normalized)) return { answer: 'KI-Automatisierung und Machine Learning werden für passende Anwendungsfälle eingesetzt. Der AI Act wird dabei geprüft.', action: 'ki' };
+  if (/software|webseite|webanwendung|app/.test(normalized)) return { answer: 'FlexB entwickelt individuelle Software, Webseiten und Webanwendungen für passende digitale Abläufe.', action: 'custom-workflows' };
+  if (/prozess|automatis|workflow|ablauf|schnittstelle/.test(normalized)) return { answer: 'Wiederkehrende Abläufe, Daten und bestehende Systeme können zu einem durchgängigen Prozess verbunden werden.', action: 'prozess' };
+  if (/für wen|zielgruppe|unternehmen|privat/.test(normalized)) return { answer: 'Die Lösungen richten sich an Unternehmen und Privatkunden, wenn ein konkreter technischer oder digitaler Ablauf verbessert werden soll.', action: 'overview' };
+  return { answer: 'FlexBot beantwortet nur allgemeine Fragen zu den Website-Inhalten. Für eine konkrete Einschätzung eignet sich eine Nachricht oder ein Erstgespräch.', action: 'overview' };
 }
 
 function FAQ() {
@@ -186,7 +169,7 @@ function FAQ() {
   const [input, setInput] = React.useState('');
   const [visibleQuestions, setVisibleQuestions] = React.useState(() => pickRandomItems(starterQuestions, 2));
   const [isSending, setIsSending] = React.useState(false);
-  const [statusText, setStatusText] = React.useState('Die Antworten beziehen sich nur auf die Inhalte dieser Website und sind bewusst kurz gehalten.');
+  const [statusText, setStatusText] = React.useState('Ihre Frage bleibt auf diesem Gerät. FlexBot nutzt nur die Inhalte dieser Website.');
   const [statusError, setStatusError] = React.useState(false);
   const transcriptRef = React.useRef(null);
 
@@ -214,14 +197,12 @@ function FAQ() {
     setStatusText('...');
 
     try {
-      const result = await fetchChatAnswer(trimmed, messages);
+      const result = getLocalAnswer(trimmed);
       setMessages((current) => [...current, { role: 'bot', text: result.answer, action: result.action || null }]);
       setVisibleQuestions(pickRandomItems(starterQuestions, 2));
-      setStatusText('Die Antworten bleiben auf deine Website-Themen begrenzt und laufen mit reduziertem Tokenverbrauch.');
+      setStatusText('Ihre Frage bleibt auf diesem Gerät. FlexBot nutzt nur die Inhalte dieser Website.');
     } catch (error) {
-      const fallbackText = window.location.hostname === 'localhost'
-        ? 'Der KI-Chat ist derzeit nicht erreichbar. Bitte nutzen Sie für Ihre Anfrage das Kontaktformular oder die direkte E-Mail-Adresse.'
-        : (error.message || 'Der Chat ist gerade nicht erreichbar.');
+      const fallbackText = 'FlexBot konnte die Frage gerade nicht einordnen. Bitte schreiben Sie uns direkt per E-Mail oder buchen Sie ein Erstgespräch.';
 
       setMessages((current) => [...current, { role: 'bot', text: fallbackText }]);
       setStatusError(true);
@@ -244,7 +225,7 @@ function FAQ() {
             <div>
               <div style={chatStyles.eyebrow}>FlexBot</div>
               <div style={chatStyles.title}>Fragen direkt klären</div>
-              <div style={chatStyles.sub}>FlexBot antwortet nur zu FlexB Solutions und ist auf knappe Antworten begrenzt.</div>
+              <div style={chatStyles.sub}>FlexBot beantwortet allgemeine Fragen direkt im Browser und übermittelt keine Eingaben.</div>
             </div>
             <button type="button" style={chatStyles.closeBtn} onClick={() => setOpen(false)} aria-label="Chat schließen">×</button>
           </div>
