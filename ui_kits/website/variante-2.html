@@ -670,7 +670,7 @@
     React.useEffect(() => {
       window.openBooking = () => {
         window.Cal('init', { origin: 'https://cal.com' });
-        window.Cal('ui', { theme: 'light', hideEventTypeDetails: false, cssVarsPerTheme: { light: { 'cal-brand': '#187344', 'cal-brand-emphasis': '#135e39', 'cal-brand-text': '#ffffff', 'cal-brand-subtle': '#dfeee3', 'cal-text': '#405047', 'cal-text-emphasis': '#14261f', 'cal-text-subtle': '#6b7d73', 'cal-bg': '#f6f5f0', 'cal-bg-emphasis': '#ffffff', 'cal-bg-subtle': '#edf4ef', 'cal-border': '#d8ded6' } } });
+        window.Cal('ui', { theme: 'light', hideEventTypeDetails: false, cssVarsPerTheme: { light: { 'cal-brand': '#187344', 'cal-brand-emphasis': '#135e39', 'cal-brand-text': '#ffffff', 'cal-brand-subtle': '#dfeee3', 'cal-text': '#405047', 'cal-text-emphasis': '#14261f', 'cal-text-subtle': '#6b7d73', 'cal-text-muted': '#9aa9a0', 'cal-bg': '#f6f5f0', 'cal-bg-emphasis': '#ffffff', 'cal-bg-subtle': '#edf4ef', 'cal-bg-muted': '#f1f4ef', 'cal-border': '#d8ded6', 'cal-border-emphasis': '#b9cdbd', 'cal-border-subtle': '#e3e9e2', 'radius': '8px' }, dark: { 'cal-brand': '#187344', 'cal-brand-emphasis': '#135e39', 'cal-brand-text': '#ffffff', 'cal-brand-subtle': '#dfeee3', 'cal-text': '#405047', 'cal-text-emphasis': '#14261f', 'cal-text-subtle': '#6b7d73', 'cal-text-muted': '#9aa9a0', 'cal-bg': '#f6f5f0', 'cal-bg-emphasis': '#ffffff', 'cal-bg-subtle': '#edf4ef', 'cal-bg-muted': '#f1f4ef', 'cal-border': '#d8ded6', 'cal-border-emphasis': '#b9cdbd', 'cal-border-subtle': '#e3e9e2', 'radius': '8px' } } });
         window.Cal('modal', { calLink: 'flexb/kostenloses-erstgesprach' });
       };
       return () => { delete window.openBooking; };
