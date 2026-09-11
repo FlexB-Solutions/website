@@ -45,7 +45,7 @@ function CookieBanner() {
               <div style={cookieStyles.detailRow}>
                 <div style={cookieStyles.detailInfo}>
                   <div style={cookieStyles.detailName}>Notwendige Cookies</div>
-                  <div style={cookieStyles.detailDesc}>Speicherung Ihrer Auswahl und einer lokalen FlexBot-Session-ID. Buchungsangaben werden serverseitig verarbeitet, nicht als Browser-Tracking.</div>
+                  <div style={cookieStyles.detailDesc}>Speicherung Ihrer Hinweis-Auswahl und einer lokalen FlexBot-Session-ID. Die Terminbuchung wird erst nach Ihrer ausdrücklichen Aktion an Cal.com übertragen.</div>
                 </div>
                 <div style={cookieStyles.alwaysBadge}>Immer aktiv</div>
               </div>
