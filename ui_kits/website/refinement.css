@@ -53,14 +53,14 @@ section[id] { scroll-margin-top: 80px; }
 #furwen, #kontakt { background: var(--paper) !important; }
 #ergebnisse { background: #183e2e !important; }
 #leistungen {
-  background: #e7f0e9 !important;
-  border-top: 1px solid #d5e3d8;
-  border-bottom: 1px solid #d5e3d8;
+  background: #eeeae2 !important;
+  border-top: 1px solid #ddd7cb;
+  border-bottom: 1px solid #ddd7cb;
 }
 #ubermich {
-  background: #e7f0e9 !important;
-  border-top: 1px solid #d5e3d8;
-  border-bottom: 1px solid #d5e3d8;
+  background: #eeeae2 !important;
+  border-top: 1px solid #ddd7cb;
+  border-bottom: 1px solid #ddd7cb;
 }
 #leistungen h2, #furwen h2, #ergebnisse h2, #ubermich h2, #kontakt h2, .company-title { font-weight: 600 !important; letter-spacing: -.035em !important; }
 .service-feature-row { border-radius: 6px !important; box-shadow: none !important; }
