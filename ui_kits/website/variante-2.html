@@ -670,7 +670,7 @@
     const [introActive, setIntroActive] = React.useState(() => !window.location.hash && !window.matchMedia('(prefers-reduced-motion: reduce)').matches);
     // Alle Termin-Buttons öffnen den veröffentlichten Cal.com-Eventtyp.
     React.useEffect(() => {
-      window.openBooking = () => window.Cal('modal', { calLink: 'flexb/kostenloses-erstgespraech' });
+      window.openBooking = () => window.Cal('modal', { calLink: 'flexb/kostenloses-erstgesprach' });
       return () => { delete window.openBooking; };
     }, []);
     React.useEffect(() => {
