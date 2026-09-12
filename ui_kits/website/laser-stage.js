@@ -9,7 +9,7 @@
     const random = n => { const v = Math.sin(n * 127.1 + 311.7) * 43758.5453; return v - Math.floor(v); };
     let width = 0, height = 0, ratio = 1, frame = 0, destroyed = false, active = true;
     let elapsed = 0, previous = 0, ready = false, geometry;
-    let scrollTint = 0;
+    let scrollTint = 0, entryReveal = 0;
     const bColor = () => {
       const from=[116,214,154], to=[24,115,68];
       return `rgb(${from.map((v,i)=>Math.round(v+(to[i]-v)*scrollTint)).join(",")})`;
@@ -110,6 +110,9 @@
         }
       });
       ctx.globalCompositeOperation='source-over';
+      // Move the letters only after the white reveal edge reaches their baseline.
+      const wordmarkBottom = y + size;
+      const wordmarkLift = Math.min(0, height * (1 - entryReveal) - wordmarkBottom);
       logo.letters.forEach(letter => {
         const isB = letter.id === 4;
         const delay = isB ? 4.9 : .8 + letter.id * .64;
@@ -122,7 +125,7 @@
         const dy = isB ? -height * .95 * travel - Math.sin(p * Math.PI * 2) * size * .10 * Math.sin(p * Math.PI) : (letter.id % 2 ? 1 : -1) * size * .30 * travel;
         ctx.save();
         ctx.globalAlpha = smooth(p / .2);
-        ctx.translate(x + letter.x + dx, y + dy);
+        ctx.translate(x + letter.x + dx, y + dy + wordmarkLift);
         ctx.rotate(isB ? 0 : side * .10 * travel);
         ctx.drawImage(letter.buffer, 0, 0, letter.width, letter.height);
         ctx.restore();
@@ -147,14 +150,20 @@
     }).catch(()=>{if(!destroyed){ready=true;resize();wake();}});
     return {
       setScrollProgress(progress) {
-        const next = clamp(progress * 3);
-        if (next === scrollTint) return;
-        scrollTint = next;
+        const nextTint = clamp(progress * 3);
+        // Keep this identical to --entry-reveal in EntrySequenceV2.jsx.
+        const nextReveal = clamp((progress - .25) / .75);
+        if (nextTint === scrollTint && nextReveal === entryReveal) return;
+        const tintChanged = nextTint !== scrollTint;
+        scrollTint = nextTint;
+        entryReveal = nextReveal;
         if (!geometry) return;
-        const letter = geometry.logo.letters[4];
-        const c = letter.buffer.getContext('2d');
-        c.save();c.setTransform(1,0,0,1,0,0);c.globalCompositeOperation='source-in';
-        c.fillStyle=bColor();c.fillRect(0,0,letter.buffer.width,letter.buffer.height);c.restore();
+        if (tintChanged) {
+          const letter = geometry.logo.letters[4];
+          const c = letter.buffer.getContext('2d');
+          c.save();c.setTransform(1,0,0,1,0,0);c.globalCompositeOperation='source-in';
+          c.fillStyle=bColor();c.fillRect(0,0,letter.buffer.width,letter.buffer.height);c.restore();
+        }
         canvas.dataset.bColor=bColor();
         render(elapsed);
       },
