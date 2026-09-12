@@ -9,13 +9,10 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  /* Once the page opens from below, carry the large wordmark upward with it. */
-  transform: translateY(calc(var(--entry-reveal) * -100svh)) scale(calc(1 - var(--entry-progress) * .035));
-  transform-origin: center center;
-  will-change: transform;
+  /* The canvas stays fixed; laser-stage.js moves only the wordmark. */
 }
-.entry-laser__caption { position: absolute; left: 18px; right: 18px; top: 24%; text-align: center; color: #a6beae; font-size: clamp(9px, .9vw, 12px); letter-spacing: .2em; animation: laser-caption 1.25s .15s both; transform: translateY(calc(var(--entry-reveal) * -36svh)); opacity: calc(1 - var(--entry-reveal)); will-change: transform, opacity; }
-.entry-laser__signature { position: absolute; top: 68%; left: 18px; right: 18px; text-align: center; color: #b2ceba; font-size: 12px; letter-spacing: .55em; animation: laser-caption 1s 2.9s both; transform: translateY(calc(var(--entry-reveal) * -54svh)); opacity: calc(1 - var(--entry-reveal)); will-change: transform, opacity; }
+.entry-laser__caption { position: absolute; left: 18px; right: 18px; top: 24%; text-align: center; color: #a6beae; font-size: clamp(9px, .9vw, 12px); letter-spacing: .2em; animation: laser-caption 1.25s .15s both; }
+.entry-laser__signature { position: absolute; top: 68%; left: 18px; right: 18px; text-align: center; color: #b2ceba; font-size: 12px; letter-spacing: .55em; animation: laser-caption 1s 2.9s both; }
 .entry-laser__signature:before { content: ''; display: block; margin: 0 auto 24px; height: 1px; width: min(38vw, 520px); background: linear-gradient(90deg, transparent, #638a72, transparent); }
 .entry-laser .entry-bottom { animation: laser-caption 1s 3s both; }
 .entry-laser .entry-top { border-bottom-color: #ffffff13; }
