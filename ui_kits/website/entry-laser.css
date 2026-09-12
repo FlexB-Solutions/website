@@ -4,7 +4,7 @@
   background-image: radial-gradient(ellipse at 50% 46%, #163b2b 0, #10281f 44%, #071911 100%);
 }
 .entry-laser .entry-scene { opacity: clamp(0, calc(var(--entry-progress) * 2), .88); }
-.entry-laser__canvas { position: absolute; inset: 0; width: 100%; height: 100%; transform: translateY(calc(var(--entry-reveal) * -80px)) scale(calc(1 - var(--entry-progress) * .055)); }
+.entry-laser__canvas { position: absolute; inset: 0; width: 100%; height: 100%; transform: none; }
 .entry-laser__caption { position: absolute; left: 18px; right: 18px; top: 24%; text-align: center; color: #a6beae; font-size: clamp(9px, .9vw, 12px); letter-spacing: .2em; animation: laser-caption 1.25s .15s both; }
 .entry-laser__signature { position: absolute; top: 68%; left: 18px; right: 18px; text-align: center; color: #b2ceba; font-size: 12px; letter-spacing: .55em; animation: laser-caption 1s 2.9s both; }
 .entry-laser__signature:before { content: ''; display: block; margin: 0 auto 24px; height: 1px; width: min(38vw, 520px); background: linear-gradient(90deg, transparent, #638a72, transparent); }
