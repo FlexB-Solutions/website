@@ -171,6 +171,7 @@ section[id] { scroll-margin-top: 0; }
 .info-grid { gap: 36px; }
 .integration-logos img { border-radius: 2px; background: #fff; border-color: var(--brand-border); }
 .cal-box { background: var(--paper); border-radius: 4px; border-color: var(--brand-border); }
+.flexb-service .contact-direct { border-color: var(--brand-border); }
 .cal-icon { background: transparent; border-radius: 0; }
 .contact-title { font-weight: 500; }
 .flexb-market .hero:before { display: none; }
