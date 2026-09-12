@@ -1,4 +1,4 @@
-// Hero.jsx – FlexB Solutions hero section
+// Hero.jsx, FlexB Solutions hero section
 const heroStyles = {
   eyebrow: { display: 'inline-flex', alignItems: 'center', gap: 8, background: 'var(--brand-tint)', borderRadius: 9999, padding: '5px 14px', fontSize: 12, fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--brand-ink)', marginBottom: 20 },
   dot: { width: 7, height: 7, background: 'var(--brand)', borderRadius: '50%' },

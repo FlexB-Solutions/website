@@ -1,4 +1,4 @@
-// Results.jsx – Was Sie gewinnen (qualitativ)
+// Results.jsx, Was Sie gewinnen (qualitativ)
 const resultsStyles = {
   section: { padding: '86px 24px', background: 'var(--brand-ink)' },
   inner: { maxWidth: 1200, margin: '0 auto' },

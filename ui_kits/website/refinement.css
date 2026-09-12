@@ -94,5 +94,3 @@ section[id] { scroll-margin-top: 80px; }
   *, *:before, *:after { animation: none !important; transition: none !important; }
   .entry-curtain, .entry-track { display: none; }
 }
-
-[inert] .flexbot-fab, [inert] .flexbot-panel { visibility: hidden; }

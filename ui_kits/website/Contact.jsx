@@ -1,4 +1,4 @@
-// Contact.jsx – Kontakt & CTA section
+// Contact.jsx, Kontakt & CTA section
 const contactStyles = {
   section: { padding: '96px 24px', background: '#fff' },
   inner: { maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'stretch' },

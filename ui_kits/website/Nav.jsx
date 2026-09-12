@@ -1,4 +1,4 @@
-// Nav.jsx – FlexB Solutions navigation
+// Nav.jsx, FlexB Solutions navigation
 const navStyles = {
   nav: { position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100, background: 'rgba(246,245,240,0.92)', backdropFilter: 'blur(12px)', borderBottom: '1px solid var(--brand-tint)' },
   inner: { maxWidth: 1200, margin: '0 auto', padding: '0 24px', height: 64, display: 'flex', alignItems: 'center', justifyContent: 'space-between' },

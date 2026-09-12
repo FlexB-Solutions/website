@@ -1,4 +1,4 @@
-// ScrollGuide.jsx – ruhige Blickführung über die Seite
+// ScrollGuide.jsx, ruhige Blickführung über die Seite
 const guideStyles = {
   overlay: {
     position: 'fixed',

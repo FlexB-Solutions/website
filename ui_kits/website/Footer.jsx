@@ -1,4 +1,4 @@
-// Footer.jsx – Site footer
+// Footer.jsx, Site footer
 const footerStyles = {
   footer: { background: 'var(--ink)', padding: '48px 24px 32px' },
   inner: { maxWidth: 1200, margin: '0 auto' },

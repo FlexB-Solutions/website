@@ -1,4 +1,4 @@
-// ForWhom.jsx – Für wen? section
+// ForWhom.jsx, Für wen? section
 const fwStyles = {
   section: { padding: '96px 24px', background: 'var(--paper)' },
   inner: { maxWidth: 1200, margin: '0 auto' },

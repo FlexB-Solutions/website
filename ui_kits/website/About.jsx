@@ -1,4 +1,4 @@
-// About.jsx – Über Felix section
+// About.jsx, Über Felix section
 const aboutStyles = {
   section: { padding: '96px 24px', background: '#fff' },
   inner: { maxWidth: 1200, margin: '0 auto' },

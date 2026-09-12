@@ -1,10 +1,10 @@
-// HeroProof.jsx – "Mehr Zeit, weniger Fehler, mehr Wachstum" als Grafik im Hero.
+// HeroProof.jsx, "Mehr Zeit, weniger Fehler, mehr Wachstum" als Grafik im Hero.
 // Der Aufbau folgt dem Scroll-Fortschritt: der Hero klebt eine Bildschirmhoehe lang,
 // waehrenddessen bauen sich die drei Stufen nacheinander auf.
 //
 // WICHTIG: Die Y-Positionen der drei Zeilen stehen direkt in den Koordinaten,
 // NICHT als transform-Attribut. Das CSS setzt auf den Gruppen ein transform fuer
-// den Einblend-Versatz, und CSS-Transform ueberschreibt das Praesentationsattribut –
+// den Einblend-Versatz, und CSS-Transform ueberschreibt das Praesentationsattribut.
 // beides zusammen hat die Zeilen vorher aufeinander geschoben.
 
 const FEHLER_INDEX = [2, 5, 9, 12];
@@ -24,7 +24,7 @@ function HeroProof() {
       hero.style.setProperty('--s2', s2);
       hero.style.setProperty('--s3', s3);
       hero.style.setProperty('--dash', 1 - s3);
-      // Puls: steigt auf 1 und faellt zurueck – dafuer wird der Text kurz dick und dunkelgruen
+      // Puls: steigt auf 1 und faellt zurueck, dafuer wird der Text kurz dick und dunkelgruen
       // steigt schnell an und klingt langsamer ab -> setzt zeitgleich mit der Stufe ein
       const puls = (s) => (s <= 0 || s >= 1 ? 0 : s < 0.3 ? s / 0.3 : (1 - s) / 0.7);
       hero.style.setProperty('--p1', puls(s1));

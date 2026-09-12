@@ -65,7 +65,7 @@ function EntrySequenceV2({ onActiveChange }) {
       <section ref={curtain} className="entry-curtain entry-laser" aria-label="Willkommen bei FlexB Solutions">
         <div className="entry-scene" aria-hidden="true" />
         <div className="entry-top"><span>FlexB Solutions</span></div>
-        <canvas ref={canvas} className="entry-laser__canvas" role="img" aria-label="FlexB – einzelne Buchstaben fliegen im grünen Laserlicht ein, das B landet von oben" />
+        <canvas ref={canvas} className="entry-laser__canvas" role="img" aria-label="FlexB, einzelne Buchstaben fliegen im grünen Laserlicht ein, das B landet von oben" />
         <p className="entry-laser__caption">AUTOMATISIERUNG & PROZESSOPTIMIERUNG</p>
         <div className="entry-laser__signature">SOLUTIONS</div>
         <div className="entry-bottom"><button onClick={skip}>Scrollen & entdecken <span className="entry-arrow" aria-hidden="true">↓</span></button></div>
