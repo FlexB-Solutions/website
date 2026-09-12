@@ -29,7 +29,7 @@ function Contact() {
         <div style={contactStyles.infoCol} data-guide-target="contact-info">
           <div style={contactStyles.eyebrow}>Kontakt</div>
           <h2 style={contactStyles.h2}>Lassen Sie uns sprechen.</h2>
-          <p style={contactStyles.lead}>Sie haben eine Idee, ein Problem oder möchten einfach wissen, was möglich ist? Schreiben Sie uns direkt per E-Mail oder buchen Sie ein Erstgespräch.</p>
+          <p style={contactStyles.lead}>Sie haben eine Idee, ein Problem oder möchten einfach wissen, was möglich ist? Schreiben Sie mir direkt per E-Mail oder buchen Sie ein Erstgespräch.</p>
           <div className="contact-card" style={{ ...contactStyles.calBox, flexDirection: 'column', alignItems: 'stretch', minHeight: 320, height: 320, padding: 28 }}>
             <div style={contactStyles.eyebrow}>TERMIN BUCHEN</div>
             <div>
@@ -42,7 +42,7 @@ function Contact() {
         <div style={{ ...contactStyles.formCol, justifyContent: 'flex-end' }} data-guide-target="contact-form">
           <div className="contact-card" style={{ ...contactStyles.calBox, flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'flex-start', minHeight: 320, height: 320, padding: '28px' }}>
             <div style={contactStyles.eyebrow}>Direkter Kontakt</div>
-            <h3 className="contact-card-title" style={contactStyles.calTitle}>Schreiben Sie uns direkt.</h3>
+            <h3 className="contact-card-title" style={contactStyles.calTitle}>Schreiben Sie mir direkt.</h3>
             <p className="contact-card-copy" style={{ ...contactStyles.calDesc, marginBottom: 24 }}>Ihr E-Mail-Programm öffnet sich mit FlexB Solutions als Empfänger. Beschreiben Sie kurz Ihr Anliegen und senden Sie die Nachricht direkt ab.</p>
             <a className="contact-action-main" style={{ ...contactStyles.calBtn, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', alignSelf: 'stretch', height: 64, minHeight: 64, textDecoration: 'none', marginTop: 'auto' }} href="mailto:flexbsolutions@outlook.com?subject=Anfrage%20an%20FlexB%20Solutions">E-Mail schreiben</a>
           </div>
