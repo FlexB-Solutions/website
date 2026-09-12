@@ -410,7 +410,7 @@ h1{font-size:clamp(44px,6vw,82px);line-height:1.01;letter-spacing:-.05em;margin:
         </div>
       </div>
 
-      <div class="contact-form-col"><div class="contact-direct"><div class="eyebrow">Direkter Kontakt</div><h3 class="contact-card-title">Schreiben Sie mir direkt.</h3><p class="contact-card-copy">Ihr E-Mail-Programm öffnet sich mit FlexB Solutions als Empfänger. Beschreiben Sie kurz Ihr Anliegen und senden Sie die Nachricht direkt ab.</p><a class="submit-btn contact-action" href="mailto:flexbsolutions@outlook.com?subject=Anfrage%20an%20FlexB%20Solutions">E-Mail schreiben</a></div></div>
+      <div class="contact-form-col"><div class="contact-direct"><div class="eyebrow">Direkter Kontakt</div><h3 class="contact-card-title">Schreiben Sie mir direkt.</h3><p class="contact-card-copy">Ihr E-Mail-Programm öffnet sich mit einer passenden Vorlage. Ergänzen Sie kurz die markierten Stellen und senden Sie die Nachricht ab.</p><a class="submit-btn contact-action" data-email-template="webseiten" href="mailto:flexbsolutions@outlook.com">E-Mail schreiben</a></div></div>
     </div>
   </section>
 </main>
@@ -426,5 +426,6 @@ h1{font-size:clamp(44px,6vw,82px);line-height:1.01;letter-spacing:-.05em;margin:
 function openCalBooking(){window.Cal("init",{origin:"https://cal.com"});window.Cal("ui",{theme:"light",styles:{body:{background:"transparent"},eventTypeListItem:{background:"transparent"}},cssVarsPerTheme:{light:{"cal-brand":"#187344","cal-brand-emphasis":"#135e39","cal-brand-text":"#ffffff","cal-brand-subtle":"#dfeee3","cal-bg":"#f6f5f0","cal-bg-emphasis":"#ffffff","cal-bg-subtle":"#edf4ef","cal-text":"#405047","cal-text-emphasis":"#14261f","cal-text-subtle":"#6b7d73","cal-text-muted":"#9aa9a0","cal-border":"#d8ded6","cal-border-emphasis":"#b9cdbd","cal-border-subtle":"#e3e9e2","radius":"8px"},dark:{"cal-brand":"#187344","cal-brand-emphasis":"#135e39","cal-brand-text":"#ffffff","cal-brand-subtle":"#dfeee3","cal-bg":"#f6f5f0","cal-bg-emphasis":"#ffffff","cal-bg-subtle":"#edf4ef","cal-text":"#405047","cal-text-emphasis":"#14261f","cal-text-subtle":"#6b7d73","cal-text-muted":"#9aa9a0","cal-border":"#d8ded6","cal-border-emphasis":"#b9cdbd","cal-border-subtle":"#e3e9e2","radius":"8px"}}});window.Cal("modal",{calLink:"flexb/kostenloses-erstgesprach",config:{theme:"light"}})}
 document.querySelectorAll(".js-open-booking").forEach(b=>b.addEventListener("click",openCalBooking));
 </script>
+<script src="../../ui_kits/website/contact-email.js?v=1"></script>
 </body>
 </html>

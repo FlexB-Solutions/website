@@ -22,6 +22,8 @@ const contactStyles = {
   submitBtn: { background: 'var(--brand)', color: '#fff', border: 'none', borderRadius: 8, padding: '14px 28px', fontSize: 16, fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit', width: '100%', boxShadow: '0 4px 16px rgba(24,115,68,0.25)', marginTop: 'auto' },
 };
 
+const generalMailto = 'mailto:flexbsolutions@outlook.com?subject=Anfrage%20an%20FlexB%20Solutions&body=Hallo%20Felix%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20eine%20Zusammenarbeit%20mit%20FlexB%20Solutions.%0A%0AWorum%20geht%20es%3F%0A%5BBitte%20kurz%20beschreiben%5D%0A%0AWas%20soll%20sich%20verbessern%20oder%20entstehen%3F%0A%5BBitte%20erg%C3%A4nzen%5D%0A%0ABeste%20Gr%C3%BC%C3%9Fe%0A%5BName%5D';
+
 function Contact() {
   return (
     <section id="kontakt" style={contactStyles.section}>
@@ -43,8 +45,8 @@ function Contact() {
           <div className="contact-card" style={{ ...contactStyles.calBox, flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'flex-start', minHeight: 320, height: 320, padding: '28px' }}>
             <div style={contactStyles.eyebrow}>Direkter Kontakt</div>
             <h3 className="contact-card-title" style={contactStyles.calTitle}>Schreiben Sie mir direkt.</h3>
-            <p className="contact-card-copy" style={{ ...contactStyles.calDesc, marginBottom: 24 }}>Ihr E-Mail-Programm öffnet sich mit FlexB Solutions als Empfänger. Beschreiben Sie kurz Ihr Anliegen und senden Sie die Nachricht direkt ab.</p>
-            <a className="contact-action-main" style={{ ...contactStyles.calBtn, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', alignSelf: 'stretch', height: 64, minHeight: 64, textDecoration: 'none', marginTop: 'auto' }} href="mailto:flexbsolutions@outlook.com?subject=Anfrage%20an%20FlexB%20Solutions">E-Mail schreiben</a>
+            <p className="contact-card-copy" style={{ ...contactStyles.calDesc, marginBottom: 24 }}>Ihr E-Mail-Programm öffnet sich mit einer Vorlage. Ergänzen Sie kurz die markierten Stellen und senden Sie die Nachricht ab.</p>
+            <a className="contact-action-main" style={{ ...contactStyles.calBtn, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', alignSelf: 'stretch', height: 64, minHeight: 64, textDecoration: 'none', marginTop: 'auto' }} href={generalMailto}>E-Mail schreiben</a>
           </div>
         </div>
       </div>
