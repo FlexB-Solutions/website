@@ -56,7 +56,7 @@ function Footer() {
           </div>
         </div>
         <div className="footer-divider" style={footerStyles.divider}>
-          <span style={footerStyles.copy}>© 2026 FlexB Solutions. Alle Rechte vorbehalten.</span>
+          <span style={footerStyles.copy}>© 2026 Felix Breitner, tätig unter FlexB Solutions.</span>
           <div className="footer-legal" style={footerStyles.legal}>
             <a href="impressum.html" style={footerStyles.legalLink}>Impressum</a>
             <a href="datenschutz.html" style={footerStyles.legalLink}>Datenschutz</a>
