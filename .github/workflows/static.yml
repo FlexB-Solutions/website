@@ -33,11 +33,16 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
+      - name: Prepare production files
+        run: |
+          mkdir -p public
+          cp index.html robots.txt sitemap.xml public/
+          cp -R assets automatisierung-markt leistungen uploads ui_kits public/
+          rm -f public/ui_kits/website/variante-1.html public/ui_kits/website/variante-2.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: '.'
+          path: 'public'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
