@@ -5,7 +5,7 @@ const companyAreas = [
     id: 'empfang',
     name: 'Empfang',
     title: 'Automatische Terminbuchung',
-    image: '../../uploads/optimized/BSP.jpg?v=2',
+    image: '/uploads/optimized/BSP.jpg?v=2',
     hotspot: { left: '29.06%', top: '58.85%' },
     copy: 'Anfragen werden automatisch aufgenommen, freie Termine geprüft und direkt bestätigt.'
   },
@@ -14,7 +14,7 @@ const companyAreas = [
     id: 'buero',
     name: 'Büro',
     title: 'Workflow Automatisierung',
-    image: '../../uploads/optimized/BSP2.jpg?v=2',
+    image: '/uploads/optimized/BSP2.jpg?v=2',
     hotspot: { left: '18.12%', top: '34.94%' },
     copy: 'Büroabläufe werden durch Trigger, Datenverarbeitung und automatische Aktionen verbunden.'
   },
@@ -23,7 +23,7 @@ const companyAreas = [
     id: 'lager',
     name: 'Lager',
     title: 'Automatisches Bestandsmanagement',
-    image: '../../uploads/optimized/BSP4.jpg?v=2',
+    image: '/uploads/optimized/BSP4.jpg?v=2',
     hotspot: { left: '51.88%', top: '18.76%' },
     copy: 'Bestände werden überwacht, Schwellwerte erkannt und Nachbestellungen automatisch ausgelöst.'
   },
@@ -32,7 +32,7 @@ const companyAreas = [
     id: 'band',
     name: 'Band',
     title: 'Automatische Paketklassifizierung',
-    image: '../../uploads/optimized/BSP5.jpg?v=2',
+    image: '/uploads/optimized/BSP5.jpg?v=2',
     hotspot: { left: '52.58%', top: '40.45%' },
     copy: 'Pakete werden am Band erkannt, vermessen und in den passenden Ablauf übergeben.'
   },
@@ -41,7 +41,7 @@ const companyAreas = [
     id: 'heizung',
     name: 'Heizung',
     title: 'Intelligente Gebäudesteuerung',
-    image: '../../uploads/optimized/BSP3.jpg?v=2',
+    image: '/uploads/optimized/BSP3.jpg?v=2',
     hotspot: { left: '81.33%', top: '40.45%' },
     copy: 'Heizung, Licht und Räume reagieren auf Kalenderdaten und tatsächliche Nutzung.'
   },
@@ -50,7 +50,7 @@ const companyAreas = [
     id: 'behaelter',
     name: 'Behälter',
     title: 'Visuelle Grenzwertkontrolle',
-    image: '../../uploads/optimized/BSP6.jpg?v=2',
+    image: '/uploads/optimized/BSP6.jpg?v=2',
     hotspot: { left: '85.39%', top: '59.67%' },
     copy: 'Füllstand oder Grenzwerte werden automatisch geprüft und bei Abweichungen gemeldet.'
   }
@@ -167,7 +167,7 @@ function Inspiration() {
           <div className="company-image-stage">
             <img
               className="company-base-image"
-              src="../../uploads/optimized/Anklicken_Firma.jpg"
+              src="/uploads/optimized/Anklicken_Firma.jpg"
               width="1280"
               height="853"
               alt="Virtuelle Firma mit markierten Bereichen"

@@ -45,11 +45,10 @@ jobs:
       - name: Prepare production files
         run: |
           mkdir -p public
-          cp index.html 404.html robots.txt sitemap.xml public/
+          cp index.html impressum.html datenschutz.html 404.html robots.txt sitemap.xml favicon.ico apple-touch-icon.png public/
           cp -R assets automatisierung-markt leistungen uploads ui_kits public/
-          rm -f public/ui_kits/website/variante-1.html public/ui_kits/website/variante-2.html
           # JSX-Quellen gehoeren nicht ins Deployment, nur die kompilierten .js
-          rm -f public/ui_kits/website/*.jsx
+          rm -f public/assets/site/*.jsx
           # Nicht verlinkte Arbeitsdatei nicht veroeffentlichen
           rm -f public/uploads/SmartHeating_NodeRED_Standalone_BasicFlow.json
       - name: Upload artifact

@@ -2,6 +2,7 @@
 <html lang="de">
 <head>
 <link rel="icon" href="/assets/favicon.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -197,7 +198,7 @@ h1{font-size:clamp(44px,6vw,82px);line-height:1.01;letter-spacing:-.05em;margin:
   .booking-slot-grid,.booking-form-row{grid-template-columns:1fr 1fr}
 }
 </style>
-<link rel="stylesheet" href="/assets/flexb-theme.css?v=7">
+<link rel="stylesheet" href="/assets/flexb-theme.css?v=10">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -215,7 +216,7 @@ h1{font-size:clamp(44px,6vw,82px);line-height:1.01;letter-spacing:-.05em;margin:
       "provider": {
         "@type": "ProfessionalService",
         "name": "FlexB Solutions",
-        "url": "https://flexbsolutions.de/ui_kits/website/",
+        "url": "https://flexbsolutions.de/",
         "founder": {
           "@type": "Person",
           "name": "Felix Breitner"
@@ -231,13 +232,13 @@ h1{font-size:clamp(44px,6vw,82px);line-height:1.01;letter-spacing:-.05em;margin:
           "@type": "ListItem",
           "position": 1,
           "name": "Startseite",
-          "item": "https://flexbsolutions.de/ui_kits/website/"
+          "item": "https://flexbsolutions.de/"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Leistungen",
-          "item": "https://flexbsolutions.de/ui_kits/website/#leistungen"
+          "item": "https://flexbsolutions.de/#leistungen"
         },
         {
           "@type": "ListItem",
@@ -255,7 +256,7 @@ h1{font-size:clamp(44px,6vw,82px);line-height:1.01;letter-spacing:-.05em;margin:
 <a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
 <nav class="nav">
   <div class="brand-lockup">
-    <a class="brand" href="/ui_kits/website/">Flex<span>B</span></a>
+    <a class="brand" href="/">Flex<span>B</span></a>
     <div class="brand-sub">
       <strong>SOLUTIONS</strong>
       <span>Automatisierung &amp; Prozessoptimierung</span>
@@ -263,12 +264,12 @@ h1{font-size:clamp(44px,6vw,82px);line-height:1.01;letter-spacing:-.05em;margin:
   </div>
   <div class="subnav-actions">
     <div class="subnav-links">
-      <a href="/ui_kits/website/#leistungen">Leistungen</a>
-      <a href="/ui_kits/website/#furwen">Für wen?</a>
-      <a href="/ui_kits/website/#ergebnisse">Ergebnisse</a>
-      <a href="/ui_kits/website/#ubermich">Über mich</a>
+      <a href="/#leistungen">Leistungen</a>
+      <a href="/#furwen">Für wen?</a>
+      <a href="/#ergebnisse">Ergebnisse</a>
+      <a href="/#ubermich">Über mich</a>
     </div>
-    <a class="back" href="/ui_kits/website/#leistungen">Zurück</a>
+    <a class="back" href="/#leistungen">Zurück</a>
     <button class="subnav-booking js-open-booking" type="button">Termin buchen</button>
   </div>
 </nav>
@@ -491,18 +492,18 @@ h1{font-size:clamp(44px,6vw,82px);line-height:1.01;letter-spacing:-.05em;margin:
   <div class="subpage-footer__inner">
     <div class="subpage-footer__cols">
       <div>
-        <a class="subpage-footer__wordmark" href="/ui_kits/website/">Flex<span>B</span></a>
+        <a class="subpage-footer__wordmark" href="/">Flex<span>B</span></a>
         <span class="subpage-footer__sub">SOLUTIONS</span>
         <p class="subpage-footer__tagline">Automatisierung &amp; Prozessoptimierung für Unternehmen und Privatpersonen.</p>
       </div>
       <div>
         <h2>Navigation</h2>
         <ul>
-          <li><a href="/ui_kits/website/#leistungen">Leistungen</a></li>
-          <li><a href="/ui_kits/website/#furwen">Für wen?</a></li>
-          <li><a href="/ui_kits/website/#ergebnisse">Ergebnisse</a></li>
-          <li><a href="/ui_kits/website/#ubermich">Über mich</a></li>
-          <li><a href="/ui_kits/website/#kontakt">Kontakt</a></li>
+          <li><a href="/#leistungen">Leistungen</a></li>
+          <li><a href="/#furwen">Für wen?</a></li>
+          <li><a href="/#ergebnisse">Ergebnisse</a></li>
+          <li><a href="/#ubermich">Über mich</a></li>
+          <li><a href="/#kontakt">Kontakt</a></li>
         </ul>
       </div>
       <div>
@@ -517,8 +518,8 @@ h1{font-size:clamp(44px,6vw,82px);line-height:1.01;letter-spacing:-.05em;margin:
     <div class="subpage-footer__bottom">
       <span>© 2026 Felix Breitner, tätig unter FlexB Solutions.</span>
       <span class="subpage-footer__legal">
-        <a href="/ui_kits/website/impressum.html">Impressum</a>
-        <a href="/ui_kits/website/datenschutz.html">Datenschutz</a>
+        <a href="/impressum.html">Impressum</a>
+        <a href="/datenschutz.html">Datenschutz</a>
       </span>
     </div>
   </div>
@@ -536,6 +537,6 @@ h1{font-size:clamp(44px,6vw,82px);line-height:1.01;letter-spacing:-.05em;margin:
 function openCalBooking(){window.Cal("init",{origin:"https://cal.com"});window.Cal("ui",{theme:"light",styles:{body:{background:"transparent"},eventTypeListItem:{background:"transparent"}},cssVarsPerTheme:{light:{"cal-brand":"#187344","cal-brand-emphasis":"#135e39","cal-brand-text":"#ffffff","cal-brand-subtle":"#dfeee3","cal-bg":"#f6f5f0","cal-bg-emphasis":"#ffffff","cal-bg-subtle":"#edf4ef","cal-text":"#405047","cal-text-emphasis":"#14261f","cal-text-subtle":"#6b7d73","cal-text-muted":"#9aa9a0","cal-border":"#d8ded6","cal-border-emphasis":"#b9cdbd","cal-border-subtle":"#e3e9e2","radius":"8px"},dark:{"cal-brand":"#187344","cal-brand-emphasis":"#135e39","cal-brand-text":"#ffffff","cal-brand-subtle":"#dfeee3","cal-bg":"#f6f5f0","cal-bg-emphasis":"#ffffff","cal-bg-subtle":"#edf4ef","cal-text":"#405047","cal-text-emphasis":"#14261f","cal-text-subtle":"#6b7d73","cal-text-muted":"#9aa9a0","cal-border":"#d8ded6","cal-border-emphasis":"#b9cdbd","cal-border-subtle":"#e3e9e2","radius":"8px"}}});window.Cal("modal",{calLink:"flexb/kostenloses-erstgesprach",config:{theme:"light"}})}
 document.querySelectorAll(".js-open-booking").forEach(b=>b.addEventListener("click",openCalBooking));
 </script>
-<script src="../../ui_kits/website/contact-email.js?v=1"></script>
+<script src="../../assets/site/contact-email.js?v=1"></script>
 </body>
 </html>

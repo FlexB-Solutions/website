@@ -1,8 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /chatgpt-site/
-Disallow: /preview/
-Disallow: /ui_kits/website/variante-1.html
-Disallow: /ui_kits/website/variante-2.html
+Disallow: /ui_kits/
 
 Sitemap: https://flexbsolutions.de/sitemap.xml

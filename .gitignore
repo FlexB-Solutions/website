@@ -33,18 +33,18 @@ backups/
 .vscode/
 
 # Aus den .jsx-Dateien von Babel erzeugt (npm run build / CI-Deploy)
-ui_kits/website/About.js
-ui_kits/website/App.js
-ui_kits/website/Contact.js
-ui_kits/website/EntrySequence.js
-ui_kits/website/EntrySequenceV2.js
-ui_kits/website/Footer.js
-ui_kits/website/ForWhom.js
-ui_kits/website/Hero.js
-ui_kits/website/HeroProof.js
-ui_kits/website/HeroProofV2.js
-ui_kits/website/Inspiration.js
-ui_kits/website/Nav.js
-ui_kits/website/Results.js
-ui_kits/website/ScrollGuide.js
-ui_kits/website/Services.js
+assets/site/About.js
+assets/site/App.js
+assets/site/Contact.js
+assets/site/EntrySequence.js
+assets/site/EntrySequenceV2.js
+assets/site/Footer.js
+assets/site/ForWhom.js
+assets/site/Hero.js
+assets/site/HeroProof.js
+assets/site/HeroProofV2.js
+assets/site/Inspiration.js
+assets/site/Nav.js
+assets/site/Results.js
+assets/site/ScrollGuide.js
+assets/site/Services.js
