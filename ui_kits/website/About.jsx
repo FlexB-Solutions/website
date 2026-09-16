@@ -30,7 +30,7 @@ function About() {
             data-reveal-side="left"
             style={aboutStyles.photoWrap}
           >
-            <img src="../../uploads/Bild_Felix_Breitner.png" alt="Felix Breitner von FlexB Solutions" style={aboutStyles.photo} />
+            <img src="/assets/optimized/felix-breitner.jpg" alt="Felix Breitner von FlexB Solutions" width="1200" height="1143" loading="lazy" decoding="async" style={aboutStyles.photo} />
           </div>
           <div className={`about-copy reveal-base is-visible`} data-reveal-side="right">
             <div style={aboutStyles.name}>Hallo, ich bin Felix. Gründer von FlexB Solutions</div>

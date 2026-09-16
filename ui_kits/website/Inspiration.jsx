@@ -91,6 +91,9 @@ function Inspiration() {
   const activeIndex = companyAreas.findIndex(area => area.id === activeId);
   const safeIndex = activeIndex >= 0 ? activeIndex : 0;
   const activeArea = companyAreas[safeIndex] || companyAreas[0];
+  const dialog = React.useRef(null);
+  const closeButton = React.useRef(null);
+  const lastFocused = React.useRef(null);
 
   React.useEffect(() => {
     if (!zoomOpen) return;
@@ -98,10 +101,31 @@ function Inspiration() {
       if (event.key === 'Escape') setZoomOpen(false);
       if (event.key === 'ArrowLeft') showPrevious();
       if (event.key === 'ArrowRight') showNext();
+      if (event.key !== 'Tab' || !dialog.current) return;
+      // Fokus im Dialog halten, solange er offen ist.
+      const stops = dialog.current.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+      if (!stops.length) return;
+      const first = stops[0];
+      const last = stops[stops.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     };
     window.addEventListener('keydown', handler);
     return () => window.removeEventListener('keydown', handler);
   }, [zoomOpen, safeIndex]);
+
+  React.useEffect(() => {
+    if (!zoomOpen) return undefined;
+    // Fokus in den Dialog holen und beim Schliessen zum Ausloeser zuruecklegen.
+    lastFocused.current = document.activeElement;
+    closeButton.current?.focus();
+    return () => lastFocused.current?.focus?.();
+  }, [zoomOpen]);
 
   React.useEffect(() => {
     if (!zoomOpen) return undefined;
@@ -166,9 +190,16 @@ function Inspiration() {
       </div>
 
       {zoomOpen && (
-        <div className="company-lightbox" onClick={event => event.target === event.currentTarget && setZoomOpen(false)}>
+        <div
+          className="company-lightbox"
+          ref={dialog}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="company-lightbox-title"
+          onClick={event => event.target === event.currentTarget && setZoomOpen(false)}
+        >
           <div className="company-lightbox__inner">
-            <button className="company-lightbox__close" type="button" onClick={() => setZoomOpen(false)} aria-label="Schließen">
+            <button className="company-lightbox__close" ref={closeButton} type="button" onClick={() => setZoomOpen(false)} aria-label="Schließen">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
             </button>
             <button className="company-lightbox__arrow company-lightbox__arrow--left" type="button" onClick={showPrevious} aria-label="Vorheriges Beispiel">
@@ -179,7 +210,7 @@ function Inspiration() {
             </button>
             <img className="company-lightbox__image" src={activeArea.image} alt={activeArea.title} />
             <div className="company-lightbox__caption">
-              <strong>{activeArea.number} · {activeArea.name}: {activeArea.title}</strong>
+              <strong id="company-lightbox-title">{activeArea.number} · {activeArea.name}: {activeArea.title}</strong>
               <span>{activeArea.copy}</span>
             </div>
           </div>

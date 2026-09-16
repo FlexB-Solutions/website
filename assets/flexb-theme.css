@@ -1,11 +1,13 @@
 /* Shared visual language for the landing page, services, market and legal pages. */
-@font-face { font-family: 'IBM Plex Sans'; src: url('/assets/fonts/ibm-plex-sans-400.ttf') format('truetype'); font-style: normal; font-weight: 400; font-display: swap; }
-@font-face { font-family: 'IBM Plex Sans'; src: url('/assets/fonts/ibm-plex-sans-500.ttf') format('truetype'); font-style: normal; font-weight: 500; font-display: swap; }
-@font-face { font-family: 'IBM Plex Sans'; src: url('/assets/fonts/ibm-plex-sans-600.ttf') format('truetype'); font-style: normal; font-weight: 600 900; font-display: swap; }
-@font-face { font-family: 'Outfit'; src: url('/assets/fonts/outfit-600.ttf') format('truetype'); font-style: normal; font-weight: 600 900; font-display: swap; }
+@font-face { font-family: 'IBM Plex Sans'; src: url('/assets/fonts/ibm-plex-sans-400.woff2') format('woff2'), url('/assets/fonts/ibm-plex-sans-400.ttf') format('truetype'); font-style: normal; font-weight: 400; font-display: swap; }
+@font-face { font-family: 'IBM Plex Sans'; src: url('/assets/fonts/ibm-plex-sans-500.woff2') format('woff2'), url('/assets/fonts/ibm-plex-sans-500.ttf') format('truetype'); font-style: normal; font-weight: 500; font-display: swap; }
+@font-face { font-family: 'IBM Plex Sans'; src: url('/assets/fonts/ibm-plex-sans-600.woff2') format('woff2'), url('/assets/fonts/ibm-plex-sans-600.ttf') format('truetype'); font-style: normal; font-weight: 600 900; font-display: swap; }
+@font-face { font-family: 'Outfit'; src: url('/assets/fonts/outfit-600.woff2') format('woff2'), url('/assets/fonts/outfit-600.ttf') format('truetype'); font-style: normal; font-weight: 600 900; font-display: swap; }
 :root {
   --brand: #187344;
   --brand-dark: #10281f;
+  /* Aufgehellte Markenfarbe fuer Links auf dunklem Grund, --brand erreicht dort nur 2,7:1 */
+  --brand-on-dark: #6cc492;
   --brand-ink: #23533b;
   --brand-light: #a8c7b2;
   --brand-tint: #e8ede5;
@@ -102,7 +104,7 @@ section[id] { scroll-margin-top: 0; }
 .service-copy h3 { font-size: clamp(28px, 3vw, 42px) !important; margin-bottom: 18px !important; }
 .service-copy p { line-height: 1.8 !important; max-width: 520px; }
 .service-meta { display: flex; gap: 18px; align-items: baseline; margin-bottom: 16px; }
-.service-number { color: #7a8d7d; font-size: 12px; font-variant-numeric: tabular-nums; }
+.service-number { color: #56695b; font-size: 12px; font-variant-numeric: tabular-nums; }
 .service-meta > div { margin-bottom: 0 !important; }
 .service-tags, .service-tags-react { gap: 0 !important; }
 .service-tag, .service-tags-react span { background: transparent !important; border-radius: 0 !important; padding: 0 12px !important; color: var(--muted) !important; font-weight: 400 !important; font-size: 12px !important; }
@@ -241,4 +243,42 @@ section[id] { scroll-margin-top: 0; }
 @media (max-width: 640px) {
   #leistungen h2, #furwen h2, #ergebnisse h2, #ubermich h2, #kontakt h2, .company-title { font-size: clamp(30px, 8vw, 38px) !important; }
   .section-head h2, .service-copy h3, .service-title { hyphens: auto; }
+}
+
+/* Sprungmarke zum Hauptinhalt, sichtbar sobald sie den Fokus bekommt (WCAG 2.4.1) */
+.skip-link {
+  position: absolute;
+  left: 8px;
+  top: -64px;
+  z-index: 300;
+  padding: 10px 18px;
+  border-radius: 8px;
+  background: var(--brand);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: top 0.15s ease-in-out;
+}
+.skip-link:focus { top: 8px; }
+
+/* Footer der Unterseiten. Impressum und Datenschutz muessen nach § 5 DDG von
+   jeder Seite aus erreichbar sein, nicht nur von der Startseite. */
+.subpage-footer { background: var(--brand-dark); padding: 56px 24px 30px; }
+.subpage-footer__inner { max-width: 1180px; margin: 0 auto; }
+.subpage-footer__cols { display: grid; grid-template-columns: 1.6fr 1fr 1.4fr; gap: 44px; padding-bottom: 34px; border-bottom: 1px solid rgba(255,255,255,.12); }
+.subpage-footer__wordmark { font-family: 'Outfit', var(--font-body); font-size: 22px; font-weight: 600; letter-spacing: -.03em; color: #fff; text-decoration: none; display: inline-block; }
+.subpage-footer__wordmark span { color: #74d69a; }
+.subpage-footer__sub { display: block; margin-top: 6px; font-size: 11px; font-weight: 700; letter-spacing: .15em; color: #cfd9ce; }
+.subpage-footer__tagline { margin-top: 14px; font-size: 13px; line-height: 1.65; color: #b7c5ba; max-width: 300px; }
+.subpage-footer h2 { font-size: 12px !important; font-weight: 700 !important; letter-spacing: .12em !important; text-transform: uppercase; color: #b7c5ba; margin-bottom: 14px; }
+.subpage-footer ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 9px; }
+.subpage-footer a { color: #cfd9ce; text-decoration: none; font-size: 14px; }
+.subpage-footer a:hover { color: #fff; }
+.subpage-footer__bottom { display: flex; flex-wrap: wrap; gap: 8px 22px; align-items: center; justify-content: space-between; padding-top: 22px; font-size: 13px; color: #b7c5ba; }
+.subpage-footer__legal { display: flex; gap: 22px; }
+/* WCAG 2.2 Zielgroesse: mindestens 24px hohe Klickflaeche fuer die Footer-Links */
+.subpage-footer a, .subpage-footer__legal a { display: inline-flex; align-items: center; min-height: 24px; }
+@media (max-width: 860px) {
+  .subpage-footer__cols { grid-template-columns: 1fr; gap: 30px; }
 }

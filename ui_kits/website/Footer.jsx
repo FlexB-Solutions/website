@@ -6,14 +6,14 @@ const footerStyles = {
   logoRow: { display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14 },
   logoText: { fontSize: 20, fontWeight: 600, color: '#fff', letterSpacing: '-0.02em' },
   logoB: { color: 'var(--brand)' },
-  tagline: { fontSize: 13, color: '#6b7280', lineHeight: 1.6, marginBottom: 20 },
-  colTitle: { fontSize: 12, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#6b7280', marginBottom: 14 },
+  tagline: { fontSize: 13, color: '#9aa79f', lineHeight: 1.6, marginBottom: 20 },
+  colTitle: { fontSize: 12, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#9aa79f', marginBottom: 14 },
   linkList: { display: 'flex', flexDirection: 'column', gap: 8 },
   link: { fontSize: 14, color: '#9ca3af', textDecoration: 'none' },
   divider: { borderTop: '1px solid #1f2937', paddingTop: 24, display: 'flex', justifyContent: 'space-between', alignItems: 'center' },
-  copy: { fontSize: 13, color: '#6b7280' },
+  copy: { fontSize: 13, color: '#9aa79f' },
   legal: { display: 'flex', gap: 20 },
-  legalLink: { fontSize: 13, color: '#6b7280', textDecoration: 'none' },
+  legalLink: { fontSize: 13, color: '#9aa79f', textDecoration: 'none' },
 };
 
 function Footer() {
