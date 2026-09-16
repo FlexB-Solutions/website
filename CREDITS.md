@@ -25,6 +25,13 @@ Beide Schriften werden selbst ausgeliefert, es wird kein externer Font-Dienst ei
 | `assets/optimized/felix-breitner.jpg` | Porträt Felix Breitner | Nutzungsrecht liegt vor, Quelle: **noch einzutragen** (Fotograf, Datum, Umfang der Rechteeinräumung) |
 | `uploads/Bild_Felix_Breitner.png` | Originaldatei des Porträts | wie oben |
 
+## Abgeleitete Bilddateien
+
+`assets/optimized/` enthält komprimierte Fassungen von Originalen aus
+`uploads/`. Die Originale bleiben als Quelle liegen, ausgeliefert wird nur
+die komprimierte Fassung. Rechtlich gilt für sie jeweils dasselbe wie für
+das Original.
+
 ## Stock- und Symbolbilder
 
 **Noch zu vervollständigen.** Für jede Datei gehören Quelle, Lizenz und
