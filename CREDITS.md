@@ -44,6 +44,16 @@ laut Signatur: OpenAI OpCo, LLC („OpenAI Media Service API"), Zertifikatskette
 | `uploads/Landing_Page.png` | 2026-05-05 | Webseiten |
 | `uploads/Crisp_ML_Q.png` | 2026-05-06 | derzeit ungenutzt |
 | `uploads/cad-parametrisch.png` | 2026-09-11 | derzeit ungenutzt |
+| `uploads/ai-originals/service-process-hand-robot.png` | 2026-09-17 | Automatisierung, Prozesse, Software und Webseiten |
+| `uploads/ai-originals/service-ml.png` | 2026-09-17 | Machine Learning und KI-Workflow |
+| `uploads/ai-originals/service-workflows.png` | 2026-09-17 | Custom Workflows und Software |
+| `uploads/ai-originals/service-fertigung.png` | 2026-09-17 | Produktfertigung |
+| `uploads/ai-originals/service-ai.png` | 2026-09-17 | KI-Automatisierung |
+| `uploads/ai-originals/service-data-alt.png` | 2026-09-17 | Daten und Struktur |
+| `uploads/ai-originals/service-ml-data.png` | 2026-09-17 | Machine Learning |
+| `uploads/ai-originals/service-sensorik.png` | 2026-09-17 | Sensorik-Integration |
+| `uploads/ai-originals/prototyp-einzelteil.png` | 2026-09-17 | Prototypen und Individualanfertigungen |
+| `uploads/ai-originals/kleinserie-winkel.png` | 2026-09-17 | Kleinserien |
 
 **Wichtig:** Die ausgelieferten JPEG-Fassungen unter `assets/optimized/` haben
 diese Credentials **nicht** mehr. Eine Neukodierung bricht die Signatur
@@ -65,47 +75,12 @@ die betroffenen Beispielgalerien tragen einen Hinweis direkt am Abschnitt.
 | `uploads/Beispiel_Flow_n8n.png` | n8n-Flow | eigener Screenshot |
 | `uploads/KNIME.png`, `Knime_Flow.png` | KNIME-Oberfläche | eigener Screenshot, zeigt fremde Software |
 
-## Stock-Bilder, Herkunft ungeklärt
+## Nicht veröffentlichte Altbestände
 
-**Hier besteht das einzige offene Rechtsrisiko.**
-
-Die vierzehn Dateien in `uploads/stock/` (außer `landing-page-hero.png`) tragen
-**keinerlei Metadaten** — kein EXIF, kein XMP, keine Content Credentials. Eine
-technische Herkunftsbestimmung ist damit nicht möglich; die Dateien wurden beim
-Verkleinern oder beim Download von den Metadaten befreit.
-
-Nach Bildsprache und Machart handelt es sich um professionelle
-Stockfotografie, nicht um KI-Bilder (Beispiel: `service-process-hand-robot.jpg`
-ist eine typische Stock-Montage, `service-fertigung.jpg` eine reale
-3D-Drucker-Aufnahme). Das ist eine Einschätzung nach Augenschein, kein Beleg.
-
-Damit lässt sich von außen nicht feststellen, ob die Nutzung gedeckt ist.
-Entscheidend ist die Quelle:
-
-- **Unsplash / Pexels / Pixabay:** Nutzung auch gewerblich frei, keine
-  Namensnennung nötig. Kein Risiko, Quelle trotzdem eintragen.
-- **Gekaufte Lizenz (Adobe Stock, Shutterstock, iStock):** Lizenznummer
-  eintragen und aufbewahren, bei Nachfrage ist sie der einzige Nachweis.
-- **Aus einer Bildersuche übernommen:** Dann liegt keine Lizenz vor und die
-  Bilder gehören ersetzt. Das ist der häufigste Abmahngrund bei
-  Geschäftswebsites, und der Streitwert liegt regelmäßig im vierstelligen Bereich.
-
-| Datei | Quelle | Lizenz | Datum |
-|---|---|---|---|
-| `uploads/stock/service-process-hand-robot.jpg` | | | |
-| `uploads/stock/service-process.jpg` | | | |
-| `uploads/stock/service-workflows.jpg` | | | |
-| `uploads/stock/service-ml.jpg` | | | |
-| `uploads/stock/service-ml-data.jpg` | | | |
-| `uploads/stock/service-ai.jpg` | | | |
-| `uploads/stock/service-data-alt.jpg` | | | |
-| `uploads/stock/service-sensorik.jpg` | | | |
-| `uploads/stock/service-fertigung.jpg` | | | |
-| `uploads/stock/kleinserie-winkel.jpg` | | | |
-| `uploads/stock/prototyp-einzelteil.jpg` | | | |
-| `uploads/stock/wolfsburg-industry-hero.png` | | | macOS-Screenshot, Ursprung offen |
-| `uploads/stock/wolfsburg-industry-hero.jpg` | | | abgeleitet aus der PNG |
-| `uploads/stock/wolfsburg-industry-hero-vignette.jpg` | | | abgeleitet aus der PNG |
+Die früheren Dateien unter `uploads/stock/` mit nicht dokumentierter Herkunft
+werden nicht mehr referenziert und sind durch den Veröffentlichungsprozess von
+der Live-Seite ausgeschlossen. Sie bleiben ausschließlich als lokale
+Altbestände im Repository und sind keine veröffentlichten Website-Inhalte.
 
 ## Abgeleitete Bilddateien
 

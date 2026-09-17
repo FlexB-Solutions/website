@@ -62,6 +62,9 @@ Startseite bleibt leer.
   dazu, gehört der Hinweis mit. Die Originale in `uploads/` tragen die
   C2PA-Signatur und dürfen nicht gelöscht werden, die ausgelieferten
   JPEG-Fassungen verlieren sie beim Komprimieren.
+- Bilder aus `uploads/stock/` sind historische Altbestände und werden bewusst
+  nicht veröffentlicht. Neue Leistungsbilder kommen als C2PA-Original nach
+  `uploads/ai-originals/` und als komprimierte Fassung nach `assets/optimized/`.
 - Cal.com wird erst nach Klick auf „Termin buchen" geladen. Das ist bewusst so
   und hält die Seite ohne Cookie-Banner zulässig.
 
