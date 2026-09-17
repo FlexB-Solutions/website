@@ -24,7 +24,7 @@ const servicePillars = [
     id: 'software',
     name: 'Software',
     lead: 'Anwendungen, die es so nicht von der Stange gibt, zugeschnitten auf den Ablauf, den Sie tatsächlich haben.',
-    image: '/assets/optimized/service-workflows.jpg',
+    image: '/assets/optimized/service-software-overview.jpg',
     items: [
       { title: 'Individualsoftware', desc: 'Vom Bestellsystem, das die Order vom Tablet direkt in die Küche schickt, bis zur Oberfläche, die Daten erfasst, auswertet und steuert.', slug: 'software' },
       { title: 'Webseiten & Webanwendungen', desc: 'Auftritte und Werkzeuge im Browser, von der Unternehmensseite bis zum internen Tool.', slug: 'webseiten' },
