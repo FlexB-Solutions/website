@@ -58,10 +58,13 @@ laut Signatur: OpenAI OpCo, LLC („OpenAI Media Service API"), Zertifikatskette
 | `uploads/ai-originals/kleinserie-winkel.png` | 2026-09-17 | Kleinserien |
 
 **Wichtig:** Die ausgelieferten JPEG-Fassungen unter `assets/optimized/` haben
-diese Credentials **nicht** mehr. Eine Neukodierung bricht die Signatur
+die C2PA-Signatur **nicht** mehr. Eine Neukodierung bricht die Signatur
 zwangsläufig, weil sie an den Pixel-Hash gebunden ist, und ohne eigenes
-Signaturzertifikat lässt sie sich nicht erneuern. Die Originale in `uploads/`
-bleiben deshalb als Herkunftsnachweis liegen und dürfen nicht gelöscht werden.
+Signaturzertifikat lässt sie sich nicht erneuern. Die ausgelieferten
+KI-Fassungen tragen zusätzlich das kompakte IPTC/XMP-Feld
+`DigitalSourceType=trainedAlgorithmicMedia`. Die Originale in `uploads/`
+bleiben deshalb als kryptografischer Herkunftsnachweis liegen und dürfen nicht
+gelöscht werden.
 
 Die Herkunft ist stattdessen im Bildnachweis des Impressums offengelegt, und
 die betroffenen Beispielgalerien tragen einen Hinweis direkt am Abschnitt.
