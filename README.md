@@ -41,6 +41,17 @@ Nach jeder Änderung an einer `.jsx`-Datei:
 npm run build
 ```
 
+Für einen produktionsgleichen Ordner anschließend:
+
+```bash
+npm run prepare-production
+```
+
+Der Schritt folgt allen lokal referenzierten Dateien der ausgelieferten Seiten
+und kopiert ausschließlich diese in `public/`. Originale in `uploads/`,
+einschließlich der C2PA-Nachweise, bleiben im Repository und werden nicht
+automatisch veröffentlicht.
+
 Danach lokal ansehen, zum Beispiel mit einem beliebigen statischen Server im
 Projektverzeichnis. Ohne `npm run build` fehlen die `.js`-Dateien und die
 Startseite bleibt leer.
@@ -60,13 +71,16 @@ Startseite bleibt leer.
 - **KI-generierte Bilder** sind im Impressum unter „Bildnachweis" offengelegt
   und tragen auf den Leistungsseiten einen Hinweis am Abschnitt. Kommen neue
   dazu, gehört der Hinweis mit. Die Originale in `uploads/` tragen die
-  C2PA-Signatur und dürfen nicht gelöscht werden, die ausgelieferten
-  JPEG-Fassungen verlieren sie beim Komprimieren.
+  C2PA-Signatur und dürfen nicht gelöscht werden. Die ausgelieferten
+  JPEG-Fassungen verlieren die C2PA-Signatur beim Komprimieren, tragen aber
+  das IPTC/XMP-Feld `DigitalSourceType=trainedAlgorithmicMedia`.
 - Bilder aus `uploads/stock/` sind historische Altbestände und werden bewusst
   nicht veröffentlicht. Neue Leistungsbilder kommen als C2PA-Original nach
   `uploads/ai-originals/` und als komprimierte Fassung nach `assets/optimized/`.
 - Cal.com wird erst nach Klick auf „Termin buchen" geladen. Das ist bewusst so
   und hält die Seite ohne Cookie-Banner zulässig.
+- `/.well-known/security.txt` läuft am 17. September 2027 ab. Das Datum bei
+  einer jährlichen Website-Wartung um zwölf Monate verlängern.
 
 ## Lizenzen
 

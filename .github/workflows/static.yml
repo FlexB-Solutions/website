@@ -30,11 +30,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5.0.0
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: '20'
           cache: 'npm'
@@ -43,20 +43,11 @@ jobs:
       - name: Compile JSX components
         run: npm run build
       - name: Prepare production files
-        run: |
-          mkdir -p public
-          cp index.html impressum.html datenschutz.html 404.html robots.txt sitemap.xml favicon.ico apple-touch-icon.png public/
-          cp -R assets automatisierung-markt leistungen uploads ui_kits public/
-          # JSX-Quellen gehoeren nicht ins Deployment, nur die kompilierten .js
-          rm -f public/assets/site/*.jsx
-          # Nicht verlinkte Arbeitsdatei nicht veroeffentlichen
-          rm -f public/uploads/SmartHeating_NodeRED_Standalone_BasicFlow.json
-          # Altbestände ohne geklärte Bildrechte gehören nicht in die Live-Seite.
-          rm -rf public/uploads/stock
+        run: npm run prepare-production
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
         with:
           path: 'public'
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v5
+        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5.0.0

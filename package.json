@@ -4,7 +4,8 @@
   "private": true,
   "description": "Statische Website von FlexB Solutions",
   "scripts": {
-    "build": "babel assets/site --out-dir assets/site --extensions .jsx --out-file-extension .js --presets @babel/preset-react"
+    "build": "babel assets/site --out-dir assets/site --extensions .jsx --out-file-extension .js --presets @babel/preset-react",
+    "prepare-production": "node scripts/prepare-production.mjs"
   },
   "devDependencies": {
     "@babel/cli": "^7.28.0",
