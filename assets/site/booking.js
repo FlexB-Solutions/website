@@ -31,8 +31,9 @@
         const script = document.createElement('script');
         script.src = calScript;
         script.async = true;
-        script.onload = function () { cal.loaded = true; };
         document.head.appendChild(script);
+        // Sofort setzen: init, ui und modal kommen vor dem Laden an und dürfen das Skript nur einmal einfügen.
+        cal.loaded = true;
       }
       if (args[0] === 'init') {
         const api = function () { api.q.push(arguments); };

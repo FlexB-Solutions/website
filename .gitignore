@@ -48,3 +48,6 @@ assets/site/Nav.js
 assets/site/Results.js
 assets/site/ScrollGuide.js
 assets/site/Services.js
+
+# Lokal erzeugtes Deploy-Artefakt (npm run prepare-production)
+public/
