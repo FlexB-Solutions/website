@@ -4,7 +4,7 @@
 .benefit-rule { fill: none; stroke: #aabcae; stroke-width: 1; }
 .benefit-grid { fill: none; stroke: #d6dfd5; stroke-width: .7; }
 .benefit-title { fill: var(--brand-dark); font: 500 19px var(--font-body); letter-spacing: -.02em; }
-.benefit-number { fill: #718578; font: 400 11px var(--font-body); }
+.benefit-number { fill: #53695a; font: 400 11px var(--font-body); }
 .benefit-note { fill: var(--muted); font: 400 11px var(--font-body); }
 .benefit-clock-base { fill: #f6f5f0; stroke: #afc0b0; stroke-width: 1; }
 .benefit-clock-free { fill: none; stroke: var(--brand); stroke-width: 3; stroke-linecap: round; stroke-dasharray: .76 1; stroke-dashoffset: calc(.76 * (1 - var(--benefit-1))); transform: rotate(-90deg); transform-origin: 48px 91px; opacity: var(--benefit-1); }

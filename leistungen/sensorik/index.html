@@ -5,8 +5,9 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preload" as="image" href="/assets/optimized/service-sensorik.jpg" fetchpriority="high">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://app.cal.com https://cal.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; frame-src https://app.cal.com https://cal.com; connect-src 'self' https://app.cal.com https://cal.com; base-uri 'self'; form-action 'self'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://app.cal.com https://cal.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; frame-src https://app.cal.com https://cal.com; connect-src 'self' https://app.cal.com https://cal.com; base-uri 'self'; form-action 'self'; object-src 'none'">
 <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=()">
 <title>Sensorik-Integration | FlexB Solutions</title>
 <meta property="og:title" content="Sensorik-Integration | FlexB Solutions">
@@ -199,7 +200,7 @@ h1{font-size:clamp(44px,6vw,82px);line-height:1.01;letter-spacing:-.05em;margin:
   .booking-slot-grid,.booking-form-row{grid-template-columns:1fr 1fr}
 }
 </style>
-<link rel="stylesheet" href="/assets/flexb-theme.css?v=10">
+  <link rel="stylesheet" href="/assets/flexb-theme.css?v=11">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -525,12 +526,7 @@ h1{font-size:clamp(44px,6vw,82px);line-height:1.01;letter-spacing:-.05em;margin:
     <div id="bookingRoot"></div>
   </div>
 </div>
-
-<script>
-(function (C, A, L) { const p=(a,ar)=>a.q.push(ar), d=C.document; C.Cal=C.Cal||function(){const cal=C.Cal, ar=arguments; if(!cal.loaded){cal.ns={};cal.q=cal.q||[];const s=d.createElement("script");s.src=A;s.onload=()=>{cal.loaded=true};d.head.appendChild(s)} if(ar[0]===L){const api=()=>p(api,arguments);api.q=api.q||[];const ns=ar[1];if(typeof ns==="string"){cal.ns[ns]=cal.ns[ns]||api;p(cal.ns[ns],ar)}else p(cal,ar)}else p(cal,ar)}; })(window,"https://app.cal.com/embed/embed.js","init");
-function openCalBooking(){window.Cal("init",{origin:"https://cal.com"});window.Cal("ui",{theme:"light",styles:{body:{background:"transparent"},eventTypeListItem:{background:"transparent"}},cssVarsPerTheme:{light:{"cal-brand":"#187344","cal-brand-emphasis":"#135e39","cal-brand-text":"#ffffff","cal-brand-subtle":"#dfeee3","cal-bg":"#f6f5f0","cal-bg-emphasis":"#ffffff","cal-bg-subtle":"#edf4ef","cal-text":"#405047","cal-text-emphasis":"#14261f","cal-text-subtle":"#6b7d73","cal-text-muted":"#9aa9a0","cal-border":"#d8ded6","cal-border-emphasis":"#b9cdbd","cal-border-subtle":"#e3e9e2","radius":"8px"},dark:{"cal-brand":"#187344","cal-brand-emphasis":"#135e39","cal-brand-text":"#ffffff","cal-brand-subtle":"#dfeee3","cal-bg":"#f6f5f0","cal-bg-emphasis":"#ffffff","cal-bg-subtle":"#edf4ef","cal-text":"#405047","cal-text-emphasis":"#14261f","cal-text-subtle":"#6b7d73","cal-text-muted":"#9aa9a0","cal-border":"#d8ded6","cal-border-emphasis":"#b9cdbd","cal-border-subtle":"#e3e9e2","radius":"8px"}}});window.Cal("modal",{calLink:"flexb/kostenloses-erstgesprach",config:{theme:"light"}})}
-document.querySelectorAll(".js-open-booking").forEach(b=>b.addEventListener("click",openCalBooking));
-</script>
-<script src="../../assets/site/contact-email.js?v=1"></script>
+<script src="/assets/site/booking.js?v=1" defer></script>
+<script src="../../assets/site/contact-email.js?v=1" defer></script>
 </body>
 </html>
