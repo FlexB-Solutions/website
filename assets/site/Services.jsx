@@ -4,7 +4,7 @@ const servicePillars = [
     id: 'automatisierung',
     name: 'Automatisierung',
     lead: 'Wiederkehrende Abläufe aufnehmen, strukturieren und so verbinden, dass weniger manuelle Schritte nötig sind.',
-    image: '/assets/optimized/service-process-hand-robot.jpg',
+    image: '/assets/optimized/service-automation-no-robot.jpg',
     items: [
       { title: 'Prozesse & Workflows', desc: 'Wiederkehrende Aufgaben strukturieren und bestehende Tools zu einem durchgängigen Ablauf verbinden.', slug: 'prozess' },
       { title: 'Sensorik-Integration', desc: 'Maschinen, Lager und Füllstände werden messbar und digital nutzbar.', slug: 'sensorik' },

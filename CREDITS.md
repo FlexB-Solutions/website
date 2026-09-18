@@ -45,6 +45,7 @@ laut Signatur: OpenAI OpCo, LLC („OpenAI Media Service API"), Zertifikatskette
 | `uploads/Crisp_ML_Q.png` | 2026-05-06 | derzeit ungenutzt |
 | `uploads/cad-parametrisch.png` | 2026-09-11 | derzeit ungenutzt |
 | `uploads/ai-originals/service-process-hand-robot.png` | 2026-09-17 | Automatisierung, Prozesse, Software und Webseiten |
+| `uploads/ai-originals/service-automation-no-robot.png` | 2026-09-18 | Prozessautomatisierung und Webseiten |
 | `uploads/ai-originals/service-ml.png` | 2026-09-17 | Machine Learning und KI-Workflow |
 | `uploads/ai-originals/service-workflows.png` | 2026-09-17 | Custom Workflows und Software |
 | `uploads/ai-originals/service-software-hero.png` | 2026-09-17 | Hero-Bild Individualsoftware |
@@ -95,13 +96,7 @@ Rechtlich gilt für sie jeweils dasselbe wie für das Original.
 
 ## Fremde Wort- und Bildmarken
 
-Im Repository liegen Logos fremder Anbieter (`uploads/Gmail_Logo.png`,
-`uploads/Google_Kalender_Logo.png`, `uploads/Logo_Outlook.png`,
-`uploads/Logo_Whatsapp.png`, `uploads/Python_logo.png`,
-`uploads/Node_Red_Logo.png`, `uploads/n8n_Logo.png`, `uploads/KNIME.png`).
-
-Die Verwendung zur Bezeichnung einer tatsächlich unterstützten Integration ist
-nach § 23 Abs. 1 Nr. 2 MarkenG in der Regel zulässig, solange kein Eindruck
-einer Partnerschaft oder Zertifizierung entsteht. Für Google-, Microsoft- und
-Meta-Marken gelten zusätzlich die jeweiligen Brand Guidelines der Anbieter.
-**Vor einem Einsatz auf der Website sind diese Richtlinien zu prüfen.**
+Im Repository verbleiben einzelne Logos und Screenshots fremder Anbieter nur
+als Arbeitsmaterial. Sie werden nicht mehr von einer veröffentlichten Seite
+referenziert und deshalb auch nicht in das Produktionsartefakt übernommen.
+Für künftige Einsätze sind die jeweiligen Markenrichtlinien vorab zu prüfen.
