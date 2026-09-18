@@ -46,6 +46,9 @@ laut Signatur: OpenAI OpCo, LLC („OpenAI Media Service API"), Zertifikatskette
 | `uploads/cad-parametrisch.png` | 2026-09-11 | derzeit ungenutzt |
 | `uploads/ai-originals/service-process-hand-robot.png` | 2026-09-17 | Automatisierung, Prozesse, Software und Webseiten |
 | `uploads/ai-originals/service-automation-no-robot.png` | 2026-09-18 | Prozessautomatisierung und Webseiten |
+| `uploads/ai-originals/service-data-logic.png` | 2026-09-18 | Datenlogik, KI und Machine Learning |
+| `uploads/ai-originals/service-sensor-network.png` | 2026-09-18 | Sensorik und technische Abläufe |
+| `uploads/ai-originals/service-system-integration.png` | 2026-09-18 | Systemverbindungen, Workflows und Qualität |
 | `uploads/ai-originals/service-ml.png` | 2026-09-17 | Machine Learning und KI-Workflow |
 | `uploads/ai-originals/service-workflows.png` | 2026-09-17 | Custom Workflows und Software |
 | `uploads/ai-originals/service-software-hero.png` | 2026-09-17 | Hero-Bild Individualsoftware |
