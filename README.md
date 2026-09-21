@@ -74,6 +74,9 @@ Startseite bleibt leer.
   C2PA-Signatur und dürfen nicht gelöscht werden. Die ausgelieferten
   JPEG-Fassungen verlieren die C2PA-Signatur beim Komprimieren, tragen aber
   das IPTC/XMP-Feld `DigitalSourceType=trainedAlgorithmicMedia`.
+- Die fotorealistischen Website-Motive werden ohne Personen und ohne Roboter
+  eingesetzt. Die Fertigungsseite beschreibt ausschließlich additive
+  Fertigung mittels FLM/FDM; neue Bilder müssen fachlich dazu passen.
 - Bilder aus `uploads/stock/` sind historische Altbestände und werden bewusst
   nicht veröffentlicht. Neue Leistungsbilder kommen als C2PA-Original nach
   `uploads/ai-originals/` und als komprimierte Fassung nach `assets/optimized/`.

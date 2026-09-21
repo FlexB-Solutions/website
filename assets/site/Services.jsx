@@ -4,7 +4,7 @@ const servicePillars = [
     id: 'automatisierung',
     name: 'Automatisierung',
     lead: 'Wiederkehrende Abläufe aufnehmen, strukturieren und so verbinden, dass weniger manuelle Schritte nötig sind.',
-    image: '/assets/optimized/service-automation-no-robot.jpg',
+    image: '/assets/optimized/service-process-realistic.jpg',
     items: [
       { title: 'Prozesse & Workflows', desc: 'Wiederkehrende Aufgaben strukturieren und bestehende Tools zu einem durchgängigen Ablauf verbinden.', slug: 'prozess' },
       { title: 'Sensorik-Integration', desc: 'Maschinen, Lager und Füllstände werden messbar und digital nutzbar.', slug: 'sensorik' },
@@ -14,7 +14,7 @@ const servicePillars = [
     id: 'ki-ml',
     name: 'KI & Machine Learning',
     lead: 'Wo feste Regeln nicht ausreichen: Muster in Daten erkennen, und diese Modelle direkt in die Automatisierung einbinden.',
-    image: '/assets/optimized/service-ml.jpg',
+    image: '/assets/optimized/service-ml-realistic.jpg',
     items: [
       { title: 'KI-Automatisierung', desc: 'Die Brücke zwischen beiden Bereichen: KI und ML direkt in bestehende Automatisierungen integriert.', slug: 'ki' },
       { title: 'Machine Learning', desc: 'Muster in Daten, Bildern oder Messwerten erkennen und daraus Aktionen ableiten.', slug: 'ml' },
@@ -24,7 +24,7 @@ const servicePillars = [
     id: 'software',
     name: 'Software',
     lead: 'Anwendungen, die es so nicht von der Stange gibt, zugeschnitten auf den Ablauf, den Sie tatsächlich haben.',
-    image: '/assets/optimized/service-software-overview.jpg',
+    image: '/assets/optimized/service-software-realistic.jpg',
     items: [
       { title: 'Individualsoftware', desc: 'Vom Bestellsystem, das die Order vom Tablet direkt in die Küche schickt, bis zur Oberfläche, die Daten erfasst, auswertet und steuert.', slug: 'software' },
       { title: 'Webseiten & Webanwendungen', desc: 'Auftritte und Werkzeuge im Browser, von der Unternehmensseite bis zum internen Tool.', slug: 'webseiten' },
@@ -33,8 +33,8 @@ const servicePillars = [
   {
     id: 'produktfertigung',
     name: 'Produktfertigung',
-    lead: 'Vom digitalen Modell zum fertigen Teil, erst das Muster, das passen muss, dann die Stückzahl.',
-    image: '/assets/optimized/service-fertigung.jpg',
+    lead: 'Vom digitalen Modell zum fertigen FLM-Teil, erst das Muster, das passen muss, dann die Stückzahl.',
+    image: '/assets/optimized/service-fertigung-flm-realistic.jpg',
     items: [
       { title: 'Prototypen & Individualanfertigungen', desc: 'Das Teil, das es nicht zu kaufen gibt, konstruiert gegen die reale Einbausituation.', slug: '3d-druck' },
       { title: 'Kleinserien', desc: 'Wiederholbare Stückzahlen ohne Werkzeugkosten, gleiche Parameter, gleiches Ergebnis.', slug: 'kleinserien' },

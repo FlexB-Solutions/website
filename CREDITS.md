@@ -61,6 +61,26 @@ laut Signatur: OpenAI OpCo, LLC („OpenAI Media Service API"), Zertifikatskette
 | `uploads/ai-originals/prototyp-einzelteil.png` | 2026-09-17 | Prototypen und Individualanfertigungen |
 | `uploads/ai-originals/kleinserie-winkel.png` | 2026-09-17 | Kleinserien |
 
+### Fotorealistische Motivserie (aktualisiert 21.09.2026)
+
+Die folgende Serie wurde mit OpenAI `gpt-image` erzeugt. Die Originale liegen
+unter `uploads/ai-originals/`, die komprimierten JPEG-Fassungen unter
+`assets/optimized/`. Alle Motive sind ohne Personen und ohne Roboter angelegt;
+die Fertigungsmotive zeigen additive Fertigung mittels FLM/FDM.
+
+| Original | Ausgeliefert | Verwendung |
+|---|---|---|
+| `uploads/ai-originals/landing-page-hero-realistic.png` | `assets/optimized/landing-page-hero-realistic.jpg` | Startseite, Automatisierung |
+| `uploads/ai-originals/service-process-realistic.png` | `assets/optimized/service-process-realistic.jpg` | Prozesse und Automatisierung |
+| `uploads/ai-originals/service-ai-realistic.png` | `assets/optimized/service-ai-realistic.jpg` | KI-Automatisierung |
+| `uploads/ai-originals/service-ml-realistic.png` | `assets/optimized/service-ml-realistic.jpg` | Machine Learning und Qualitätsprüfung |
+| `uploads/ai-originals/service-workflows-realistic.png` | `assets/optimized/service-workflows-realistic.jpg` | Custom Workflows und Abläufe |
+| `uploads/ai-originals/service-software-realistic.png` | `assets/optimized/service-software-realistic.jpg` | Software und Webseiten |
+| `uploads/ai-originals/service-fertigung-flm-realistic.png` | `assets/optimized/service-fertigung-flm-realistic.jpg` | Additive Fertigung mittels FLM |
+| `uploads/ai-originals/prototyp-realistic.png` | `assets/optimized/prototyp-realistic.jpg` | FLM-Prototypen und Individualanfertigungen |
+| `uploads/ai-originals/kleinserie-realistic.png` | `assets/optimized/kleinserie-realistic.jpg` | FLM-Kleinserien |
+| `uploads/ai-originals/service-sensorik-realistic.png` | `assets/optimized/service-sensorik-realistic.jpg` | Sensorik und Messaufbauten |
+
 **Wichtig:** Die ausgelieferten JPEG-Fassungen unter `assets/optimized/` haben
 die C2PA-Signatur **nicht** mehr. Eine Neukodierung bricht die Signatur
 zwangsläufig, weil sie an den Pixel-Hash gebunden ist, und ohne eigenes
