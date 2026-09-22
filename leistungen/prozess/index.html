@@ -5,7 +5,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preload" as="image" href="/assets/optimized/service-process-realistic.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="/assets/optimized/automation-node-wide.jpg" fetchpriority="high">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://app.cal.com https://cal.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; frame-src https://app.cal.com https://cal.com; connect-src 'self' https://app.cal.com https://cal.com; base-uri 'self'; form-action 'self'; object-src 'none'">
 <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=()">
@@ -48,7 +48,8 @@ button{cursor:pointer}
 .inner{max-width:1180px;margin:0 auto}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:var(--brand-tint);color:var(--brand-ink);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
 .hero{padding:104px 24px 82px;position:relative;overflow:hidden;min-height:78vh;display:flex;align-items:center}
-.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(246,245,240,.94) 0%,rgba(246,245,240,.86) 22%,rgba(246,245,240,.44) 52%,rgba(246,245,240,.14) 76%,rgba(246,245,240,.08) 100%),url('/assets/optimized/service-process-realistic.jpg');background-size:cover;background-position:center center;z-index:0}
+.example-section{display:none}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(246,245,240,.94) 0%,rgba(246,245,240,.86) 22%,rgba(246,245,240,.44) 52%,rgba(246,245,240,.14) 76%,rgba(246,245,240,.08) 100%),url('/assets/optimized/automation-node-wide.jpg');background-size:cover;background-position:center center;z-index:0}
 .hero-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:22px;align-items:stretch;position:relative;z-index:1;width:100%}
 .hero-copy{max-width:760px}
 h1{font-size:clamp(44px,6vw,82px);line-height:1.01;letter-spacing:-.05em;margin:18px 0 20px}
@@ -184,7 +185,7 @@ h1{font-size:clamp(44px,6vw,82px);line-height:1.01;letter-spacing:-.05em;margin:
   .brand-sub span{font-size:13px}
   .section,.contact-section{padding:72px 18px}
   .hero{padding:82px 18px 52px;min-height:auto}
-  .hero::before{background-image:linear-gradient(180deg,rgba(246,245,240,.96) 0%,rgba(246,245,240,.72) 44%,rgba(246,245,240,.28) 100%),url('/assets/optimized/service-process-realistic.jpg');background-position:center top}
+  .hero::before{background-image:linear-gradient(180deg,rgba(246,245,240,.96) 0%,rgba(246,245,240,.72) 44%,rgba(246,245,240,.28) 100%),url('/assets/optimized/automation-node-wide.jpg');background-position:center top}
   .hero-actions{flex-direction:column}
   .btn,.cal-btn{width:100%}
   .service-media,.service-content{height:auto;min-height:unset}
@@ -346,12 +347,12 @@ h1{font-size:clamp(44px,6vw,82px);line-height:1.01;letter-spacing:-.05em;margin:
       <div class="services-stack">
         <article class="service-row">
           <div class="service-media">
-            <img class="media-large" src="/assets/optimized/service-process-realistic.jpg" alt="Pneumatische Vorrichtung mit Sensoren und Werkstück">
+            <img class="media-large" src="/assets/optimized/automation-node-close.jpg" alt="Node-basierte Logik auf einem Bildschirm">
           </div>
           <div class="service-content">
             <div class="service-kicker">Code-basierte Logik</div>
             <h3 class="service-title">Individuelle Logik für Ihren Ablauf</h3>
-            <p class="service-desc">Wenn Prozesse mehr Regeln, Datenverarbeitung oder eigene Schnittstellen brauchen, entsteht eine passgenaue Logik. Damit lassen sich Abläufe präzise auf die reale Aufgabe zuschneiden.</p>
+            <p class="service-desc">Individuelle Logik bildet genau den Ablauf ab, den Ihr Unternehmen tatsächlich hat – mit Regeln, Bedingungen und passenden Schnittstellen.</p>
             <div class="service-tags">
               <span class="service-tag">Schnittstellen</span>
               <span class="service-tag">Logik</span>
@@ -364,7 +365,7 @@ h1{font-size:clamp(44px,6vw,82px);line-height:1.01;letter-spacing:-.05em;margin:
           <div class="service-content">
             <div class="service-kicker">Business-Workflows</div>
             <h3 class="service-title">Systeme zuverlässig verbinden</h3>
-            <p class="service-desc">Informationen aus Formularen, Kalendern, E-Mails oder internen Diensten können sauber weitergegeben werden. Der Ablauf bleibt dabei strukturiert, sichtbar und gut wartbar.</p>
+            <p class="service-desc">Daten aus Formularen, Kalendern, E-Mails und internen Diensten werden zuverlässig von einem Schritt zum nächsten weitergegeben.</p>
             <div class="service-tags">
               <span class="service-tag">Workflows</span>
               <span class="service-tag">APIs</span>
@@ -372,25 +373,10 @@ h1{font-size:clamp(44px,6vw,82px);line-height:1.01;letter-spacing:-.05em;margin:
             </div>
           </div>
           <div class="service-media">
-            <img class="media-large" src="/assets/optimized/service-workflows-realistic.jpg" alt="Geordnete physische Prozessschritte an einem Versandarbeitsplatz">
+            <img class="media-large" src="/assets/optimized/system-integration-screen.jpg" alt="Verbundene Systeme auf einer Integrationsansicht">
           </div>
         </article>
 
-        <article class="service-row">
-          <div class="service-media">
-            <img class="media-large" src="/assets/optimized/service-ml-realistic.jpg" alt="Kamera-Prüfstation für gefertigte Bauteile">
-          </div>
-          <div class="service-content">
-            <div class="service-kicker">Visuelle Prozessketten</div>
-            <h3 class="service-title">Abläufe transparent steuern</h3>
-            <p class="service-desc">Wenn Zustände, Regeln und Reaktionen nachvollziehbar aufgebaut werden sollen, entsteht eine gut lesbare Prozesslogik. Das ist besonders bei technischen oder sensorischen Abläufen hilfreich.</p>
-            <div class="service-tags">
-              <span class="service-tag">Visual Flows</span>
-              <span class="service-tag">Trigger</span>
-              <span class="service-tag">Monitoring</span>
-            </div>
-          </div>
-        </article>
       </div>
     </div>
   </section>
@@ -404,21 +390,21 @@ h1{font-size:clamp(44px,6vw,82px);line-height:1.01;letter-spacing:-.05em;margin:
       </div>
       <div class="example-grid" id="exampleGrid">
         <article class="example-card" data-example-card data-index="0">
-          <img src="/assets/optimized/service-process-realistic.jpg" alt="Pneumatische Vorrichtung mit Sensoren und Werkstück">
+          <img src="/assets/optimized/ai-screen.jpg" alt="KI-Datenansicht mit Bewertung und Folgeaktion">
           <div class="example-body">
             <strong>Individuelle Ablaufsteuerung</strong>
             <p>Wenn mehr Logik, individuelle Datenverarbeitung oder eine speziellere Oberfläche gebraucht wird, entsteht eine passgenaue Grundlage.</p>
           </div>
         </article>
         <article class="example-card" data-example-card data-index="1">
-          <img src="/assets/optimized/service-workflows-realistic.jpg" alt="Geordnete physische Prozessschritte an einem Versandarbeitsplatz">
+          <img src="/assets/optimized/data-graph-screen.jpg" alt="Datenansicht mit Messwerttabelle und Graph">
           <div class="example-body">
             <strong>Vernetzte Arbeitsschritte</strong>
             <p>Zustände, Regeln und technische Reaktionen lassen sich klar strukturieren und nachvollziehbar aufbauen.</p>
           </div>
         </article>
         <article class="example-card" data-example-card data-index="2">
-          <img src="/assets/optimized/service-ml-realistic.jpg" alt="Kamera-Prüfstation für gefertigte Bauteile">
+          <img src="/assets/optimized/pc-dashboard.jpg" alt="Arbeitsplatz mit eigener Softwareoberfläche">
           <div class="example-body">
             <strong>Informationsfluss im Überblick</strong>
             <p>Informationen können zwischen mehreren Systemen und Arbeitsschritten zuverlässig weitergegeben werden.</p>

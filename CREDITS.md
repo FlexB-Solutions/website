@@ -2,7 +2,7 @@
 
 Nachweis für alle Schriften, Bilder und Fremdcode auf flexbsolutions.de.
 
-Stand: 16. September 2026
+Stand: 22. September 2026
 
 ## Schriften
 
@@ -80,6 +80,34 @@ die Fertigungsmotive zeigen additive Fertigung mittels FLM/FDM.
 | `uploads/ai-originals/prototyp-realistic.png` | `assets/optimized/prototyp-realistic.jpg` | FLM-Prototypen und Individualanfertigungen |
 | `uploads/ai-originals/kleinserie-realistic.png` | `assets/optimized/kleinserie-realistic.jpg` | FLM-Kleinserien |
 | `uploads/ai-originals/service-sensorik-realistic.png` | `assets/optimized/service-sensorik-realistic.jpg` | Sensorik und Messaufbauten |
+
+### Fachlich angepasste Motive (22.09.2026)
+
+Für die Überarbeitung der Leistungsseiten wurden weitere fotorealistische
+Motive mit OpenAI `gpt-image` erzeugt. Die Serie zeigt Bildschirme mit
+Node-Logik, Daten und Graphen, einen Raum-Temperatursensor, echte ML-Beispiele
+(Regression, Objekterkennung von Autos und Ausreißererkennung) sowie
+Computerarbeitsplätze für Software und Webanwendungen. Alle Motive sind ohne
+Personen und ohne Roboter angelegt.
+
+| Original | Ausgeliefert | Verwendung |
+|---|---|---|
+| `uploads/ai-originals/automation-node-wide.png` | `assets/optimized/automation-node-wide.jpg` | Automatisierung, Homepage |
+| `uploads/ai-originals/automation-node-close.png` | `assets/optimized/automation-node-close.jpg` | Individuelle Logik, KI-Automatisierung |
+| `uploads/ai-originals/system-integration-screen.png` | `assets/optimized/system-integration-screen.jpg` | Systemverbindungen und Workflows |
+| `uploads/ai-originals/temperature-wall.png` | `assets/optimized/temperature-wall.jpg` | Sensorik-Integration |
+| `uploads/ai-originals/data-graph-screen.png` | `assets/optimized/data-graph-screen.jpg` | Datenlogik und Auswertung |
+| `uploads/ai-originals/sensor-board.png` | `assets/optimized/sensor-board.jpg` | Mikrocontroller und Sensorik |
+| `uploads/ai-originals/ai-screen.png` | `assets/optimized/ai-screen.jpg` | KI-Datenansicht und ML-Kontext |
+| `uploads/ai-originals/ml-data-prep.png` | `assets/optimized/ml-data-prep.jpg` | Machine Learning, Datenaufbereitung |
+| `uploads/ai-originals/ml-regression.png` | `assets/optimized/ml-regression.jpg` | ML-Beispiel Regression |
+| `uploads/ai-originals/ml-object-cars.png` | `assets/optimized/ml-object-cars.jpg` | ML-Beispiel Objekterkennung von Autos |
+| `uploads/ai-originals/ml-outlier.png` | `assets/optimized/ml-outlier.jpg` | ML-Beispiel Ausreißererkennung |
+| `uploads/ai-originals/pc-code.png` | `assets/optimized/pc-code.jpg` | Software, Programmierarbeitsplatz |
+| `uploads/ai-originals/pc-dashboard.png` | `assets/optimized/pc-dashboard.jpg` | Software und Webseiten |
+| `uploads/ai-originals/pc-webapp.png` | `assets/optimized/pc-webapp.jpg` | Webanwendungen |
+| `uploads/ai-originals/pc-browser.png` | `assets/optimized/pc-browser.jpg` | Webseiten und Browser-Anwendungen |
+| `uploads/ai-originals/pc-local.png` | `assets/optimized/pc-local.jpg` | Lokale Software und Webanwendungen |
 
 **Wichtig:** Die ausgelieferten JPEG-Fassungen unter `assets/optimized/` haben
 die C2PA-Signatur **nicht** mehr. Eine Neukodierung bricht die Signatur

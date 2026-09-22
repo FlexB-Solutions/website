@@ -5,7 +5,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preload" as="image" href="/assets/optimized/service-software-realistic.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="/assets/optimized/pc-browser.jpg" fetchpriority="high">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://app.cal.com https://cal.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; frame-src https://app.cal.com https://cal.com; connect-src 'self' https://app.cal.com https://cal.com; base-uri 'self'; form-action 'self'; object-src 'none'">
 <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=()">
@@ -48,7 +48,8 @@ button{cursor:pointer}
 .inner{max-width:1180px;margin:0 auto}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:var(--brand-tint);color:var(--brand-ink);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
 .hero{padding:104px 24px 82px;position:relative;overflow:hidden;min-height:78vh;display:flex;align-items:center}
-.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(246,245,240,.94) 0%,rgba(246,245,240,.86) 22%,rgba(246,245,240,.44) 52%,rgba(246,245,240,.14) 76%,rgba(246,245,240,.08) 100%),url('/assets/optimized/service-software-realistic.jpg');background-size:cover;background-position:center center;z-index:0}
+.example-section{display:none}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(246,245,240,.94) 0%,rgba(246,245,240,.86) 22%,rgba(246,245,240,.44) 52%,rgba(246,245,240,.14) 76%,rgba(246,245,240,.08) 100%),url('/assets/optimized/pc-browser.jpg');background-size:cover;background-position:center center;z-index:0}
 .hero-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:22px;align-items:stretch;position:relative;z-index:1;width:100%}
 .hero-copy{max-width:760px}
 h1{font-size:clamp(44px,6vw,82px);line-height:1.01;letter-spacing:-.05em;margin:18px 0 20px}
@@ -186,7 +187,7 @@ h1{font-size:clamp(44px,6vw,82px);line-height:1.01;letter-spacing:-.05em;margin:
   .brand-sub span{font-size:13px}
   .section,.contact-section{padding:72px 18px}
   .hero{padding:82px 18px 52px;min-height:auto}
-  .hero::before{background-image:linear-gradient(180deg,rgba(246,245,240,.96) 0%,rgba(246,245,240,.72) 44%,rgba(246,245,240,.28) 100%),url('/assets/optimized/service-software-realistic.jpg');background-position:center top}
+  .hero::before{background-image:linear-gradient(180deg,rgba(246,245,240,.96) 0%,rgba(246,245,240,.72) 44%,rgba(246,245,240,.28) 100%),url('/assets/optimized/pc-browser.jpg');background-position:center top}
   .hero-actions{flex-direction:column}
   .btn,.cal-btn{width:100%}
   .service-media,.service-content{height:auto;min-height:unset}
@@ -347,7 +348,7 @@ h1{font-size:clamp(44px,6vw,82px);line-height:1.01;letter-spacing:-.05em;margin:
       <div class="services-stack">
         <article class="service-row">
           <div class="service-media">
-            <img class="media-large" src="/assets/optimized/service-software-realistic.jpg" alt="Engineering-Arbeitsplatz mit neutraler Softwareoberfläche">
+            <img class="media-large" src="/assets/optimized/pc-dashboard.jpg" alt="Browseransicht eines übersichtlichen Dashboards">
           </div>
           <div class="service-content">
             <div class="service-kicker">Lokale Leitsysteme</div>
@@ -373,13 +374,13 @@ h1{font-size:clamp(44px,6vw,82px);line-height:1.01;letter-spacing:-.05em;margin:
             </div>
           </div>
           <div class="service-media">
-            <img src="/assets/optimized/Sensoren_auf_Tisch.jpg" alt="Sensoren">
+            <img src="/assets/optimized/pc-webapp.jpg" alt="Laptop mit einer Webanwendung">
           </div>
         </article>
 
         <article class="service-row">
           <div class="service-media">
-            <svg class="service-symbol" viewBox="0 0 64 64" role="img" aria-label="Kalender"><rect x="10" y="14" width="44" height="40" rx="6" fill="none" stroke="var(--brand)" stroke-width="4"/><path d="M10 26h44M22 8v12M42 8v12M20 36h8M36 36h8M20 46h8M36 46h8" fill="none" stroke="var(--brand)" stroke-width="4" stroke-linecap="round"/></svg>
+            <img class="media-large" src="/assets/optimized/pc-local.jpg" alt="Lokale Webanwendungen auf zwei Bildschirmen">
           </div>
           <div class="service-content">
             <div class="service-kicker">Buchung &amp; Formulare</div>
@@ -406,21 +407,21 @@ h1{font-size:clamp(44px,6vw,82px);line-height:1.01;letter-spacing:-.05em;margin:
       </div>
       <div class="example-grid" id="exampleGrid">
         <article class="example-card" data-example-card data-index="0">
-          <img src="/assets/optimized/service-ml-realistic.jpg" alt="Kamera-Prüfstation für gefertigte Bauteile">
+          <img src="/assets/optimized/automation-node-wide.jpg" alt="Node-Workflow in einer Browseransicht">
           <div class="example-body">
             <strong>Leitstand-Dashboard</strong>
             <p>Zustände, Messwerte und Schalter auf einer Oberfläche, aufrufbar von jedem Gerät im eigenen Netz.</p>
           </div>
         </article>
         <article class="example-card" data-example-card data-index="1">
-          <img src="/assets/optimized/service-workflows-realistic.jpg" alt="Geordnete physische Prozessschritte an einem Versandarbeitsplatz">
+          <img src="/assets/optimized/system-integration-screen.jpg" alt="Browseransicht mit verbundenen Systemen">
           <div class="example-body">
             <strong>Regel-Flow</strong>
             <p>Was bei welchem Zustand passiert, bleibt als Kette aus Auslöser, Bedingung und Reaktion sichtbar und anpassbar.</p>
           </div>
         </article>
         <article class="example-card" data-example-card data-index="2">
-          <img src="/assets/optimized/Landing_Page.jpg" alt="Beispiel einer Webseite">
+          <img src="/assets/optimized/data-graph-screen.jpg" alt="Browseransicht mit Daten und Graph">
           <div class="example-body">
             <strong>Webauftritt</strong>
             <p>Eine Seite, die erklärt, was Sie tun, schnell, mobil bedienbar und ohne unnötige Abhängigkeiten aufgebaut.</p>

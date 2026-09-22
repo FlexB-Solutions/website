@@ -77,6 +77,10 @@ Startseite bleibt leer.
 - Die fotorealistischen Website-Motive werden ohne Personen und ohne Roboter
   eingesetzt. Die Fertigungsseite beschreibt ausschließlich additive
   Fertigung mittels FLM/FDM; neue Bilder müssen fachlich dazu passen.
+- Auf einer Leistungsseite wird ein Motiv nur einmal sichtbar eingesetzt.
+  Bildserien und Beispielabschnitte müssen die jeweilige Leistung konkret
+  zeigen und dürfen nicht mit denselben Bildern wie der technische Abschnitt
+  doppeln.
 - Bilder aus `uploads/stock/` sind historische Altbestände und werden bewusst
   nicht veröffentlicht. Neue Leistungsbilder kommen als C2PA-Original nach
   `uploads/ai-originals/` und als komprimierte Fassung nach `assets/optimized/`.
