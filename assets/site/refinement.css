@@ -5,7 +5,7 @@ section[id] { scroll-margin-top: 80px; }
 :focus-visible { outline: 2px solid #187344; outline-offset: 5px; }
 .entry-track { height: 125svh; }
 .entry-curtain { --entry-progress: 0; --entry-reveal: 0; position: fixed; inset: 0; height: 100svh; z-index: 500; overflow: hidden; color: #f4f3eb; background: #10281f; clip-path: inset(0 0 calc(var(--entry-reveal) * 100%) 0); }
-.entry-scene { position: absolute; inset: 0; background: transparent; opacity: clamp(0, calc(1 - var(--entry-progress) * 1.5), 1); transform: none; }
+.entry-scene { display: none !important; }
 .entry-top, .entry-bottom { position: absolute; left: clamp(24px, 5vw, 80px); right: clamp(24px, 5vw, 80px); display: flex; align-items: center; justify-content: space-between; gap: 24px; z-index: 2; }
 .entry-top { top: 30px; padding-bottom: 24px; border-bottom: 1px solid #ffffff26; font-size: 15px; letter-spacing: .02em; }
 .entry-curtain button { border: 0; background: transparent; color: inherit; cursor: pointer; font: inherit; padding: 10px 0; }
